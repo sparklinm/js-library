@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Common Modules Source: color-util.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Common Modules</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-color.html">color</a></li><li><a href="module-common.html">common</a></li><li><a href="module-date.html">date</a></li><li><a href="module-html.html">html</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="DomResize.html">DomResize</a></li><li><a href="Event.html">Event</a></li><li><a href="LoadImg.html">LoadImg</a></li><li><a href="RandomSeed.html">RandomSeed</a></li><li><a href="Slide.html">Slide</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: color-util.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/**
+ * 颜色相关函数。
+ * @module color
+ */
+
+/**
+ * @description Hex颜色转Rgb
+ * @example
+ * HexToRgb('#fff333')
+ * // rbg(255,243,51)
+ * @param {String} str Hex 颜色(6位)
+ * @return {String} Rgb 颜色
+ */
+
+function HexToRgb (str) {
+  const hexReg = /^#?[0-9A-Fa-f]{6}$/
+
+  if (!hexReg.test(str)) {
+    return str
+  }
+
+  const color = str.replace('#', '')
+  const hxs = color.match(/../g)
+
+  for (let i = 0; i &lt; 3; i++) hxs[i] = parseInt(hxs[i], 16)
+  return `rbg(${hxs.join(',')})`
+}
+
+/**
+ * @description Rgb 转 Hex
+ * @example
+ * RgbToHex('rgb(255,243,51)')
+ * // #fff333
+ * @param {String} rgb rgb 颜色
+ * @return {String} hex 颜色
+ */
+
+function RgbToHex (rgb) {
+  const reg = /\d{1,3}/g
+  const rgbAry = rgb.match(reg)
+
+  if (rgbAry.length !== 3) {
+    return rgb
+  }
+
+  const hexs = [
+    parseInt(rgbAry[0]).toString(16),
+    parseInt(rgbAry[1]).toString(16),
+    parseInt(rgbAry[2]).toString(16)
+  ]
+
+  for (let i = 0; i &lt; 3; i++) {
+    if (hexs[i].length === 1) {
+      hexs[i] = '0' + hexs[i]
+    }
+  }
+  return '#' + hexs.join('')
+}
+
+/**
+ * @description Rgb 转 Rgba
+ * @example
+ * toRgba('#fff333', 0.6)
+ * // rgba(255, 243, 51, 0.6)
+ * toRgba('rgb(233, 233, 5)', 0.6)
+ * // rgba(233, 233, 5, 0.6)
+ * @param {String} color 颜色：Rgb 或 Hex
+ * @param {Number} opacity 透明度
+ * @return {String} Rgba 颜色
+ */
+
+function toRgba (color, opacity) {
+  if (typeof opacity !== 'number' || opacity > 1 || opacity &lt; 0) {
+    return color
+  }
+  const rgb = HexToRgb(color)
+  const reg = /\d{1,3}/g
+  const rgbAry = rgb.match(reg)
+
+  if (!rgbAry.length) {
+    return
+  }
+
+  rgbAry.push(opacity)
+  return `rgba(${rgbAry.join(', ')})`
+}
+
+/**
+ * @description 颜色变深
+ * @example
+ * darkenColor('rgb(40, 40, 40)', 0.2)
+ * // rgb(32, 32, 32)
+ * @param {String} color 颜色：Rgb, Hex, Rgba
+ * @param {Number} level 变深程度：[0, 1]
+ * @return {String} Rgb 颜色
+ */
+
+function darkenColor (color, level) {
+  if (typeof level !== 'number' || level > 1 || level &lt; 0) {
+    return color
+  }
+  const rgb = HexToRgb(color)
+  const reg = /\d{1,3}/g
+  const rgbAry = rgb.match(reg)
+
+  for (let i = 0; i &lt; 3; i++) {
+    rgbAry[i] = Math.floor(rgbAry[i] * (1 - level))
+  }
+
+  return `rgb(${rgbAry.join(', ')})`
+}
+
+/**
+ * @description 颜色变浅
+ * @lightnessColor
+ * darkenColor('rgb(40, 40, 40)', 0.2)
+ * // rgb(83, 83, 83)
+ * @param {String} color 颜色：Rgb, Hex, Rgba
+ * @param {Number} level 变浅程度：[0, 1]
+ * @return {String} Rgb 颜色
+ */
+
+function lightnessColor (color, level) {
+  if (typeof level !== 'number' || level > 1 || level &lt; 0) {
+    return color
+  }
+  const rgb = HexToRgb(color)
+  const reg = /\d{1,3}/g
+  const rgbAry = rgb.match(reg).map(item => parseInt(item))
+
+  for (let i = 0; i &lt; 3; i++) {
+    rgbAry[i] = Math.floor((255 - rgbAry[i]) * level + rgbAry[i])
+  }
+
+  return `rgb(${rgbAry.join(', ')})`
+}
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	https://lzw.me.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a>
+	
+		on Thu Jul 2nd 2020
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

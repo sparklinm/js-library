@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Common Modules Source: html-util.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Common Modules</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-color.html">color</a></li><li><a href="module-common.html">common</a></li><li><a href="module-date.html">date</a></li><li><a href="module-html.html">html</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="DomResize.html">DomResize</a></li><li><a href="Event.html">Event</a></li><li><a href="LoadImg.html">LoadImg</a></li><li><a href="RandomSeed.html">RandomSeed</a></li><li><a href="Slide.html">Slide</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: html-util.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">/**
+ * 页面相关函数。
+ * @module html
+ */
+
+/**
+ * @description 判断页面是否可以滚动
+ * @return {Boolean} trye or false
+ */
+
+function checkPageCanScroll () {
+  const viewHeight = document.documentElement.clientHeight
+  const viewWidth = document.documentElement.clientWidth
+  const bodyStyle = window.getComputedStyle(document.body)
+  const htmlStyle = window.getComputedStyle(document.documentElement)
+
+  return (
+    bodyStyle.overflow !== 'hidden' &amp;&amp;
+    htmlStyle.overflow !== 'hidden' &amp;&amp;
+    (document.documentElement.scrollHeight > viewHeight ||
+      document.documentElement.scrollWidth > viewWidth)
+  )
+}
+
+/**
+ * @description 判断节点内部是否可以滚动
+ * @param {HTMLElement} el html 节点
+ * @return {Boolean} trye or false
+ */
+
+function checkNodeCanScroll (el) {
+  const elStyle = window.getComputedStyle(el)
+
+  return (
+    (elStyle.overflow === 'scroll' || elStyle.overflow === 'auto') &amp;&amp;
+    (el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth)
+  )
+}
+
+/**
+ * @description 截断文字添加省略号，单位长度为一个汉字长度。
+ * @example
+ * cutText('xxxyyy', 2)
+ * // xxxy
+ * @param {String} text 字符
+ * @param {Number} length 长度，以一个汉字长度为单位
+ * @return {String} 截断后的字符
+ */
+
+function cutText (text, length) {
+  let realLength = 0
+  let charCode = -1
+  let index = 0
+
+  for (let i = 0; i &lt; text.length; i++) {
+    charCode = text.charCodeAt(i)
+    if (charCode >= 0 &amp;&amp; charCode &lt;= 128) {
+      // 占一个宽度的字符
+      realLength += 1
+    } else {
+      // 占两个宽度的字符，例如：汉字
+      realLength += 2
+    }
+    if (realLength > length * 2) {
+      index = i
+      break
+    }
+  }
+  if (index > length - 1) {
+    return text.slice(0, index) + '...'
+  }
+  return text
+}
+
+/**
+ * @description 获取 canvas 存储的像素比 和 屏幕像素比比值 。&lt;br>
+ * 即如果比值为x，那么canvas的真正大小（width属性）应该是：css像素*x。
+ * @return {Number} 比值。
+ */
+
+function getPixelRatio () {
+  const canvas = document.createElement('canvas')
+  const context = canvas.getContext('2d')
+  const backingStoreRatio =
+    context.webkitBackingStorePixelRatio ||
+    context.mozBackingStorePixelRatio ||
+    context.msBackingStorePixelRatio ||
+    context.oBackingStorePixelRatio ||
+    context.backingStorePixelRatio ||
+    1
+  const devicePixelRatio = window.devicePixelRatio || 1
+
+  return devicePixelRatio / backingStoreRatio
+}
+
+/**
+ * @description 获取 canvas dataURL（转化为图片）。&lt;br>
+ * 获取的图片分辨率适应当前设备的设备像素比，即在 Retina 屏幕下获取的图片分辨率更高。
+ * @param {HTMLElement} canvas - canvas 节点。
+ * @return {String} dataURL。
+ */
+
+function canvasToImg (canvas) {
+  const scale = getPixelRatio()
+  const style = window.getComputedStyle(canvas)
+
+  canvas.width = scale * parseFloat(style.width)
+  canvas.height = scale * parseFloat(style.height)
+  return canvas.toDataURL()
+}
+
+/**
+ * @ignore
+ * @description dataURL 转换为 blob 对象。
+ * @param {String} dataURL - dataURL。
+ * @param {Blob} Blob 对象。
+ */
+
+function dataURLToBlob (dataURL) {
+  // atob：解码base64，并提取data部分
+  const data = atob(dataURL.split(',')[1])
+  const len = data.length
+  const arr = new Uint8Array(len)
+
+  for (let i = 0; i &lt; len; i++) {
+    arr[i] = data.charCodeAt(i)
+  }
+  return new Blob([arr])
+}
+
+/**
+ * @description 下载图片，如果是网络图片（http开头），需要同域名。&lt;br>
+ * 同时依赖于a标签的download兼容性，移动端兼容性差。
+ * @param {String} src - 图片链接，可以是blob url, dataURL, 网络图片（http开头）。
+ * @param {Number} imgName - 图片名字。
+ * @param {Number} useblob - 转换为blob url，只有dataURL可以转换。
+ */
+
+function downloadImg (src, imgName, useblob = false) {
+  let url = ''
+
+  if (src.startsWith('blob:')) {
+    // 本身是 blob url
+    url = src
+  } else {
+    if (useblob) {
+      const blob = dataURLToBlob(src)
+
+      if (window.navigator.msSaveBlob) {
+        try {
+          window.navigator.msSaveBlob(blob, imgName)
+        } catch (e) {
+          console.error(e)
+        }
+        return
+      }
+
+      url = URL.createObjectURL(blob)
+    } else {
+      url = src
+    }
+  }
+
+  const a = document.createElement('a')
+
+  a.download = imgName
+  a.href = url
+  a.click()
+  a.remove()
+  // 释放创建的url对象
+  URL.revokeObjectURL(url)
+}
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	https://lzw.me.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a>
+	
+		on Thu Jul 2nd 2020
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>
