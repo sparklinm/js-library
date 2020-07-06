@@ -1581,27 +1581,37 @@ function marquee(el, options) {
     gap: '',
     // 文本距离容器左边缘距离
     start: 0,
+    // 在哪里滚动
+    scrollIn: 'parent',
     // 是否超出容器才滚动
-    scrollOverflowed: false
+    scrollOnOverflow: false
   }, options);
   Object.assign(el.style, {
     whiteSpace: 'nowrap'
   });
   Object.assign(el.parentNode.style, {
     overflow: 'hidden'
-  }); // 容器宽度
+  });
+  var containerStyle = window.getComputedStyle(el.parentNode); // 容器宽度
 
-  var containerWidth = el.parentNode.clientWidth; // 文字宽度
+  var containerWidth = parseInt(containerStyle.width); // 文字宽度
 
   var textWidth = el.offsetWidth;
-  var gapWidth = opt.gap || containerWidth; // 最大translatex
+  var gapWidth = 0;
+
+  if (opt.scrollIn === 'self') {
+    gapWidth = opt.gap || textWidth;
+  } else {
+    gapWidth = opt.gap || containerWidth;
+  } // 最大translatex
+
 
   var maxTranslateX = -(textWidth + gapWidth);
   Object.assign(el.parentNode.style, {
     overflow: ''
   });
 
-  if (textWidth <= containerWidth && opt.scrollOverflowed || containerWidth === 0 || textWidth === 0) {
+  if (textWidth <= containerWidth && opt.scrollOnOverflow || containerWidth === 0 || textWidth === 0) {
     Object.assign(el.style, {
       whiteSpace: ''
     });
@@ -1611,9 +1621,10 @@ function marquee(el, options) {
   var container = document.createElement('div');
   var div1 = document.createElement('div');
   var div2 = document.createElement('div');
-  var copy1 = el.cloneNode(true);
-  var copy2 = el.cloneNode(true);
+  var copy1 = document.createElement('span');
   var rawEl = el.cloneNode(true);
+  copy1.innerHTML = el.innerHTML;
+  var copy2 = copy1.cloneNode(true);
   div1.appendChild(copy1);
   div2.appendChild(copy2);
   container.appendChild(div1);
@@ -1638,8 +1649,19 @@ function marquee(el, options) {
   Object.assign(el.style, {
     display: 'inline-block',
     overflow: 'hidden',
-    width: containerWidth + 'px'
+    verticalAlign: 'bottom'
   });
+
+  if (opt.scrollIn === 'self' && textWidth < containerWidth) {
+    Object.assign(el.style, {
+      width: textWidth + 'px'
+    });
+  } else {
+    Object.assign(el.style, {
+      width: containerWidth + 'px'
+    });
+  }
+
   var piece = maxTranslateX / opt.duration * 10;
   var translateX = -piece;
   var timer = null;
@@ -1681,10 +1703,10 @@ function marquee(el, options) {
     clearTimeout(timer);
     el.removeEventListener('mouseenter', mouseenter);
     el.removeEventListener('mouseleave', mouseleave);
-  };
+  }; // el.addEventListener('mouseenter', mouseenter)
+  // el.addEventListener('mouseleave', mouseleave)
 
-  el.addEventListener('mouseenter', mouseenter);
-  el.addEventListener('mouseleave', mouseleave);
+
   doMarquee();
   return {
     destroy: destroy
