@@ -7,8 +7,10 @@ export function marquee (el, options) {
       gap: '',
       // 文本距离容器左边缘距离
       start: 0,
+      // 在哪里滚动
+      scrollIn: 'parent',
       // 是否超出容器才滚动
-      scrollOverflowed: false
+      scrollOnOverflow: false
     },
     options
   )
@@ -19,11 +21,20 @@ export function marquee (el, options) {
   Object.assign(el.parentNode.style, {
     overflow: 'hidden'
   })
+
+  const containerStyle = window.getComputedStyle(el.parentNode)
   // 容器宽度
-  const containerWidth = el.parentNode.clientWidth
+  const containerWidth = parseInt(containerStyle.width)
   // 文字宽度
   const textWidth = el.offsetWidth
-  const gapWidth = opt.gap || containerWidth
+
+  let gapWidth = 0
+
+  if (opt.scrollIn === 'self') {
+    gapWidth = opt.gap || textWidth
+  } else {
+    gapWidth = opt.gap || containerWidth
+  }
   // 最大translatex
   const maxTranslateX = -(textWidth + gapWidth)
 
@@ -32,7 +43,7 @@ export function marquee (el, options) {
   })
 
   if (
-    (textWidth <= containerWidth && opt.scrollOverflowed) ||
+    (textWidth <= containerWidth && opt.scrollOnOverflow) ||
     containerWidth === 0 ||
     textWidth === 0
   ) {
@@ -45,9 +56,11 @@ export function marquee (el, options) {
   const container = document.createElement('div')
   const div1 = document.createElement('div')
   const div2 = document.createElement('div')
-  const copy1 = el.cloneNode(true)
-  const copy2 = el.cloneNode(true)
+  const copy1 = document.createElement('span')
   const rawEl = el.cloneNode(true)
+
+  copy1.innerHTML = el.innerHTML
+  const copy2 = copy1.cloneNode(true)
 
   div1.appendChild(copy1)
   div2.appendChild(copy2)
@@ -70,11 +83,23 @@ export function marquee (el, options) {
   Object.assign(container.style, {
     display: 'inline-block'
   })
+
   Object.assign(el.style, {
     display: 'inline-block',
     overflow: 'hidden',
-    width: containerWidth + 'px'
+    verticalAlign: 'bottom'
   })
+
+  if (opt.scrollIn === 'self' && textWidth < containerWidth) {
+    Object.assign(el.style, {
+      width: textWidth + 'px'
+    })
+  } else {
+    Object.assign(el.style, {
+      width: containerWidth + 'px'
+    })
+  }
+
 
   const piece = (maxTranslateX / opt.duration) * 10
   let translateX = -piece
@@ -118,8 +143,8 @@ export function marquee (el, options) {
     el.removeEventListener('mouseleave', mouseleave)
   }
 
-  el.addEventListener('mouseenter', mouseenter)
-  el.addEventListener('mouseleave', mouseleave)
+  // el.addEventListener('mouseenter', mouseenter)
+  // el.addEventListener('mouseleave', mouseleave)
 
   doMarquee()
   return {
