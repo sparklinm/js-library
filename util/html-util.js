@@ -171,11 +171,118 @@ function downloadImg (src, imgName, useblob = false) {
   URL.revokeObjectURL(url)
 }
 
+/**
+ * @description 插入字符串形式的<script>标签。
+ *  @example
+ * insertScripts('<script></script><script></script>')
+ * insertScripts(['<script></script><script></script>','<script></script>'])
+ * @param {String|Array} scripts - 字符串形式的<script>标签。
+ * @param {HTMLElement} container 插入到的节点容器。
+ */
+
+function insertScripts (scripts, container) {
+  if (document) {
+    const str = Array.isArray(scripts) ? scripts.join('') : scripts
+    let cont = document.createElement('div')
+
+    cont.innerHTML = str
+    const oldScripts = cont.querySelectorAll('script')
+
+    cont = null
+
+    oldScripts.forEach((oldScript) => {
+      const newScript = document.createElement('script')
+
+      newScript.type = 'text/javascript'
+      newScript.innerHTML = oldScript.innerHTML
+      if (oldScript.src) {
+        newScript.src = oldScript.src
+      }
+      if (container) {
+        container.appendChild(newScript)
+      } else {
+        document.documentElement.appendChild(newScript)
+      }
+    })
+  }
+}
+
+/**
+ * @description HTML转义。
+ *  @example
+ * HTMLEncode('<div class=""> xx </div>')
+ * // &lt;div&nbsp;class=&quot;&quot;&gt;&nbsp;xx&nbsp;&lt;/div&gt;
+ * @param {String} str - 字符串形式的html。
+ * @returns {String} - 转义后的字符串html。
+ */
+
+function HTMLEncode (str) {
+  if (typeof document !== 'undefined') {
+    let temp = document.createElement('div')
+
+    temp.textContent !== null
+      ? (temp.textContent = str)
+      : (temp.innerText = str)
+    const output = temp.innerHTML
+
+    temp = null
+    return output
+  }
+
+  let s = ''
+
+  if (str.length === 0) return ''
+  s = str.replace(/&/g, '&amp;')
+  s = s.replace(/</g, '&lt;')
+  s = s.replace(/>/g, '&gt;')
+  s = s.replace(/ /g, '&nbsp;')
+  s = s.replace(/'/g, '&#39;')
+  s = s.replace(/"/g, '&quot;')
+  s = s.replace(/\n/g, '<br/>')
+  return s
+}
+
+/**
+ * @description 解析转义后的html。
+ *  @example
+ * HTMLEncode('&lt;div&nbsp;class=&quot;&quot;&gt;&nbsp;xx&nbsp;&lt;/div&gt;')
+ * // <div class=""> xx </div>
+ * @param {String} str - 转义后的字符串html。
+ * @returns {String} - 字符串形式的html。
+ */
+
+function HTMLDecode (str) {
+  if (typeof document !== 'undefined') {
+    let temp = document.createElement('div')
+
+    temp.innerHTML = str
+    const output = temp.innerText || temp.textContent
+
+    temp = null
+    return output
+  }
+
+  let s = ''
+
+  if (str.length === 0) return ''
+  s = str.replace(/&amp;/g, '&')
+  s = s.replace(/&lt;/g, '<')
+  s = s.replace(/&gt;/g, '>')
+  s = s.replace(/&nbsp;/g, ' ')
+  s = s.replace(/&#39;/g, '\'')
+  s = s.replace(/&quot;/g, '"')
+  s = s.replace(/<br\/>|<br>/g, '\n')
+  return s
+}
+
 export {
   checkPageCanScroll,
   checkNodeCanScroll,
   cutText,
   getPixelRatio,
   canvasToImg,
-  downloadImg
+  downloadImg,
+  insertScripts,
+  HTMLEncode,
+  HTMLDecode
 }

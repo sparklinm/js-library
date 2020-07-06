@@ -85,18 +85,20 @@ export function marquee (el, options) {
   })
 
   Object.assign(el.style, {
-    display: 'inline-block',
-    overflow: 'hidden',
-    verticalAlign: 'bottom'
+    overflow: 'hidden'
   })
 
   if (opt.scrollIn === 'self' && textWidth < containerWidth) {
     Object.assign(el.style, {
-      width: textWidth + 'px'
+      width: textWidth + 'px',
+      display: 'inline-block',
+      verticalAlign: 'bottom'
     })
   } else {
     Object.assign(el.style, {
-      width: containerWidth + 'px'
+      width: containerWidth + 'px',
+      margin: 0,
+      display: 'block'
     })
   }
 
@@ -143,8 +145,8 @@ export function marquee (el, options) {
     el.removeEventListener('mouseleave', mouseleave)
   }
 
-  // el.addEventListener('mouseenter', mouseenter)
-  // el.addEventListener('mouseleave', mouseleave)
+  el.addEventListener('mouseenter', mouseenter)
+  el.addEventListener('mouseleave', mouseleave)
 
   doMarquee()
   return {

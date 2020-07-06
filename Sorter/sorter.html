@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="" />
+    <script src=""></script>
+    <script src="../d/bundle.umd.js"></script>
+  </head>
+
+  <body>
+    <div id="sort1" class="list-group1">
+      <div class="list-group-item1">1</div>
+      <div class="list-group-item1">2</div>
+      <div class="list-group-item1">3</div>
+      <div class="list-group-item1">4</div>
+      <br />
+      <div class="list-group-item1">3</div>
+      <div class="list-group-item1">4</div>
+      <br />
+      <div class="list-group-item1">5</div>
+      <div class="list-group-item1">6</div>
+      <div class="list-group-item1">7</div>
+      <div class="list-group-item1">8</div>
+      <div class="list-group-item1">9</div>
+      <div class="list-group-item1">10</div>
+    </div>
+
+    <div id="sort2" class="list-group2">
+      <div class="list-group-item2">1</div>
+      <div class="list-group-item2">2</div>
+      <div class="list-group-item2">3</div>
+      <div class="list-group-item2">4</div>
+      <div class="list-group-item2">3</div>
+      <div class="list-group-item2">4</div>
+      <div class="list-group-item2">5</div>
+      <div class="list-group-item2">6</div>
+      <div class="list-group-item2">7</div>
+      <div class="list-group-item2">8</div>
+      <div class="list-group-item2">9</div>
+      <div class="list-group-item2">10</div>
+    </div>
+
+    <style>
+      #sort1,
+      #sort2 {
+        display: inline-block;
+        width: 400px;
+        vertical-align: top;
+      }
+
+      .list-group-item1,
+      .list-group-item2 {
+        cursor: move;
+        padding: 20px;
+        border: 1px solid #000;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+        font-size: 16px;
+      }
+
+      .list-group-item2 {
+        background: pink;
+      }
+    </style>
+
+    <script>
+      const Sorter = util.Sorter
+      const sorter1 = new Sorter(
+        document.querySelector('#sort1'),
+        {
+          dragNode: 'list-group-item',
+          group: {
+            clone: true,
+            put: false
+          },
+          sort: true
+        }
+      )
+
+      sorter1.init()
+      
+      const sorter2 = new Sorter(
+        document.querySelector('#sort2'),
+        {
+          dragNode: 'list-group-item',
+          group: {
+            clone: true,
+            put: true
+          },
+          sort: true
+        }
+      )
+
+      sorter2.init()
+
+      Sorter.group(sorter1, sorter2)
+    </script>
+  </body>
+</html>
