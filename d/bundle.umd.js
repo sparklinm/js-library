@@ -1,6 +1,6 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('core-js/modules/es.array.concat'), require('core-js/modules/es.array.slice'), require('core-js/modules/es.array.iterator'), require('core-js/modules/es.object.to-string'), require('core-js/modules/es.regexp.exec'), require('core-js/modules/es.string.iterator'), require('core-js/modules/es.string.split'), require('core-js/modules/es.string.starts-with'), require('core-js/modules/es.typed-array.uint8-array'), require('core-js/modules/es.typed-array.copy-within'), require('core-js/modules/es.typed-array.every'), require('core-js/modules/es.typed-array.fill'), require('core-js/modules/es.typed-array.filter'), require('core-js/modules/es.typed-array.find'), require('core-js/modules/es.typed-array.find-index'), require('core-js/modules/es.typed-array.for-each'), require('core-js/modules/es.typed-array.includes'), require('core-js/modules/es.typed-array.index-of'), require('core-js/modules/es.typed-array.iterator'), require('core-js/modules/es.typed-array.join'), require('core-js/modules/es.typed-array.last-index-of'), require('core-js/modules/es.typed-array.map'), require('core-js/modules/es.typed-array.reduce'), require('core-js/modules/es.typed-array.reduce-right'), require('core-js/modules/es.typed-array.reverse'), require('core-js/modules/es.typed-array.set'), require('core-js/modules/es.typed-array.slice'), require('core-js/modules/es.typed-array.some'), require('core-js/modules/es.typed-array.sort'), require('core-js/modules/es.typed-array.subarray'), require('core-js/modules/es.typed-array.to-locale-string'), require('core-js/modules/es.typed-array.to-string'), require('core-js/modules/web.dom-collections.iterator'), require('core-js/modules/web.url'), require('core-js/modules/es.array.includes'), require('core-js/modules/es.array.index-of'), require('core-js/modules/es.array.map'), require('core-js/modules/es.regexp.to-string'), require('core-js/modules/es.string.match'), require('core-js/modules/es.string.replace'), require('core-js/modules/es.array.join'), require('core-js/modules/es.reflect.construct'), require('core-js/modules/es.array.filter'), require('core-js/modules/es.array.splice'), require('core-js/modules/es.function.name'), require('core-js/modules/es.object.assign'), require('core-js/modules/es.promise'), require('core-js/modules/es.array.reduce'), require('core-js/modules/es.array.some')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'core-js/modules/es.array.concat', 'core-js/modules/es.array.slice', 'core-js/modules/es.array.iterator', 'core-js/modules/es.object.to-string', 'core-js/modules/es.regexp.exec', 'core-js/modules/es.string.iterator', 'core-js/modules/es.string.split', 'core-js/modules/es.string.starts-with', 'core-js/modules/es.typed-array.uint8-array', 'core-js/modules/es.typed-array.copy-within', 'core-js/modules/es.typed-array.every', 'core-js/modules/es.typed-array.fill', 'core-js/modules/es.typed-array.filter', 'core-js/modules/es.typed-array.find', 'core-js/modules/es.typed-array.find-index', 'core-js/modules/es.typed-array.for-each', 'core-js/modules/es.typed-array.includes', 'core-js/modules/es.typed-array.index-of', 'core-js/modules/es.typed-array.iterator', 'core-js/modules/es.typed-array.join', 'core-js/modules/es.typed-array.last-index-of', 'core-js/modules/es.typed-array.map', 'core-js/modules/es.typed-array.reduce', 'core-js/modules/es.typed-array.reduce-right', 'core-js/modules/es.typed-array.reverse', 'core-js/modules/es.typed-array.set', 'core-js/modules/es.typed-array.slice', 'core-js/modules/es.typed-array.some', 'core-js/modules/es.typed-array.sort', 'core-js/modules/es.typed-array.subarray', 'core-js/modules/es.typed-array.to-locale-string', 'core-js/modules/es.typed-array.to-string', 'core-js/modules/web.dom-collections.iterator', 'core-js/modules/web.url', 'core-js/modules/es.array.includes', 'core-js/modules/es.array.index-of', 'core-js/modules/es.array.map', 'core-js/modules/es.regexp.to-string', 'core-js/modules/es.string.match', 'core-js/modules/es.string.replace', 'core-js/modules/es.array.join', 'core-js/modules/es.reflect.construct', 'core-js/modules/es.array.filter', 'core-js/modules/es.array.splice', 'core-js/modules/es.function.name', 'core-js/modules/es.object.assign', 'core-js/modules/es.promise', 'core-js/modules/es.array.reduce', 'core-js/modules/es.array.some'], factory) :
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('core-js/modules/es.array.concat'), require('core-js/modules/es.array.slice'), require('core-js/modules/es.array.iterator'), require('core-js/modules/es.object.to-string'), require('core-js/modules/es.regexp.exec'), require('core-js/modules/es.string.iterator'), require('core-js/modules/es.string.split'), require('core-js/modules/es.string.starts-with'), require('core-js/modules/es.typed-array.uint8-array'), require('core-js/modules/es.typed-array.copy-within'), require('core-js/modules/es.typed-array.every'), require('core-js/modules/es.typed-array.fill'), require('core-js/modules/es.typed-array.filter'), require('core-js/modules/es.typed-array.find'), require('core-js/modules/es.typed-array.find-index'), require('core-js/modules/es.typed-array.for-each'), require('core-js/modules/es.typed-array.includes'), require('core-js/modules/es.typed-array.index-of'), require('core-js/modules/es.typed-array.iterator'), require('core-js/modules/es.typed-array.join'), require('core-js/modules/es.typed-array.last-index-of'), require('core-js/modules/es.typed-array.map'), require('core-js/modules/es.typed-array.reduce'), require('core-js/modules/es.typed-array.reduce-right'), require('core-js/modules/es.typed-array.reverse'), require('core-js/modules/es.typed-array.set'), require('core-js/modules/es.typed-array.slice'), require('core-js/modules/es.typed-array.some'), require('core-js/modules/es.typed-array.sort'), require('core-js/modules/es.typed-array.subarray'), require('core-js/modules/es.typed-array.to-locale-string'), require('core-js/modules/es.typed-array.to-string'), require('core-js/modules/web.dom-collections.iterator'), require('core-js/modules/web.url'), require('core-js/modules/es.array.includes'), require('core-js/modules/es.array.index-of'), require('core-js/modules/es.array.map'), require('core-js/modules/es.regexp.to-string'), require('core-js/modules/es.string.match'), require('core-js/modules/es.string.replace'), require('core-js/modules/es.array.join'), require('core-js/modules/es.reflect.construct'), require('core-js/modules/es.array.filter'), require('core-js/modules/es.array.splice'), require('core-js/modules/es.function.name'), require('core-js/modules/es.object.assign'), require('core-js/modules/es.promise'), require('core-js/modules/es.array.reduce'), require('core-js/modules/es.array.some'), require('core-js/modules/es.symbol'), require('core-js/modules/es.array.fill'), require('core-js/modules/es.array.find-index'), require('core-js/modules/es.array.for-each'), require('core-js/modules/es.number.constructor'), require('core-js/modules/es.number.is-integer'), require('core-js/modules/es.object.get-own-property-descriptor'), require('core-js/modules/es.object.get-own-property-descriptors'), require('core-js/modules/es.object.keys'), require('core-js/modules/es.string.includes'), require('core-js/modules/web.dom-collections.for-each')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'core-js/modules/es.array.concat', 'core-js/modules/es.array.slice', 'core-js/modules/es.array.iterator', 'core-js/modules/es.object.to-string', 'core-js/modules/es.regexp.exec', 'core-js/modules/es.string.iterator', 'core-js/modules/es.string.split', 'core-js/modules/es.string.starts-with', 'core-js/modules/es.typed-array.uint8-array', 'core-js/modules/es.typed-array.copy-within', 'core-js/modules/es.typed-array.every', 'core-js/modules/es.typed-array.fill', 'core-js/modules/es.typed-array.filter', 'core-js/modules/es.typed-array.find', 'core-js/modules/es.typed-array.find-index', 'core-js/modules/es.typed-array.for-each', 'core-js/modules/es.typed-array.includes', 'core-js/modules/es.typed-array.index-of', 'core-js/modules/es.typed-array.iterator', 'core-js/modules/es.typed-array.join', 'core-js/modules/es.typed-array.last-index-of', 'core-js/modules/es.typed-array.map', 'core-js/modules/es.typed-array.reduce', 'core-js/modules/es.typed-array.reduce-right', 'core-js/modules/es.typed-array.reverse', 'core-js/modules/es.typed-array.set', 'core-js/modules/es.typed-array.slice', 'core-js/modules/es.typed-array.some', 'core-js/modules/es.typed-array.sort', 'core-js/modules/es.typed-array.subarray', 'core-js/modules/es.typed-array.to-locale-string', 'core-js/modules/es.typed-array.to-string', 'core-js/modules/web.dom-collections.iterator', 'core-js/modules/web.url', 'core-js/modules/es.array.includes', 'core-js/modules/es.array.index-of', 'core-js/modules/es.array.map', 'core-js/modules/es.regexp.to-string', 'core-js/modules/es.string.match', 'core-js/modules/es.string.replace', 'core-js/modules/es.array.join', 'core-js/modules/es.reflect.construct', 'core-js/modules/es.array.filter', 'core-js/modules/es.array.splice', 'core-js/modules/es.function.name', 'core-js/modules/es.object.assign', 'core-js/modules/es.promise', 'core-js/modules/es.array.reduce', 'core-js/modules/es.array.some', 'core-js/modules/es.symbol', 'core-js/modules/es.array.fill', 'core-js/modules/es.array.find-index', 'core-js/modules/es.array.for-each', 'core-js/modules/es.number.constructor', 'core-js/modules/es.number.is-integer', 'core-js/modules/es.object.get-own-property-descriptor', 'core-js/modules/es.object.get-own-property-descriptors', 'core-js/modules/es.object.keys', 'core-js/modules/es.string.includes', 'core-js/modules/web.dom-collections.for-each'], factory) :
   (global = global || self, factory(global.util = {}));
 }(this, (function (exports) { 'use strict';
 
@@ -1603,18 +1603,20 @@
       display: 'inline-block'
     });
     Object.assign(el.style, {
-      display: 'inline-block',
-      overflow: 'hidden',
-      verticalAlign: 'bottom'
+      overflow: 'hidden'
     });
 
     if (opt.scrollIn === 'self' && textWidth < containerWidth) {
       Object.assign(el.style, {
-        width: textWidth + 'px'
+        width: textWidth + 'px',
+        display: 'inline-block',
+        verticalAlign: 'bottom'
       });
     } else {
       Object.assign(el.style, {
-        width: containerWidth + 'px'
+        width: containerWidth + 'px',
+        margin: 0,
+        display: 'block'
       });
     }
 
@@ -1659,15 +1661,2183 @@
       clearTimeout(timer);
       el.removeEventListener('mouseenter', mouseenter);
       el.removeEventListener('mouseleave', mouseleave);
-    }; // el.addEventListener('mouseenter', mouseenter)
-    // el.addEventListener('mouseleave', mouseleave)
+    };
 
-
+    el.addEventListener('mouseenter', mouseenter);
+    el.addEventListener('mouseleave', mouseleave);
     doMarquee();
     return {
       destroy: destroy
     };
   }
+
+  function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+  function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+  function boolMobile() {
+    if (window.navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
+      return true; // 移动端
+    }
+
+    return false; // PC端
+  }
+
+  function checkPageCanScroll$1() {
+    var viewHeight = document.documentElement.clientHeight;
+    var viewWidth = document.documentElement.clientWidth;
+    var bodyStyle = window.getComputedStyle(document.body);
+    var htmlStyle = window.getComputedStyle(document.documentElement);
+    return bodyStyle.overflow !== 'hidden' && htmlStyle.overflow !== 'hidden' && (document.documentElement.scrollHeight > viewHeight || document.documentElement.scrollWidth > viewWidth);
+  }
+
+  function checkNodeCanScroll$1(el) {
+    var elStyle = window.getComputedStyle(el);
+    return elStyle.overflow !== 'visible' && (el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth);
+  }
+
+  function throttle$1(fn) {
+    var curTick = false;
+    var that = this;
+    var params = Array.prototype.slice.call(arguments);
+    params.shift();
+    return function () {
+      var curParams = Array.prototype.slice.call(arguments);
+
+      if (!curTick) {
+        curTick = true;
+        requestAnimationFrame(function () {
+          fn.apply(that, [].concat(toConsumableArray(curParams), [params]));
+          curTick = false;
+        });
+      }
+    };
+  }
+
+  var Event$1 = /*#__PURE__*/function () {
+    function Event() {
+      classCallCheck(this, Event);
+
+      defineProperty(this, "onEvents", {});
+
+      defineProperty(this, "index", -1);
+
+      defineProperty(this, "count", 0);
+    }
+
+    createClass(Event, [{
+      key: "on",
+      // once 表示注册的事件只执行一次便自动移除
+      value: function on(name, callback) {
+        var once = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+        this.onEvents[name] = this.onEvents[name] || [];
+        this.onEvents[name].push({
+          name: name,
+          callback: callback,
+          once: once
+        });
+      } // 移除事件
+
+    }, {
+      key: "off",
+      value: function off(name, callback) {
+        var _this = this;
+
+        if (!this.onEvents[name] || !this.onEvents[name].length) {
+          return;
+        }
+
+        this.onEvents[name] = this.onEvents[name].filter(function (event, index) {
+          var flag = true; // 在emit的回调中，可能会off事件
+
+          if (event.callback === callback) {
+            flag = false;
+
+            if (index <= _this.index && name === _this.name) {
+              _this.count++;
+            }
+          }
+
+          return flag;
+        });
+      }
+    }, {
+      key: "emit",
+      value: function emit(name) {
+        if (!this.onEvents[name] || !this.onEvents[name].length) {
+          return;
+        }
+
+        var params = Array.prototype.slice.call(arguments).slice(1);
+        this.name = name;
+
+        for (var i = 0; i < this.onEvents[name].length; i++) {
+          var event = this.onEvents[name][i]; // 需要先判断是否为一次性事件，移除
+          // 以防在事件回调中继续触发当前事件时即使是一次性事件也会执行多次
+
+          if (event.once) {
+            this.onEvents[name].splice(i, 1);
+            i--;
+          } // 记录此时的index，如果回调中off事件，需要记录off的小于等于这个index的个数
+
+
+          this.index = i;
+          event.callback.apply(event, toConsumableArray(params));
+          i -= this.count;
+          this.count = 0;
+        }
+
+        this.count = 0;
+        this.index = -1;
+      }
+    }]);
+
+    return Event;
+  }();
+  /**
+   * @description 分类器
+   * @param {String} id 父元素id选择器
+   * @param {Array} data 可选，分类的数据
+   */
+
+  var Sorter = /*#__PURE__*/function () {
+    // 分类数据
+    // 容器节点
+    // 列表元素
+    // 拖拽元素的副本
+    // 拖拽元素最开始位置信息
+    // 拖拽元素位置索引
+    // 鼠标位置
+    // 单次动画结束
+    // 当次拖拽结束
+    // 是否能拖拽
+    // 相对于文档的位置
+    // 相对于文档的位置
+    // 相对于文档的位置
+    // postions 相对于文档的位置
+    // simple：性能高，但多行时如果有动画，不支持元素大小不一样
+    // complex: 性能低， 但支持多行时元素大小不一样
+    function Sorter(el, initOptions, data) {
+      var _this2 = this;
+
+      classCallCheck(this, Sorter);
+
+      defineProperty(this, "data", void 0);
+
+      defineProperty(this, "container", void 0);
+
+      defineProperty(this, "items", void 0);
+
+      defineProperty(this, "nodeCopy", void 0);
+
+      defineProperty(this, "nodeInitPos", void 0);
+
+      defineProperty(this, "index", void 0);
+
+      defineProperty(this, "mouse", {});
+
+      defineProperty(this, "isMoveEnd", true);
+
+      defineProperty(this, "isDragEnd", true);
+
+      defineProperty(this, "canDrag", true);
+
+      defineProperty(this, "copyPosition", {});
+
+      defineProperty(this, "bodyPosition", {});
+
+      defineProperty(this, "containerPosition", {});
+
+      defineProperty(this, "dragStart", function (e) {
+        var node = e.target;
+
+        var dragNode = _this2.checkNode(node);
+
+        if (!_this2.isRightNode) {
+          return;
+        }
+
+        var index = _this2._start(dragNode, e.clientX, e.clientY);
+
+        if (index < 0) {
+          return;
+        }
+
+        if (e.dataTransfer.setData) {
+          e.dataTransfer.setData('text/html', e.target);
+        }
+
+        if (e.dataTransfer.dropEffect) {
+          e.dataTransfer.dropEffect = 'move';
+        }
+
+        _this2.setDragNodeStyle();
+      });
+
+      defineProperty(this, "drag", function (e) {
+        if (!_this2.isRightNode) {
+          return;
+        } // e.clientX和e.clientY突然出现一瞬间的0 0
+        // console.log('clientX：' + e.clientX + '；' + 'clientY：' + e.clientY)
+
+
+        _this2._move(e.clientX, e.clientY);
+      });
+
+      defineProperty(this, "dragEnd", function () {
+        if (!_this2.isRightNode) {
+          return;
+        }
+
+        _this2._end();
+      });
+
+      defineProperty(this, "mouseDown", function (event) {
+        if (event.button !== 0) {
+          return;
+        }
+
+        event.preventDefault();
+        var node = event.target;
+
+        var dragNode = _this2.checkNode(node); // 鼠标移出浏览器时不会触发mouseup事件，此时进入浏览器点击鼠标左键需要执行上一次的end
+
+
+        if (!_this2.isRightNode) {
+          return;
+        }
+
+        if (_this2.isMouseLeft) {
+          _this2._end();
+
+          return;
+        }
+
+        var index = _this2._start(dragNode, event.clientX, event.clientY);
+
+        if (index < 0) {
+          return;
+        }
+
+        _this2.setDragNodeStyle();
+
+        _this2.setNodeCopy(dragNode);
+      });
+
+      defineProperty(this, "mouseMove", function (event) {
+        if (!_this2.isRightNode || !_this2.nodeCopy) {
+          return;
+        }
+
+        _this2._move(event.clientX, event.clientY);
+      });
+
+      defineProperty(this, "mouseLeave", function () {
+        if (!_this2.isRightNode) {
+          return;
+        } // 只有存在copy元素才算离开过
+
+
+        if (_this2.nodeCopy) {
+          _this2.isMouseLeft = true;
+        }
+      });
+
+      defineProperty(this, "mouseUp", function () {
+        if (!_this2.isRightNode) {
+          return;
+        }
+
+        _this2._end(); // 即使mouseup触发  mousemove还是会触发
+
+
+        _this2.isRightNode = false;
+        _this2.isMouseLeft = false;
+      });
+
+      defineProperty(this, "touchStart", function (event) {
+        event.preventDefault();
+        var touch = event.targetTouches[0];
+        var node = touch.target;
+
+        var dragNode = _this2.checkNode(node);
+
+        if (!_this2.isRightNode) {
+          return;
+        }
+
+        var index = _this2._start(dragNode, touch.clientX, touch.clientY);
+
+        if (index < 0) {
+          return;
+        }
+
+        _this2.setNodeCopy(dragNode);
+
+        _this2.setDragNodeStyle();
+      });
+
+      defineProperty(this, "touchMove", function (event) {
+        if (!_this2.isRightNode) {
+          return;
+        }
+
+        var touch = event.targetTouches[0];
+
+        _this2._move(touch.clientX, touch.clientY);
+      });
+
+      defineProperty(this, "touchEnd", function () {
+        if (!_this2.isRightNode) {
+          return;
+        }
+
+        _this2._end();
+      });
+
+      defineProperty(this, "animateNodeEnd", function () {
+        _this2.animatedNode.removeEventListener('transitionend', _this2.animateNodeEnd); // 触发end的条件，拖拽元素有发生交换，拖拽元素有动画
+
+
+        _this2.event.emit('animationend');
+
+        _this2.resolve && _this2.resolve();
+      });
+
+      this.container = el;
+      this.options = _objectSpread({
+        // simple complex
+        mode: 'complex',
+        way: 'mouse',
+        // 拖拽不能超出边界
+        animation: true,
+        duration: 200,
+        delay: 0,
+        dragNode: 'sort-cell',
+        dragClass: '',
+        group: {
+          clone: true,
+          put: true
+        },
+        sort: true
+      }, initOptions);
+      this.event = new Event$1(); // this.data = _.cloneDeep(data)
+
+      this.data = data;
+    }
+
+    createClass(Sorter, [{
+      key: "init",
+      value: function init() {
+        var _this3 = this;
+
+        this.isMobile = boolMobile();
+        this.isSimpleMode = this.options.mode === 'simple';
+        this.setNodes();
+
+        if (this.isSimpleMode) {
+          var area = 0; // horizontal vertical mixin
+
+          this.direction = 'vertical';
+          this.items = [];
+          this.nodes.forEach(function (node, index) {
+            if (!_this3.isMobile) {
+              node.draggable = true;
+            }
+
+            var position = _this3.getPostionInContainer(node);
+
+            var obj = {
+              el: node,
+              position: position,
+              id: index
+            };
+
+            if (index === 1) {
+              var lastItem = _this3.items[0];
+
+              if (lastItem.position.left !== position.left && lastItem.position.top === position.top) {
+                _this3.direction = 'horizontal';
+              } else if (lastItem.position.top !== position.top && lastItem.position.left === position.left) {
+                _this3.direction = 'vertical';
+              } else {
+                _this3.direction = 'mixin';
+              }
+            }
+
+            if (index > 0) {
+              var _lastItem = _this3.items[index - 1];
+
+              if (_this3.direction === 'horizontal') {
+                if (position.top !== _lastItem.position.top) {
+                  area++;
+                  _lastItem.last = true;
+                  obj.first = true;
+                }
+              } else if (_this3.direction === 'vertical') {
+                if (position.left !== _lastItem.position.left) {
+                  area++;
+                  _lastItem.last = true;
+                  obj.first = true;
+                }
+              }
+            } else {
+              obj.first = true;
+            }
+
+            obj.area = area;
+
+            _this3.items.push(obj);
+          });
+        } else {
+          this.nodes.forEach(function (node) {
+            if (!_this3.isMobile) {
+              node.draggable = true;
+            }
+          });
+          var firstNodePos = this.getPosition(this.nodes[0]);
+          var secondNodePos = this.getPosition(this.nodes[1]);
+
+          if (secondNodePos.left !== firstNodePos.left && secondNodePos.top === firstNodePos.top) {
+            this.direction = 'horizontal';
+          } else if (secondNodePos.top !== firstNodePos.top && secondNodePos.left === firstNodePos.left) {
+            this.direction = 'vertical';
+          } else {
+            this.direction = 'mixin';
+          }
+        }
+
+        this.initScrollInfo();
+        this.throttleTouchMove = throttle$1(this.touchMove);
+        this.throttleDrag = throttle$1(this.drag);
+        this.throttleMouseMove = throttle$1(this.mouseMove);
+        this.setSupportsPassive();
+        this.addlistener();
+      }
+    }, {
+      key: "addlistener",
+      value: function addlistener() {
+        // 对container监听的话，移出container外会出现不灵敏的卡顿现象
+        if (this.isMobile) {
+          this._on(this.container, 'touchstart', this.touchStart);
+
+          this._on(this.container, 'touchmove', this.throttleTouchMove); // this._on(this.container, 'touchmove', this.touchMove)
+
+
+          this._on(this.container, 'touchend', this.touchEnd);
+        } else {
+          // this._on(document.body, 'dragstart', this.dragStart)
+          // this._on(document.body, 'drag', this.throttleDrag)
+          // this._on(document.body, 'dragend', this.dragEnd)
+          if (this.options.way === 'drag') {
+            this._on(this.container, 'dragstart', this.dragStart);
+
+            this._on(this.container, 'drag', this.throttleDrag);
+
+            this._on(this.container, 'dragend', this.dragEnd);
+
+            this._on(this.container, 'dragover', this.dragOver);
+          } else {
+            this._on(window, 'mousedown', this.mouseDown);
+
+            this._on(window, 'mousemove', this.throttleMouseMove); // this._on(document.body, 'mousemove', this.mouseMove)
+
+
+            this._on(window, 'mouseleave', this.mouseLeave);
+
+            this._on(window, 'mouseup', this.mouseUp);
+          }
+        }
+      }
+    }, {
+      key: "removeListener",
+      value: function removeListener() {
+        if (this.isMobile) {
+          this._off(this.container, 'touchstart', this.touchStart);
+
+          this._off(this.container, 'touchmove', this.throttleTouchMove);
+
+          this._off(this.container, 'touchend', this.touchEnd);
+        } else {
+          // this._off(document.body, 'dragstart', this.dragStart)
+          // this._off(document.body, 'drag', this.throttleDrag)
+          // this._off(document.body, 'dragend', this.dragEnd)
+          if (this.options.way === 'drag') {
+            this._off(this.container, 'dragstart', this.dragStart);
+
+            this._off(this.container, 'drag', this.throttleDrag);
+
+            this._off(this.container, 'dragend', this.dragEnd);
+          } else {
+            this._off(window, 'mousedown', this.mouseDown);
+
+            this._off(window, 'mousemove', this.throttleMouseMove);
+
+            this._off(window, 'mouseleave', this.mouseLeave);
+
+            this._off(window, 'mouseup', this.mouseUp);
+          }
+        }
+      } // 需要在touchStart事件中使用preventDefault阻止页面的滚动行为
+      // 但高版本浏览器会默认设置passive:true，无法preventDefault
+      // 所以需要设置passive:false
+
+    }, {
+      key: "_on",
+      value: function _on(el, event, fn) {
+        el.addEventListener(event, fn, this.supportsPassive ? {
+          capture: false,
+          passive: false
+        } : false);
+      }
+    }, {
+      key: "_off",
+      value: function _off(el, event, fn) {
+        el.removeEventListener(event, fn, this.supportsPassive ? {
+          capture: false,
+          passive: false
+        } : false);
+      }
+    }, {
+      key: "on",
+      value: function on(name, callback) {
+        var once = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+        this.event.on(name, callback, once);
+      }
+    }, {
+      key: "off",
+      value: function off(name, callback) {
+        this.event.off(name, callback);
+      }
+    }, {
+      key: "setSupportsPassive",
+      value: function setSupportsPassive() {
+        var _this4 = this;
+
+        try {
+          var opts = Object.defineProperty({}, 'passive', {
+            get: function get() {
+              _this4.supportsPassive = true;
+              return true;
+            }
+          });
+          window.addEventListener('testPassive', null, opts);
+          window.removeEventListener('testPassive', null, opts);
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    }, {
+      key: "dragOver",
+      value: function dragOver(ev) {
+        ev.preventDefault();
+      }
+    }, {
+      key: "_start",
+      value: function _start(node, x, y) {
+        // 即使end事件触发，但动画也可能正在进行
+        // 只有动画完毕才可以拖拽
+        if (!this.isMoveEnd) {
+          this.canDrag = false;
+          return -1;
+        }
+
+        var index = -1;
+
+        if (this.isSimpleMode) {
+          index = this.items.findIndex(function (item) {
+            return item.el === node;
+          });
+        } else {
+          this.setNodes();
+          index = this.nodes.findIndex(function (el) {
+            return el === node;
+          });
+        }
+
+        if (index === -1) {
+          return -1;
+        }
+
+        this.canDrag = true;
+        this.isDragEnd = false; // 相对于容器的节点中心坐标
+        // 设置copy的初始位置
+
+        this.initCopyPostion(node);
+        this.nodeInitPos = {
+          index: index
+        };
+        this.moveInfo = {
+          dragNode: node,
+          dragIndex: index
+        };
+        this.mouse.originX = x;
+        this.mouse.originY = y;
+        this.mouse.startX = x;
+        this.mouse.startY = y;
+
+        if (this.isSimpleMode) {
+          this.mouse.index = index;
+        }
+
+        this.index = index;
+        this.event.emit('dragstart');
+        return index;
+      }
+    }, {
+      key: "_move",
+      value: function _move(x, y) {
+        if (!this.canDrag) {
+          return;
+        }
+
+        var start = performance.now(); // 距离开始位置的偏移量
+
+        var offsety = y - this.mouse.originY;
+        var offsetx = x - this.mouse.originX;
+        var dx = x - this.mouse.startX;
+        var dy = y - this.mouse.startY;
+
+        if (dx === 0 && dy === 0) {
+          return;
+        }
+
+        this.setCopyPosition(dx, dy);
+        this.mouse.startX = x;
+        this.mouse.startY = y;
+
+        if (this.canScrollBody || this.canScrollContainer) {
+          this.scrollOnMove();
+        }
+
+        this.setNodes();
+        var newX = this.copyPosition.centreX;
+        var newY = this.copyPosition.centreY; // 节点位置是相对于文档的，但容器内滚动会改变相对于文档的位置
+        // simple 下元素的位置只在最开始获取
+        // 当容器发生滚动时，需要加上滚动的距离
+
+        if (this.isSimpleMode && this.canScrollContainer) {
+          newX += this.container.scrollLeft;
+          newY += this.container.scrollTop;
+        }
+
+        if (this.nodeCopy) {
+          this.nodeCopy.style.transform = "translate(".concat(offsetx, "px,").concat(offsety, "px)");
+        }
+
+        this.event.emit('dragmove', this.copyPosition); // 不在容器内
+
+        if (!this.checkInContainer(this.copyPosition.centreX, this.copyPosition.centreY)) {
+          this.event.emit('outcontaner', this.copyPosition);
+          return;
+        }
+
+        if (!this.options.sort) {
+          return;
+        } // 拖拽元素中心在另一个元素内
+
+
+        var hint = this.hint(newX, newY);
+
+        if (this.isSimpleMode) {
+          if (hint === -1 || hint === this.mouse.index) {
+            return;
+          }
+        } else {
+          if (hint === -1 || hint === this.index) {
+            return;
+          } // 因为会在节点交换后，让新节点在原先位置，此时会触发事件，但不应该再次发生交换，所以不能正在交换的2个节点
+
+
+          if (this.options.animation && hint === this.lastHint) {
+            return;
+          }
+        }
+
+        this.setMoveInfo(this.index, hint);
+        this.swapItem();
+
+        if (this.isSimpleMode) {
+          this.mouse.index = hint;
+        } else {
+          // 移动节点后，hintNode索引会改变
+          if (hint > this.index) {
+            this.lastHint = hint - 1;
+          } else if (hint < this.index) {
+            this.lastHint = hint + 1;
+          }
+
+          this.index = hint;
+        }
+
+        this.event.emit('change', this.moveInfo); // console.log('total:' + (performance.now() - start))
+      }
+    }, {
+      key: "_end",
+      value: function _end() {
+        if (!this.canDrag) {
+          return;
+        }
+
+        this.isDragEnd = true;
+
+        if (this.nodeCopy) {
+          this.nodeCopy.remove();
+          this.nodeCopy = null;
+          this.hasNodeCopy = false;
+        } // 拖拽结束，但动画未结束，不触发节点交换
+
+
+        if (this.isSimpleMode) {
+          if (this.isMoveEnd && this.options.animation) {
+            this.sortEndOnSimple();
+          }
+        } else {
+          if (this.isMoveEnd) {
+            this.sortEndOnComplex();
+          }
+        }
+
+        this.event.emit('dragend');
+      }
+    }, {
+      key: "swapItem",
+      value: function swapItem() {
+        var _this5 = this;
+
+        if (this.isSimpleMode) {
+          if (this.options.animation) {
+            this.isMoveEnd = false;
+            this.animateSwap().then(function () {
+              _this5.isMoveEnd = true; // 如果动画结束，但拖拽没有结束，不触发节点交换
+
+              if (_this5.isDragEnd) {
+                _this5.sortEndOnSimple();
+              }
+            });
+          } else {
+            this.sortEndOnSimple();
+          }
+        } else {
+          this.swapNode();
+
+          if (this.options.animation) {
+            this.isMoveEnd = false;
+            this.animateSwap().then(function () {
+              // 动画结束后可与上一次hint元素hint
+              _this5.lastHint = -1;
+              _this5.isMoveEnd = true;
+
+              if (_this5.isDragEnd) {
+                _this5.sortEndOnComplex();
+              }
+            });
+          }
+        }
+      }
+    }, {
+      key: "sortEndOnComplex",
+      value: function sortEndOnComplex() {
+        if (!this.moveInfo) {
+          return;
+        }
+
+        this.canDrag = true;
+        this.resetDragNodeStyle();
+
+        if (this.moveInfo.hintNode) {
+          this.resetNodesTransitionStyle();
+          this.swapDataComplex();
+          this.nodeInitPos = null;
+        }
+
+        this.moveInfo = null;
+      }
+    }, {
+      key: "sortEndOnSimple",
+      value: function sortEndOnSimple() {
+        var _this6 = this;
+
+        if (!this.moveInfo) {
+          return;
+        }
+
+        this.canDrag = true;
+        this.resetDragNodeStyle();
+
+        if (this.moveInfo.hintNode === undefined) {
+          return;
+        }
+
+        var _this$moveInfo = this.moveInfo,
+            dragIndex = _this$moveInfo.dragIndex,
+            hintIndex = _this$moveInfo.hintIndex;
+        this.swapNode();
+        setTimeout(function () {
+          if (hintIndex > dragIndex) {
+            for (var i = dragIndex; i < hintIndex; i++) {
+              var _ref = [_this6.items[i + 1].el, _this6.items[i].el];
+              _this6.items[i].el = _ref[0];
+              _this6.items[i + 1].el = _ref[1];
+              _this6.items[i].position = _this6.getPostionInContainer(_this6.items[i].el);
+
+              if (i === hintIndex - 1) {
+                _this6.items[i + 1].position = _this6.getPostionInContainer(_this6.items[i + 1].el);
+              }
+            }
+          } else if (hintIndex < dragIndex) {
+            for (var _i = dragIndex; _i > hintIndex; _i--) {
+              var _ref2 = [_this6.items[_i - 1].el, _this6.items[_i].el];
+              _this6.items[_i].el = _ref2[0];
+              _this6.items[_i - 1].el = _ref2[1];
+              _this6.items[_i].position = _this6.getPostionInContainer(_this6.items[_i].el);
+
+              if (_i === hintIndex - 1) {
+                _this6.items[_i - 1].position = _this6.getPostionInContainer(_this6.items[_i - 1].el);
+              }
+            }
+          }
+        });
+        this.items.forEach(function (item) {
+          _this6.resetTransitionStyle(item.el);
+        });
+        this.index = hintIndex;
+        this.swapDataSerial();
+        this.moveInfo = null;
+      }
+    }, {
+      key: "insertNode",
+      value: function insertNode(newNode, refNode) {
+        var before = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+        var parentNode = refNode.parentNode;
+
+        if (before) {
+          parentNode.insertBefore(newNode, refNode);
+        } else {
+          var tempNode = document.createElement('div');
+          parentNode.insertBefore(newNode, refNode);
+          parentNode.replaceChild(tempNode, newNode);
+          parentNode.replaceChild(newNode, refNode);
+          parentNode.replaceChild(refNode, tempNode);
+        }
+      }
+    }, {
+      key: "swapNode",
+      value: function swapNode() {
+        var _this$moveInfo2 = this.moveInfo,
+            dragIndex = _this$moveInfo2.dragIndex,
+            hintIndex = _this$moveInfo2.hintIndex,
+            dragNode = _this$moveInfo2.dragNode,
+            hintNode = _this$moveInfo2.hintNode;
+
+        if (hintIndex > dragIndex) {
+          this.insertNode(dragNode, hintNode, false);
+        } else if (hintIndex < dragIndex) {
+          this.insertNode(dragNode, hintNode);
+        }
+      }
+    }, {
+      key: "animateSwap",
+      value: function animateSwap() {
+        var _this7 = this;
+
+        return new Promise(function (resolve) {
+          _this7.animateNodes();
+
+          _this7.emitAnimationEvent(_this7.moveInfo.dragNode);
+
+          _this7.resolve = resolve;
+        });
+      }
+    }, {
+      key: "animateNodes",
+      value: function animateNodes() {
+        var _this8 = this;
+
+        if (this.isSimpleMode) {
+          var swaptItems = [];
+          var transition = "transform ".concat(this.options.duration, "ms ease ").concat(this.options.delay, "ms");
+          var _this$moveInfo3 = this.moveInfo,
+              dragIndex = _this$moveInfo3.dragIndex,
+              hintIndex = _this$moveInfo3.hintIndex,
+              dragItem = _this$moveInfo3.dragItem,
+              dragNode = _this$moveInfo3.dragNode;
+
+          if (this.lastSwaptItems && this.lastSwaptItems.length) {
+            this.lastSwaptItems.forEach(function (item) {
+              _this8.style(item.el, {
+                transition: transition,
+                transform: 'translate(0,0px)'
+              });
+            });
+          }
+
+          var offsetX = 0;
+          var offsetY = 0;
+
+          if (this.direction === 'vertical') {
+            if (hintIndex > dragIndex) {
+              swaptItems = this.items.slice(dragIndex + 1, hintIndex + 1);
+              offsetX = 0;
+              offsetY = dragItem.position.top - swaptItems[0].position.top;
+            } else if (dragIndex > hintIndex) {
+              swaptItems = this.items.slice(hintIndex, dragIndex).reverse();
+              offsetX = 0;
+              offsetY = dragItem.position.bottom - swaptItems[0].position.bottom;
+            }
+          } else if (this.direction === 'horizontal') {
+            if (hintIndex > dragIndex) {
+              swaptItems = this.items.slice(dragIndex + 1, hintIndex + 1);
+              offsetX = dragItem.position.left - swaptItems[0].position.left;
+              offsetY = 0;
+            } else if (dragIndex > hintIndex) {
+              swaptItems = this.items.slice(hintIndex, dragIndex).reverse();
+              offsetX = dragItem.position.right - swaptItems[0].position.right;
+              offsetY = 0;
+            }
+          }
+
+          swaptItems.forEach(function (item, index) {
+            // 其余元素移动的距离
+            var distanceX = 0;
+            var distanceY = 0; // 多行的情况下
+            // 每行第一个移动到上一行最后一个
+            // 每行最后一个移动到下一行第一个
+            // 其他移动的等于该行第一个或最后一个元素与相临元素间距离
+
+            if (hintIndex > dragIndex && item.first || hintIndex < dragIndex && item.last) {
+              if (index === 0) {
+                distanceX = dragItem.position.left - item.position.left;
+                distanceY = dragItem.position.top - item.position.top;
+              } else {
+                distanceX = swaptItems[index - 1].position.left - item.position.left;
+                distanceY = swaptItems[index - 1].position.top - item.position.top;
+              }
+
+              if (swaptItems[index + 1]) {
+                if (_this8.direction === 'horizontal') {
+                  offsetX = item.position.left - swaptItems[index + 1].position.left;
+                } else if (_this8.direction === 'vertical') {
+                  offsetY = item.position.top - swaptItems[index + 1].position.top;
+                }
+              }
+            } else {
+              distanceX = offsetX;
+              distanceY = offsetY;
+            }
+
+            _this8.style(item.el, {
+              transition: transition,
+              transform: "translate(".concat(distanceX, "px,").concat(distanceY, "px)")
+            });
+          });
+          this.lastSwaptItems = swaptItems;
+          this.style(dragNode, {
+            transition: transition,
+            transform: "translate(".concat(this.moveInfo.dx, "px,").concat(this.moveInfo.dy, "px)")
+          });
+        } else {
+          // this.nodes.forEach((node, index) => {
+          //   if (index === this.moveInfo.dragIndex) {
+          //     return
+          //   }
+          //   this.animateComplex(node, this.positions[index])
+          // })
+          // this.animateComplex(
+          //   this.moveInfo.dragNode,
+          //   this.positions[this.moveInfo.dragIndex]
+          // )
+          this.animateNodesDiffPos(this.nodes, this.positions);
+        }
+      }
+    }, {
+      key: "animateNodesDiffPos",
+      value: function animateNodesDiffPos(nodes, positionsBefore) {
+        var _this9 = this;
+
+        // 先将全部节点过渡取消
+        nodes.forEach(function (el) {
+          // 节点在文档中的位置改变后，为了准确获取改变后的位置信息
+          _this9.resetTransitionStyle(el);
+        }); // 再获取现在的位置
+        // 因为获取位置时会重绘制，如果取消一个节点过渡，就离开获取位置，那么会重绘n次
+        // 这样虽然遍历次数增加一倍，但重绘制只有一次，性能提高很多
+
+        var positionsNow = this.getPositions(nodes); // 最后对2次的位置进行过渡动画
+
+        nodes.forEach(function (node, index) {
+          _this9.animateDiffPos(node, positionsBefore[index], positionsNow[index]);
+        });
+      }
+    }, {
+      key: "animateDiffPos",
+      value: function animateDiffPos(el, positionBefore, positionNow) {
+        var _this10 = this;
+
+        var transition = "transform ".concat(this.options.duration, "ms ease ").concat(this.options.delay, "ms");
+
+        if (positionBefore.left !== positionNow.left || positionBefore.top !== positionNow.top) {
+          this.style(el, {
+            transition: 'none',
+            transform: "translate(".concat(positionBefore.left - positionNow.left, "px,").concat(positionBefore.top - positionNow.top, "px)")
+          }); // this.getPosition(el)
+          // 在下一帧启用过渡
+          // 我们需要的是 1.设置元素的 transform 2. 过渡回来原先位置
+          // 这2步操作应该在 1 次重绘前后进行
+          // setTimeout 是推入下一次的宏任务队列
+          // 但浏览器的重绘不一定在每次的宏任务最后，
+          // 重绘应该是浏览器设置，以一个默认周期去重绘，比如16.6ms，
+          // 所以在使用 setTimeout 时，如果2次宏任务恰好在同一周期，1 、2步骤依然可能在一次重绘前进行
+          // 解决方法
+          // 1. 强制重绘，
+          // 2. move事件节流，使用requestAnimationFrame。不能使用setTimeout节流
+
+          setTimeout(function () {
+            _this10.style(el, {
+              transform: 'translate(0, 0)',
+              transition: transition
+            });
+          });
+          this.lastAnimateNode = el;
+        }
+      } // directionX: dragNode 和 hintNode 之间的方向，正时 hintNode 在右边
+      // ditanceX: 移动的距离
+
+    }, {
+      key: "animateComplex",
+      value: function animateComplex(el, position) {
+        var _this11 = this;
+
+        var transition = "transform ".concat(this.options.duration, "ms ease ").concat(this.options.delay, "ms"); // 节点在文档中的位置改变后，为了准确获取改变后的位置信息
+
+        this.resetTransitionStyle(el);
+        var positionBefore = position; // 获取位置信息，会强制引起重绘，所以这里能正确获取
+
+        var positionNow = this.getPosition(el);
+
+        if (positionBefore.left !== positionNow.left || positionBefore.top !== positionNow.top) {
+          this.style(el, {
+            transition: 'none',
+            transform: "translate(".concat(positionBefore.left - positionNow.left, "px,").concat(positionBefore.top - positionNow.top, "px)")
+          }); // this.getPosition(el)
+          // 在下一帧启用过渡
+          // 我们需要的是 1.设置元素的 transform 2. 过渡回来原先位置
+          // 这2步操作应该在 1 次重绘前后进行
+          // setTimeout 是推入下一次的宏任务队列
+          // 但浏览器的重绘不一定在每次的宏任务最后，
+          // 重绘应该是浏览器设置，以一个默认周期去重绘，比如16.6ms，
+          // 所以在使用 setTimeout 时，如果2次宏任务恰好在同一周期，1 、2步骤依然可能在一次重绘前进行
+          // 解决方法
+          // 1. 强制重绘，
+          // 2. move事件节流，使用requestAnimationFrame。不能使用setTimeout节流
+
+          requestAnimationFrame(function () {
+            _this11.style(el, {
+              transform: 'translate(0, 0)',
+              transition: transition
+            });
+          });
+          this.lastAnimateNode = el;
+        }
+      }
+    }, {
+      key: "setNodes",
+      value: function setNodes() {
+        this.nodes = this.getNodes();
+      }
+    }, {
+      key: "getNodes",
+      value: function getNodes() {
+        var _this12 = this;
+
+        // const nodes = [...this.container.querySelectorAll(`.${this.options.dragNode}`)]
+        var nodes = toConsumableArray(this.container.children).filter(function (node) {
+          if (_this12.groupDragNodes && _this12.groupDragNodes.length) {
+            return _this12.groupDragNodes.some(function (item) {
+              return node.className.includes(item);
+            });
+          }
+
+          return node.className.includes(_this12.options.dragNode);
+        });
+
+        if (this.options.mode === 'complex') {
+          if (this.hasNodeCopy) {
+            nodes.pop();
+          }
+        }
+
+        return nodes;
+      }
+    }, {
+      key: "setPostions",
+      value: function setPostions() {
+        this.positions = this.getPositions(this.nodes);
+      }
+    }, {
+      key: "getPositions",
+      value: function getPositions(nodes) {
+        var _this13 = this;
+
+        return nodes.map(function (node) {
+          return _this13.getPosition(node);
+        });
+      }
+    }, {
+      key: "hint",
+      value: function hint(x, y) {
+        var _this14 = this;
+
+        if (this.isSimpleMode) {
+          return this.items.findIndex(function (item) {
+            var position = item.position;
+            return x > position.left && x < position.right && y > position.top && y < position.bottom;
+          });
+        }
+
+        var hintIndex = -1;
+        var isHintIndex = false;
+        var isDragIndex = false;
+        var piece = 0;
+        this.setPostions();
+        this.positions.forEach(function (position, index) {
+          if (x > position.left + piece && x < position.right - piece && y > position.top + piece && y < position.bottom - piece) {
+            // 多行时，处于换行动画的元素不hint
+            // 如果hint，会发生和预期不同的交换结果
+            if (_this14.direction === 'horizontal' && _this14.positions[index - 1] && _this14.positions[index + 1] && position.top !== _this14.positions[index + 1].top && position.top !== _this14.positions[index - 1].top) {
+              return;
+            }
+
+            if (_this14.direction === 'vertical' && _this14.positions[index - 1] && _this14.positions[index + 1] && position.left !== _this14.positions[index + 1].left && position.left !== _this14.positions[index - 1].left) {
+              return;
+            } // 元素重叠时，正在drag和hint的优先
+
+
+            if (index === _this14.moveInfo.dragIndex) {
+              isDragIndex = true;
+            } else if (index === _this14.moveInfo.hintIndex) {
+              isHintIndex = true;
+            } else {
+              hintIndex = index;
+            }
+          }
+        });
+
+        if (isHintIndex) {
+          return this.moveInfo.hintIndex;
+        }
+
+        if (isDragIndex) {
+          return this.moveInfo.dragIndex;
+        }
+
+        return hintIndex;
+      }
+    }, {
+      key: "checkInContainer",
+      value: function checkInContainer(x, y) {
+        var pos = this.containerPosition;
+        return x > pos.left && x < pos.right && y > pos.top && y < pos.bottom;
+      }
+    }, {
+      key: "setMoveInfo",
+      value: function setMoveInfo(current, hint) {
+        if (this.isSimpleMode) {
+          var hintObj = this.items[hint];
+          var currentObj = this.items[current];
+          var dx = 0;
+          var dy = 0;
+
+          if (hint > current) {
+            dy = hintObj.position.bottom - currentObj.position.bottom;
+            dx = hintObj.position.right - currentObj.position.right;
+          } else if (hint < current) {
+            dy = hintObj.position.top - currentObj.position.top;
+            dx = hintObj.position.left - currentObj.position.left;
+          }
+
+          this.moveInfo = {
+            dragItem: currentObj,
+            hintItem: hintObj,
+            dragNode: currentObj.el,
+            hintNode: hintObj.el,
+            dragIndex: current,
+            hintIndex: hint,
+            dx: dx,
+            dy: dy
+          };
+        } else {
+          this.moveInfo = {
+            dragNode: this.nodes[current],
+            hintNode: this.nodes[hint],
+            dragIndex: current,
+            hintIndex: hint
+          };
+        }
+      } // 相对于文档的位置
+
+    }, {
+      key: "getPosition",
+      value: function getPosition(node) {
+        var scrollX = window.scrollX;
+        var scrollY = window.scrollY;
+        var cRect = node.getBoundingClientRect();
+        var left = cRect.left + scrollX;
+        var top = cRect.top + scrollY;
+        var right = cRect.right + scrollX;
+        var bottom = cRect.bottom + scrollY;
+        var width = cRect.right - cRect.left;
+        var height = cRect.bottom - cRect.top;
+        return {
+          left: left,
+          right: right,
+          bottom: bottom,
+          top: top,
+          centreX: left + width / 2,
+          centreY: top + height / 2,
+          width: width,
+          height: height,
+          viewLeft: cRect.left,
+          viewRight: cRect.right,
+          viewTop: cRect.top,
+          viewBottom: cRect.bottom,
+          viewCentreX: cRect.left + width / 2,
+          viewCentreY: cRect.top + height / 2
+        };
+      } // 获取与容器滚动无关，且相对于文档的绝对位置
+
+    }, {
+      key: "getPostionInContainer",
+      value: function getPostionInContainer(node) {
+        var _this$container = this.container,
+            scrollLeft = _this$container.scrollLeft,
+            scrollTop = _this$container.scrollTop;
+        var position = this.getPosition(node);
+        ['left', 'right', 'centreX'].forEach(function (item) {
+          position[item] += scrollLeft;
+        });
+        ['top', 'bottom', 'centreY'].forEach(function (item) {
+          position[item] += scrollTop;
+        });
+        return position;
+      }
+    }, {
+      key: "setNodeCopy",
+      value: function setNodeCopy(node) {
+        var _this$copyInitViewPos = this.copyInitViewPosition,
+            left = _this$copyInitViewPos.left,
+            top = _this$copyInitViewPos.top,
+            width = _this$copyInitViewPos.width,
+            height = _this$copyInitViewPos.height;
+        this.nodeCopy = node.cloneNode(true);
+        var style = {
+          position: 'fixed',
+          left: left + 'px',
+          top: top + 'px',
+          zIndex: 100,
+          transformOrigin: '50% 50%',
+          boxSizing: 'border-box',
+          background: '#c8ebfb',
+          opacity: 0.8,
+          transition: 'none',
+          width: width + 'px',
+          height: height + 'px'
+        };
+        this.nodeCopy.classList.add('sort-copy');
+        this.hasNodeCopy = true;
+        Object.assign(this.nodeCopy.style, style);
+        this.container.appendChild(this.nodeCopy);
+      }
+    }, {
+      key: "initCopyPostion",
+      value: function initCopyPostion(node) {
+        var position = this.getPosition(node); // 初始相对于可视窗口的位置
+
+        this.copyInitViewPosition = {
+          left: position.viewLeft,
+          top: position.viewTop,
+          right: position.viewRight,
+          bottom: position.viewBottom,
+          centreX: position.viewCentreX,
+          centreY: position.viewCentreY,
+          width: position.width,
+          height: position.height
+        };
+        this.copyPosition = {
+          left: position.left,
+          top: position.top,
+          right: position.right,
+          bottom: position.bottom,
+          centreX: position.centreX,
+          centreY: position.centreY,
+          width: position.width,
+          height: position.height
+        };
+      }
+    }, {
+      key: "setCopyPosition",
+      value: function setCopyPosition(dx, dy) {
+        // 与容器滚动无关，相对于文档的位置
+        this.copyPosition = {
+          left: this.copyPosition.left + dx,
+          right: this.copyPosition.right + dx,
+          top: this.copyPosition.top + dy,
+          bottom: this.copyPosition.bottom + dy,
+          centreX: this.copyPosition.centreX + dx,
+          centreY: this.copyPosition.centreY + dy,
+          width: this.copyPosition.width,
+          height: this.copyPosition.height
+        };
+      }
+    }, {
+      key: "setBodyPosition",
+      value: function setBodyPosition() {
+        var _window = window,
+            scrollX = _window.scrollX,
+            scrollY = _window.scrollY;
+        this.bodyPosition = {
+          left: 0 + scrollX,
+          top: 0 + scrollY,
+          right: document.documentElement.clientWidth + scrollX,
+          bottom: document.documentElement.clientHeight + scrollY
+        };
+      }
+    }, {
+      key: "checkContainerScroll",
+      value: function checkContainerScroll() {
+        this.canScrollContainer = checkNodeCanScroll$1(this.container);
+      }
+    }, {
+      key: "checkBodyScroll",
+      value: function checkBodyScroll() {
+        this.canScrollBody = checkPageCanScroll$1();
+
+        if (this.canScrollBody) {
+          // 由容器造成的页面滚动
+          if (this.containerPosition.bottom <= document.documentElement.clientHeight) {
+            this.canScrollBody = false;
+          }
+        }
+      }
+    }, {
+      key: "initScrollInfo",
+      value: function initScrollInfo() {
+        this.checkContainerScroll(); // 相对于文档的位置
+
+        this.containerPosition = this.getPosition(this.container);
+        this.checkBodyScroll();
+
+        if (this.canScrollBody) {
+          // 视口相对于文档的位置
+          this.setBodyPosition();
+        }
+      }
+    }, {
+      key: "scrollRelative",
+      value: function scrollRelative(el, x, y) {
+        el.scrollLeft += x;
+        el.scrollTop += y;
+      } // 鼠标距离开始地方移动的距离dx dy（不包含滚动条)
+
+    }, {
+      key: "scrollOnMove",
+      value: function scrollOnMove() {
+        var _this15 = this;
+
+        var _this$copyPosition = this.copyPosition,
+            left = _this$copyPosition.left,
+            top = _this$copyPosition.top,
+            right = _this$copyPosition.right,
+            bottom = _this$copyPosition.bottom;
+        var piece = 20;
+
+        var scroll = function scroll(el, edge) {
+          return new Promise(function (resolve) {
+            // console.log(edge)
+            if (left <= edge.left) {
+              resolve();
+
+              _this15.scrollRelative(el, -piece, 0);
+            } else if (right >= edge.right) {
+              resolve();
+
+              _this15.scrollRelative(el, piece, 0);
+            } else if (top <= edge.top) {
+              resolve();
+
+              _this15.scrollRelative(el, 0, -piece);
+            } else if (bottom >= edge.bottom) {
+              resolve();
+
+              _this15.scrollRelative(el, 0, piece);
+            }
+          });
+        }; // 暂时只能container造成body scroll或者container scroll但不造成body scroll
+
+
+        if (this.canScrollContainer) {
+          scroll(this.container, this.containerPosition);
+        } else if (this.canScrollBody) {
+          scroll(document.documentElement, this.bodyPosition).then(function () {
+            // 重绘是昂贵的
+            var oldScrollX = window.scrollX;
+            var oldScrollY = window.scrollY;
+
+            _this15.setCopyPosition(scrollX - oldScrollX, scrollY - oldScrollY);
+
+            _this15.setBodyPosition();
+          });
+        }
+      }
+    }, {
+      key: "animateScrollRelative",
+      value: function animateScrollRelative(el, x, y) {
+        var _this16 = this;
+
+        var duration = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 300;
+        var timeout = 10;
+        var dx = Math.ceil(x / duration * timeout);
+        var dy = Math.ceil(y / duration * timeout);
+        var remain = 0;
+        var d = 0;
+
+        if (x !== 0) {
+          remain = x;
+          d = dx;
+        } else if (y !== 0) {
+          remain = y;
+          d = dy;
+        }
+
+        this.isScroll = true;
+
+        var animate = function animate() {
+          if (remain <= 0) {
+            _this16.isScroll = false;
+            return;
+          }
+
+          _this16.scrollRelative(el, dx, dy);
+
+          remain -= d;
+          setTimeout(function () {
+            animate();
+          }, timeout);
+        };
+
+        animate();
+      }
+    }, {
+      key: "setDragNodeStyle",
+      value: function setDragNodeStyle() {
+        var dragNode = this.moveInfo.dragNode;
+
+        if (!dragNode) {
+          return;
+        }
+
+        if (this.options.dragClass) {
+          dragNode.classList.remove(this.options.dragClass);
+        } else {
+          dragNode.style.opacity = 0.6;
+          dragNode.style.background = '#c8ebfb';
+          dragNode.style.zIndex = 10;
+          dragNode.style.position = 'relative';
+        }
+      }
+    }, {
+      key: "resetDragNodeStyle",
+      value: function resetDragNodeStyle() {
+        var dragNode = this.moveInfo.dragNode;
+
+        if (!dragNode) {
+          return;
+        }
+
+        this.resetDragStyle(dragNode);
+      }
+    }, {
+      key: "resetDragStyle",
+      value: function resetDragStyle(node) {
+        if (this.options.dragClass) {
+          node.classList.add(this.options.dragClass);
+        } else {
+          node.style.opacity = '';
+          node.style.background = '';
+          node.style.zIndex = '';
+          node.style.position = '';
+        }
+      }
+    }, {
+      key: "resetNodesTransitionStyle",
+      value: function resetNodesTransitionStyle() {
+        var _this17 = this;
+
+        this.nodes.forEach(function (node) {
+          _this17.resetTransitionStyle(node);
+        });
+      }
+    }, {
+      key: "resetTransitionStyle",
+      value: function resetTransitionStyle(node) {
+        this.style(node, {
+          transition: '',
+          transform: ''
+        });
+      }
+    }, {
+      key: "getParentByClass",
+      value: function getParentByClass(node, pClass) {
+        if (!node) {
+          return null;
+        }
+
+        if (node.className && node.className.includes(pClass)) {
+          return node;
+        }
+
+        return this.getParentByClass(node.parentNode, pClass);
+      }
+    }, {
+      key: "swapData",
+      value: function swapData(current, hint) {
+        var _ref3 = [this.data[hint], this.data[current]];
+        this.data[current] = _ref3[0];
+        this.data[hint] = _ref3[1];
+      }
+    }, {
+      key: "checkNode",
+      value: function checkNode(node) {
+        var _this18 = this;
+
+        // 拖拽子节点时，往上寻找 sort-cell 节点
+        var dragNode = null;
+
+        if (this.groupDragNodes && this.groupDragNodes.length) {
+          this.groupDragNodes.some(function (item) {
+            dragNode = _this18.getParentByClass(node, item);
+            return dragNode;
+          });
+        } else {
+          dragNode = this.getParentByClass(node, this.options.dragNode);
+        }
+
+        if (!dragNode || dragNode.parentNode !== this.container) {
+          this.isRightNode = false;
+        } else {
+          this.isRightNode = true;
+        }
+
+        return dragNode;
+      }
+    }, {
+      key: "swapDataSerial",
+      value: function swapDataSerial() {
+        if (!this.data || !this.moveInfo) {
+          return;
+        }
+
+        var _this$moveInfo4 = this.moveInfo,
+            dragIndex = _this$moveInfo4.dragIndex,
+            hintIndex = _this$moveInfo4.hintIndex;
+        this.sortData(this.data, dragIndex, hintIndex);
+      }
+    }, {
+      key: "swapDataComplex",
+      value: function swapDataComplex() {
+        if (!this.data || !this.moveInfo || !this.nodeInitPos) {
+          return;
+        }
+
+        var firstIndex = this.nodeInitPos.index;
+        var hintIndex = this.moveInfo.hintIndex;
+        this.sortData(this.data, firstIndex, hintIndex);
+      }
+    }, {
+      key: "sortData",
+      value: function sortData(data, start, end) {
+        if (!data || !data.length) {
+          return;
+        }
+
+        var dragItem = this.data.splice(start, 1)[0]; // 如果 end > start，删除后，end 代表的元素已经代表原先的下一个
+        // end 前面添加
+
+        data.splice(end, 0, dragItem);
+      }
+    }, {
+      key: "emitAnimationEvent",
+      value: function emitAnimationEvent(node) {
+        var _this19 = this;
+
+        return new Promise(function (resolve) {
+          _this19.event.emit('animationstart');
+
+          node.removeEventListener('transitionend', _this19.animateNodeEnd);
+          node.addEventListener('transitionend', _this19.animateNodeEnd);
+          _this19.animatedNode = node;
+          _this19.resolve = resolve;
+        });
+      } // 过渡结束触发
+
+    }, {
+      key: "start",
+      value: function start() {
+        var nodes = this.getNodes();
+        var positions = this.getPositions(nodes);
+        var that = this;
+        var fills = [];
+        var lastAddNode = null;
+        var addCount = 0;
+        fills.length = positions.length;
+        fills.fill[1];
+        var _addNodeChanin = null;
+        var _removeNodeChain = null;
+
+        var end = function end() {
+          var animation = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+          if (animation) {
+            var _nodes = that.getNodes();
+
+            that.animateNodesDiffPos(_nodes, positions);
+            that.emitAnimationEvent(lastAddNode || that.lastAnimateNode);
+          }
+        };
+
+        _removeNodeChain = function removeNodeChain(index) {
+          if (fills[index] === 0) {
+            return {
+              removeNode: _removeNodeChain,
+              addNode: _addNodeChanin,
+              end: end
+            };
+          }
+
+          var mindex = index;
+
+          for (var i = 0; i < index + addCount; i++) {
+            if (fills[i] === 0) {
+              mindex--;
+            } else if (fills[i] === 2) {
+              mindex++;
+            }
+          }
+
+          var _that$removeNode = that.removeNode(mindex),
+              cindex = _that$removeNode.index,
+              node = _that$removeNode.node;
+
+          if (cindex >= 0) {
+            positions.splice(cindex, 1);
+            fills.splice(index, 1, 0);
+          }
+
+          return {
+            removeNode: _removeNodeChain,
+            addNode: _addNodeChanin,
+            end: end
+          };
+        };
+
+        _addNodeChanin = function addNodeChanin(_ref4) {
+          var index = _ref4.index,
+              node = _ref4.node,
+              value = _ref4.value,
+              position = _ref4.position,
+              callback = _ref4.callback;
+          var mindex = index;
+
+          for (var i = 0; i < index + addCount; i++) {
+            if (fills[i] === 0) {
+              mindex--;
+            } else if (fills[i] === 2) {
+              mindex++;
+            }
+          }
+
+          var _that$addNode = that.addNode(mindex, node, value),
+              cindex = _that$addNode.index,
+              cnode = _that$addNode.node;
+
+          if (cindex >= 0) {
+            positions.splice(cindex, 0, position || that.getPosition(cnode));
+            fills.splice(index, 0, 2);
+            addCount++;
+            lastAddNode = node;
+          }
+
+          if (callback) {
+            callback(cindex, cnode);
+          }
+
+          return {
+            removeNode: _removeNodeChain,
+            addNode: _addNodeChanin,
+            end: end
+          };
+        };
+
+        return {
+          removeNode: _removeNodeChain,
+          addNode: _addNodeChanin
+        };
+      }
+    }, {
+      key: "limitNumber",
+      value: function limitNumber(value, min, max) {
+        if (value < min) {
+          return min;
+        }
+
+        if (value > max) {
+          return max;
+        }
+
+        return value;
+      }
+    }, {
+      key: "style",
+      value: function style(el, styles) {
+        Object.assign(el.style, styles);
+      }
+    }, {
+      key: "getData",
+      value: function getData() {
+        return this.data;
+      }
+    }, {
+      key: "setData",
+      value: function setData(data) {
+        this.data = data;
+      } // public
+      // 删除节点
+
+    }, {
+      key: "removeNode",
+      value: function removeNode(index) {
+        if (!Number.isInteger(index)) {
+          return;
+        }
+
+        var nodes = this.getNodes();
+        var curIndex = index;
+        curIndex = this.limitNumber(index, 0, nodes.length - 1);
+        this.container.removeChild(nodes[curIndex]);
+        this.removeData(curIndex);
+        this.event.emit('removed', {
+          index: curIndex,
+          node: nodes[curIndex]
+        });
+        return {
+          index: curIndex,
+          node: nodes[curIndex]
+        };
+      }
+    }, {
+      key: "removeNodeAnimated",
+      value: function removeNodeAnimated(index) {
+        var _this20 = this;
+
+        if (!Number.isInteger(index)) {
+          return;
+        }
+
+        var nodes = this.getNodes();
+        var curIndex = index;
+        curIndex = this.limitNumber(index, 0, nodes.length - 1);
+        var beforePostions = this.getPositions(nodes);
+        this.container.removeChild(nodes[curIndex]);
+        this.animateNodesDiffPos(nodes, beforePostions);
+        this.emitAnimationEvent(this.lastAnimateNode).then(function () {
+          _this20.removeData(curIndex);
+
+          _this20.event.emit('removed', {
+            index: curIndex,
+            node: nodes[curIndex]
+          });
+        });
+      }
+    }, {
+      key: "removeData",
+      value: function removeData(index) {
+        if (!this.data) {
+          return;
+        }
+
+        this.data.splice(index, 1);
+      } // 添加index出节点
+
+    }, {
+      key: "addNode",
+      value: function addNode(index, node, value) {
+        if (!Number.isInteger(index)) {
+          return;
+        }
+
+        var nodes = this.getNodes();
+        var curIndex = index;
+        curIndex = this.limitNumber(index, 0, nodes.length);
+
+        if (curIndex === nodes.length) {
+          this.insertNode(node, nodes[nodes.length - 1], false);
+        } else {
+          this.container.insertBefore(node, nodes[curIndex]);
+        }
+
+        this.addData(curIndex, value);
+        this.event.emit('added', {
+          index: curIndex,
+          node: node
+        });
+        return {
+          index: curIndex,
+          node: node
+        };
+      }
+      /**
+       * @description 从指定位置动画添加节点
+       * @param {Number} index 插入位置的索引
+       * @param {Object} newNode 插入的节点
+       * @param {Object} position 节点的初始位置
+       */
+
+    }, {
+      key: "addNodeAnimated",
+      value: function addNodeAnimated(_ref5) {
+        var _this21 = this;
+
+        var index = _ref5.index,
+            newNode = _ref5.newNode,
+            position = _ref5.position,
+            value = _ref5.value;
+
+        if (!Number.isInteger(index)) {
+          return;
+        }
+
+        var nodes = this.getNodes();
+        var beforePostions = this.getPositions(nodes);
+        var newNodePosition = position || this.getPosition(newNode);
+        var curIndex = index;
+        curIndex = this.limitNumber(index, 0, nodes.length);
+
+        if (curIndex === nodes.length) {
+          this.insertNode(newNode, nodes[nodes.length - 1], false);
+        } else {
+          this.container.insertBefore(newNode, nodes[curIndex]);
+        }
+
+        this.animateNodesDiffPos(nodes, beforePostions);
+        this.animateComplex(newNode, newNodePosition);
+        this.emitAnimationEvent(newNode).then(function () {
+          _this21.addData(curIndex, value);
+
+          _this21.event.emit('added', {
+            index: curIndex,
+            node: newNode
+          });
+        });
+      }
+    }, {
+      key: "addData",
+      value: function addData(index, value) {
+        if (!this.data || value === undefined) {
+          return;
+        }
+
+        this.data.splice(index, 0, value);
+      }
+    }, {
+      key: "sort",
+      value: function sort(start, end) {
+        if (this.isSimpleMode) {
+          var curStart = this.limitNumber(start, 0, this.items.length - 1);
+          var curEnd = this.limitNumber(end, 0, this.items.length - 1);
+          this.setMoveInfo(curStart, curEnd);
+          this.setDragNodeStyle();
+          this.swapItem();
+        } else {
+          var nodes = this.getNodes();
+
+          var _curStart = this.limitNumber(start, 0, nodes.length - 1);
+
+          var _curEnd = this.limitNumber(end, 0, nodes.length - 1);
+
+          this.setMoveInfo(_curStart, _curEnd);
+          this.setPostions();
+          this.swapItem();
+        }
+      }
+    }, {
+      key: "destroy",
+      value: function destroy() {
+        this.removeListener();
+
+        if (this.isMobile) {
+          this.items.forEach(function (item) {
+            item.el.draggable = false;
+            item.el.dataset.sortIndex = '';
+          });
+        }
+      }
+    }], [{
+      key: "group",
+      value: function group() {
+        var instances = Array.prototype.slice.call(arguments);
+        var cloned = false;
+        var cloneInfo = {
+          instance: null,
+          node: null,
+          index: -1
+        };
+        var firstInstance = null;
+        var animationend = false;
+        var dragend = false;
+        var dragInstance = null;
+        var hintInstance = null;
+        var isResetNode = true; // 切换排序列表后，第一次拖拽结束执行
+
+        var reset = function reset() {
+          cloned = false;
+          firstInstance = null;
+
+          if (isResetNode) {
+            hintInstance.resetDragNodeStyle();
+            hintInstance.resetNodesTransitionStyle();
+            hintInstance.canDrag = true;
+          }
+
+          dragInstance.isMoveEnd = hintInstance.isMoveEnd = true;
+          dragInstance.isDragEnd = hintInstance.isDragEnd = true;
+          dragInstance.hasNodeCopy = hintInstance.hasNodeCopy = false;
+          cloneInfo = {
+            instance: null,
+            node: null,
+            index: -1
+          };
+          hintInstance.off('animationend', handleAnimationEnd);
+          hintInstance.off('animationstart', handleAnimationStart);
+        };
+
+        var handleAnimationStart = function handleAnimationStart() {
+          animationend = false;
+        };
+
+        var handleAnimationEnd = function handleAnimationEnd() {
+          animationend = true;
+
+          if (dragend) {
+            reset();
+          }
+        };
+
+        var handleDragEnd = function handleDragEnd() {
+          dragend = true;
+
+          if (animationend) {
+            reset();
+          }
+        };
+
+        var handleChange = function handleChange() {
+          isResetNode = false;
+        };
+
+        var addEndEvent = function addEndEvent(dinstance, htInstance) {
+          dragInstance = dinstance;
+          hintInstance = htInstance;
+          animationend = false;
+          dragend = false;
+          isResetNode = true;
+          dragInstance.off('animationend', handleAnimationEnd);
+          dragInstance.off('dragend', handleDragEnd);
+          hintInstance.on('animationend', handleAnimationEnd);
+          hintInstance.on('animationstart', handleAnimationStart);
+          hintInstance.on('dragend', handleDragEnd, true);
+          hintInstance.on('change', handleChange, true);
+        };
+
+        var handleMove = function handleMove(dragInstance) {
+          return function (position) {
+            instances.some(function (hintInstance) {
+              var x = position.centreX,
+                  y = position.centreY;
+
+              if (hintInstance.checkInContainer(x, y)) {
+                if (hintInstance !== dragInstance) {
+                  var ingore = false;
+                  var put = true;
+
+                  if (hintInstance.options.group && !hintInstance.options.group.put) {
+                    ingore = true;
+                    put = false;
+                  }
+
+                  if (hintInstance === firstInstance && cloned) {
+                    ingore = false;
+                  }
+
+                  if (ingore) {
+                    return true;
+                  }
+
+                  firstInstance = firstInstance || dragInstance;
+                  var nodes = hintInstance.getNodes();
+                  var hintIndex = -1;
+                  nodes.forEach(function (node, index) {
+                    var position = hintInstance.getPosition(node);
+
+                    if (x > position.left && x < position.right && y > position.top && y < position.bottom) {
+                      hintIndex = index;
+                    }
+
+                    return position;
+                  });
+
+                  if (hintIndex === -1) {
+                    return true;
+                  }
+
+                  var dragNode = dragInstance.moveInfo.dragNode;
+                  var dragInstanceIndex = dragInstance.index;
+                  var index = hintIndex + 1;
+                  var lastHint = hintIndex; // dragNode 是否动画移动结束
+
+                  var isMoveEnd = false;
+
+                  var _position = dragInstance.getPosition(dragNode);
+
+                  var positionsBefore = dragInstance.getPositions(dragInstance.getNodes());
+                  var dragNodeCopy = dragNode;
+
+                  if (put) {
+                    if (cloned) {
+                      if (hintInstance === firstInstance) {
+                        hintInstance.start().removeNode(cloneInfo.index).addNode({
+                          index: hintIndex + 1,
+                          node: dragNode,
+                          position: _position
+                        }).end(true); // hint前会移除copy元素，所以lastHint代表的索引减1
+
+                        if (hintIndex > cloneInfo.index) {
+                          index = hintIndex;
+                          lastHint = hintIndex - 1; // 不移除copy元素，index在hint的下一个元素
+                        } else if (hintIndex < cloneInfo.index) {
+                          index = hintIndex + 1;
+                          lastHint = hintIndex;
+                        } else {
+                          index = hintIndex;
+                        }
+
+                        positionsBefore.splice(dragInstanceIndex, 1);
+                      }
+                    } else {
+                      hintInstance.addNodeAnimated({
+                        index: hintIndex + 1,
+                        newNode: dragNode,
+                        position: _position
+                      });
+                      positionsBefore.splice(dragInstanceIndex, 1);
+                    }
+                  } else {
+                    if (cloned) {
+                      if (hintInstance === firstInstance) {
+                        hintInstance.start().removeNode(cloneInfo.index).addNode({
+                          index: cloneInfo.index,
+                          node: dragNode
+                        }).end();
+                        index = hintInstance.index;
+                        positionsBefore.splice(dragInstanceIndex, 1);
+                        hintInstance.resetTransitionStyle(dragNode);
+                        isMoveEnd = true;
+                      }
+                    }
+                  }
+
+                  if (firstInstance.options.group && firstInstance.options.group.clone) {
+                    if (!cloned) {
+                      // 记录copy的初始位置
+                      var copyPosition = dragInstance.getPosition(dragNode);
+                      dragNodeCopy = dragNode.cloneNode(true);
+                      dragInstance.resetDragStyle(dragNodeCopy);
+                      dragInstance.addNode(dragInstanceIndex, dragNodeCopy);
+                      dragInstance.animateComplex(dragNodeCopy, copyPosition);
+                      cloneInfo = {
+                        instance: dragInstance,
+                        node: dragNodeCopy,
+                        index: dragInstanceIndex
+                      };
+                      cloned = true;
+                    } else {
+                      dragInstance.animateNodesDiffPos(dragInstance.getNodes(), positionsBefore);
+                    }
+                  } else {
+                    dragInstance.animateNodesDiffPos(dragInstance.getNodes(), positionsBefore);
+                  }
+
+                  if (hintInstance === firstInstance && cloned) {
+                    cloned = false;
+                  }
+
+                  dragInstance.isRightNode = false; // 设置hint实例状态，因为不会触发hint实例的start事件，直接触发move事件
+
+                  hintInstance.isRightNode = true;
+                  hintInstance.copyPosition = dragInstance.copyPosition;
+                  hintInstance.mouse = dragInstance.mouse;
+                  hintInstance.nodeInitPos = {
+                    index: index
+                  };
+
+                  if (dragInstance.nodeCopy) {
+                    hintInstance.nodeCopy = dragInstance.nodeCopy;
+                  }
+
+                  hintInstance.moveInfo = {
+                    dragNode: dragNode,
+                    dragIndex: index
+                  };
+                  hintInstance.index = index;
+                  hintInstance.lastHint = lastHint;
+                  dragInstance.isMoveEnd = hintInstance.isMoveEnd = isMoveEnd;
+                  hintInstance.isDragEnd = false; // 兼容鼠标离开浏览器后不响应mouseup事件
+
+                  if (dragInstance.options.way === 'mouse') {
+                    if (dragInstance.isMouseLeft) {
+                      dragInstance.isMouseLeft = false;
+                      hintInstance.isMouseLeft = true;
+                    }
+
+                    hintInstance.addNode(10000, dragInstance.nodeCopy);
+                    hintInstance.hasNodeCopy = true;
+                    dragInstance.nodeCopy = null;
+                    dragInstance.hasNodeCopy = false;
+                  } // 如果只是插入到第一个hint的节点之后，不移动的话不会再触发move事件，需要手动在动画或拖拽结束时复原拖拽节点样式
+
+
+                  addEndEvent(dragInstance, hintInstance);
+                  return true;
+                }
+              }
+            });
+          };
+        };
+
+        var moveFuns = [];
+        var groupDragNodes = [];
+        instances.forEach(function (instance) {
+          groupDragNodes.push(instance.options.dragNode);
+        });
+        instances.forEach(function (instance, index) {
+          moveFuns[index] = handleMove(instance);
+          instance.groupDragNodes = groupDragNodes;
+          instance.on('outcontaner', moveFuns[index]);
+        });
+      }
+    }]);
+
+    return Sorter;
+  }();
 
   exports.DomResize = DomResize;
   exports.Event = Event;
@@ -1676,6 +3846,7 @@
   exports.RandomSeed = RandomSeed;
   exports.RgbToHex = RgbToHex;
   exports.Slide = Slide;
+  exports.Sorter = Sorter;
   exports.canvasToImg = canvasToImg;
   exports.checkNodeCanScroll = checkNodeCanScroll;
   exports.checkPageCanScroll = checkPageCanScroll;

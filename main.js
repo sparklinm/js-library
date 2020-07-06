@@ -17,3 +17,5 @@ export * from './util/class/RandomSeed'
 export * from './util/class/Slide'
 
 export * from './marquee/marquee.js'
+
+export * from './Sorter/Sorter.js'
