@@ -5,14 +5,13 @@ module.exports = {
     'node': true,
     'es6': true
   },
-  'parser': 'babel-eslint',
   'parserOptions': {
+    'parser': 'babel-eslint',
     'ecmaVersion': 2017,
     'sourceType': 'module'
   },
-  // 'extends': ['plugin:vue/recommended', 'eslint:recommended'],
-  'extends': ['eslint:recommended'],
-  'plugins': ['html'],
+  'extends': ['plugin:vue/recommended', 'eslint:recommended'],
+  'plugins': ['html', 'vue'],
   'settings': {
     'html/indent': '+2',
     'html/report-bad-indent': 'error'

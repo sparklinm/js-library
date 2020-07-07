@@ -54,9 +54,9 @@ function throttle (fn) {
 
 export class Event {
   // on 监听的事件
-  onEvents = {};
-  index = -1;
-  count = 0;
+  onEvents = {}
+  index = -1
+  count = 0
   // once 表示注册的事件只执行一次便自动移除
   on (name, callback, once = false) {
     this.onEvents[name] = this.onEvents[name] || []
@@ -123,32 +123,32 @@ export class Event {
 
 class Sorter {
   // 分类数据
-  data;
+  data
   // 容器节点
-  container;
+  container
   // 列表元素
-  items;
+  items
   // 拖拽元素的副本
-  nodeCopy;
+  nodeCopy
   // 拖拽元素最开始位置信息
-  nodeInitPos;
+  nodeInitPos
   // 拖拽元素位置索引
-  index;
+  index
   // 鼠标位置
-  mouse = {};
+  mouse = {}
   // 单次动画结束
-  isMoveEnd = true;
+  isMoveEnd = true
   // 当次拖拽结束
-  isDragEnd = true;
+  isDragEnd = true
   // 是否能拖拽
-  canDrag = true;
+  canDrag = true
 
   // 相对于文档的位置
-  copyPosition = {};
+  copyPosition = {}
   // 相对于文档的位置
-  bodyPosition = {};
+  bodyPosition = {}
   // 相对于文档的位置
-  containerPosition = {};
+  containerPosition = {}
   // postions 相对于文档的位置
 
   // simple：性能高，但多行时如果有动画，不支持元素大小不一样
@@ -253,14 +253,13 @@ class Sorter {
       hintInstance.on('change', handleChange, true)
     }
 
-    const handleMove = dragInstance => {
+    const handleMove = (dragInstance) => {
       return function (position) {
-        instances.some(hintInstance => {
+        instances.some((hintInstance) => {
           const { centreX: x, centreY: y } = position
 
           if (hintInstance.checkInContainer(x, y)) {
             if (hintInstance !== dragInstance) {
-
               let ingore = false
               let put = true
 
@@ -315,6 +314,7 @@ class Sorter {
               )
 
               let dragNodeCopy = dragNode
+              const value = dragInstance.data[dragInstance.nodeInitPos.index]
 
               if (put) {
                 if (cloned) {
@@ -325,7 +325,8 @@ class Sorter {
                       .addNode({
                         index: hintIndex + 1,
                         node: dragNode,
-                        position
+                        position,
+                        value
                       })
                       .end(true)
                     // hint前会移除copy元素，所以lastHint代表的索引减1
@@ -345,7 +346,8 @@ class Sorter {
                   hintInstance.addNodeAnimated({
                     index: hintIndex + 1,
                     node: dragNode,
-                    position
+                    position,
+                    value: value
                   })
                   positionsBefore.splice(dragInstanceIndex, 1)
                 }
@@ -357,7 +359,8 @@ class Sorter {
                       .removeNode(cloneInfo.index)
                       .addNode({
                         index: cloneInfo.index,
-                        node: dragNode
+                        node: dragNode,
+                        value
                       })
                       .end()
                     index = hintInstance.index
@@ -380,6 +383,7 @@ class Sorter {
                   dragInstance.resetDragStyle(dragNodeCopy)
                   dragInstance.addNode(dragInstanceIndex, dragNodeCopy)
                   dragInstance.animateComplex(dragNodeCopy, copyPosition)
+                  dragInstance.swapDataComplex()
                   cloneInfo = {
                     instance: dragInstance,
                     node: dragNodeCopy,
@@ -391,13 +395,18 @@ class Sorter {
                     dragInstance.getNodes(),
                     positionsBefore
                   )
+                  dragInstance.removeData(dragInstance.nodeInitPos.index)
                 }
               } else {
                 dragInstance.animateNodesDiffPos(
                   dragInstance.getNodes(),
                   positionsBefore
                 )
+                dragInstance.removeData(dragInstance.nodeInitPos.index)
               }
+
+              dragInstance.event.emit('sortedOnLists', {})
+              hintInstance.event.emit('sortedOnLists', {})
 
               if (hintInstance === firstInstance && cloned) {
                 cloned = false
@@ -449,7 +458,7 @@ class Sorter {
 
     const groupDragNodes = []
 
-    instances.forEach(instance => {
+    instances.forEach((instance) => {
       groupDragNodes.push(instance.options.dragNode)
     })
     instances.forEach((instance, index) => {
@@ -523,13 +532,13 @@ class Sorter {
         this.items.push(obj)
       })
     } else {
-      this.nodes.forEach(node => {
+      this.nodes.forEach((node) => {
         if (!this.isMobile) {
           node.draggable = true
         }
       })
       const firstNodePos = this.getPosition(this.nodes[0])
-      const secondNodePos = this.getPosition (this.nodes[1])
+      const secondNodePos = this.getPosition(this.nodes[1])
 
       if (
         secondNodePos.left !== firstNodePos.left &&
@@ -655,7 +664,7 @@ class Sorter {
     }
   }
 
-  dragStart = e => {
+  dragStart = (e) => {
     const node = e.target
     const dragNode = this.checkNode(node)
 
@@ -675,9 +684,9 @@ class Sorter {
       e.dataTransfer.dropEffect = 'move'
     }
     this.setDragNodeStyle()
-  };
+  }
 
-  drag = e => {
+  drag = (e) => {
     if (!this.isRightNode) {
       return
     }
@@ -686,24 +695,23 @@ class Sorter {
     // console.log('clientX：' + e.clientX + '；' + 'clientY：' + e.clientY)
 
     this._move(e.clientX, e.clientY)
-  };
+  }
 
   dragEnd = () => {
     if (!this.isRightNode) {
       return
     }
     this._end()
-  };
+  }
 
   dragOver (ev) {
     ev.preventDefault()
   }
 
-  mouseDown = event => {
+  mouseDown = (event) => {
     if (event.button !== 0) {
       return
     }
-
 
     event.preventDefault()
     const node = event.target
@@ -725,16 +733,15 @@ class Sorter {
     }
     this.setDragNodeStyle()
     this.setNodeCopy(dragNode)
-  };
+  }
 
-  mouseMove = event => {
+  mouseMove = (event) => {
     if (!this.isRightNode || !this.nodeCopy) {
       return
     }
 
     this._move(event.clientX, event.clientY)
-  };
-
+  }
 
   mouseLeave = () => {
     if (!this.isRightNode) {
@@ -755,9 +762,9 @@ class Sorter {
     // 即使mouseup触发  mousemove还是会触发
     this.isRightNode = false
     this.isMouseLeft = false
-  };
+  }
 
-  touchStart = event => {
+  touchStart = (event) => {
     event.preventDefault()
     const touch = event.targetTouches[0]
     const node = touch.target
@@ -774,9 +781,9 @@ class Sorter {
     }
     this.setNodeCopy(dragNode)
     this.setDragNodeStyle()
-  };
+  }
 
-  touchMove = event => {
+  touchMove = (event) => {
     if (!this.isRightNode) {
       return
     }
@@ -784,14 +791,14 @@ class Sorter {
     const touch = event.targetTouches[0]
 
     this._move(touch.clientX, touch.clientY)
-  };
+  }
 
   touchEnd = () => {
     if (!this.isRightNode) {
       return
     }
     this._end()
-  };
+  }
 
   _start (node, x, y) {
     // 即使end事件触发，但动画也可能正在进行
@@ -804,12 +811,12 @@ class Sorter {
     let index = -1
 
     if (this.isSimpleMode) {
-      index = this.items.findIndex(item => {
+      index = this.items.findIndex((item) => {
         return item.el === node
       })
     } else {
       this.setNodes()
-      index = this.nodes.findIndex(el => {
+      index = this.nodes.findIndex((el) => {
         return el === node
       })
     }
@@ -827,6 +834,7 @@ class Sorter {
     this.initCopyPostion(node)
 
     this.nodeInitPos = {
+      node,
       index
     }
 
@@ -834,7 +842,6 @@ class Sorter {
       dragNode: node,
       dragIndex: index
     }
-
 
     this.mouse.originX = x
     this.mouse.originY = y
@@ -856,7 +863,7 @@ class Sorter {
     if (!this.canDrag) {
       return
     }
-    const start = performance.now()
+    // const start = performance.now()
 
     // 距离开始位置的偏移量
     const offsety = y - this.mouse.originY
@@ -878,7 +885,6 @@ class Sorter {
     }
 
     this.setNodes()
-
 
     let newX = this.copyPosition.centreX
     let newY = this.copyPosition.centreY
@@ -918,7 +924,6 @@ class Sorter {
     // 拖拽元素中心在另一个元素内
     const hint = this.hint(newX, newY)
 
-
     if (this.isSimpleMode) {
       if (hint === -1 || hint === this.mouse.index) {
         return
@@ -947,10 +952,6 @@ class Sorter {
       }
       this.index = hint
     }
-    this.event.emit('change', {
-      position: this.copyPosition,
-      ...this.moveInfo
-    })
 
     // console.log('total:' + (performance.now() - start))
   }
@@ -1010,6 +1011,10 @@ class Sorter {
         })
       }
     }
+    this.event.emit('change', {
+      position: this.copyPosition,
+      ...this.moveInfo
+    })
   }
 
   sortEndOnComplex () {
@@ -1021,6 +1026,13 @@ class Sorter {
     if (this.moveInfo.hintNode) {
       this.resetNodesTransitionStyle()
       this.swapDataComplex()
+      this.event.emit('sorted', {
+        startIndex: this.nodeInitPos.index,
+        startNode: this.nodeInitPos.node,
+        hintIndex: this.moveInfo.hintIndex,
+        hintNode: this.moveInfo.hintNode,
+        position: this.copyPosition
+      })
       this.nodeInitPos = null
     }
     this.moveInfo = null
@@ -1068,7 +1080,7 @@ class Sorter {
       }
     })
 
-    this.items.forEach(item => {
+    this.items.forEach((item) => {
       this.resetTransitionStyle(item.el)
     })
 
@@ -1103,7 +1115,7 @@ class Sorter {
   }
 
   animateSwap () {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       this.animateNodes()
       this.emitAnimationEvent(this.moveInfo.dragNode)
       this.resolve = resolve
@@ -1117,7 +1129,7 @@ class Sorter {
       const { dragIndex, hintIndex, dragItem, dragNode } = this.moveInfo
 
       if (this.lastSwaptItems && this.lastSwaptItems.length) {
-        this.lastSwaptItems.forEach(item => {
+        this.lastSwaptItems.forEach((item) => {
           this.style(item.el, {
             transition: transition,
             transform: 'translate(0,0px)'
@@ -1167,14 +1179,12 @@ class Sorter {
             distanceX = dragItem.position.left - item.position.left
             distanceY = dragItem.position.top - item.position.top
           } else {
-            distanceX =
-              swaptItems[index - 1].position.left - item.position.left
+            distanceX = swaptItems[index - 1].position.left - item.position.left
             distanceY = swaptItems[index - 1].position.top - item.position.top
           }
           if (swaptItems[index + 1]) {
             if (this.direction === 'horizontal') {
-              offsetX =
-                item.position.left - swaptItems[index + 1].position.left
+              offsetX = item.position.left - swaptItems[index + 1].position.left
             } else if (this.direction === 'vertical') {
               offsetY = item.position.top - swaptItems[index + 1].position.top
             }
@@ -1211,7 +1221,7 @@ class Sorter {
 
   animateNodesDiffPos (nodes, positionsBefore) {
     // 先将全部节点过渡取消
-    nodes.forEach(el => {
+    nodes.forEach((el) => {
       // 节点在文档中的位置改变后，为了准确获取改变后的位置信息
       this.resetTransitionStyle(el)
     })
@@ -1236,8 +1246,9 @@ class Sorter {
     ) {
       this.style(el, {
         transition: 'none',
-        transform: `translate(${positionBefore.left -
-          positionNow.left}px,${positionBefore.top - positionNow.top}px)`
+        transform: `translate(${positionBefore.left - positionNow.left}px,${
+          positionBefore.top - positionNow.top
+        }px)`
       })
       // this.getPosition(el)
       // 在下一帧启用过渡
@@ -1276,11 +1287,11 @@ class Sorter {
       positionBefore.left !== positionNow.left ||
       positionBefore.top !== positionNow.top
     ) {
-
       this.style(el, {
         transition: 'none',
-        transform: `translate(${positionBefore.left -
-          positionNow.left}px,${positionBefore.top - positionNow.top}px)`
+        transform: `translate(${positionBefore.left - positionNow.left}px,${
+          positionBefore.top - positionNow.top
+        }px)`
       })
       // this.getPosition(el)
       // 在下一帧启用过渡
@@ -1310,9 +1321,9 @@ class Sorter {
 
   getNodes () {
     // const nodes = [...this.container.querySelectorAll(`.${this.options.dragNode}`)]
-    const nodes = [...this.container.children].filter(node => {
+    const nodes = [...this.container.children].filter((node) => {
       if (this.groupDragNodes && this.groupDragNodes.length) {
-        return this.groupDragNodes.some(item => {
+        return this.groupDragNodes.some((item) => {
           return node.className.includes(item)
         })
       }
@@ -1333,14 +1344,14 @@ class Sorter {
   }
 
   getPositions (nodes) {
-    return nodes.map(node => {
+    return nodes.map((node) => {
       return this.getPosition(node)
     })
   }
 
   hint (x, y) {
     if (this.isSimpleMode) {
-      return this.items.findIndex(item => {
+      return this.items.findIndex((item) => {
         const position = item.position
 
         return (
@@ -1484,10 +1495,10 @@ class Sorter {
     const { scrollLeft, scrollTop } = this.container
     const position = this.getPosition(node);
 
-    ['left', 'right', 'centreX'].forEach(item => {
+    ['left', 'right', 'centreX'].forEach((item) => {
       position[item] += scrollLeft
     });
-    ['top', 'bottom', 'centreY'].forEach(item => {
+    ['top', 'bottom', 'centreY'].forEach((item) => {
       position[item] += scrollTop
     })
     return position
@@ -1607,7 +1618,7 @@ class Sorter {
     const piece = 20
 
     const scroll = (el, edge) => {
-      return new Promise(resolve => {
+      return new Promise((resolve) => {
         // console.log(edge)
         if (left <= edge.left) {
           resolve()
@@ -1710,7 +1721,7 @@ class Sorter {
   }
 
   resetNodesTransitionStyle () {
-    this.nodes.forEach(node => {
+    this.nodes.forEach((node) => {
       this.resetTransitionStyle(node)
     })
   }
@@ -1744,7 +1755,7 @@ class Sorter {
     let dragNode = null
 
     if (this.groupDragNodes && this.groupDragNodes.length) {
-      this.groupDragNodes.some(item => {
+      this.groupDragNodes.some((item) => {
         dragNode = this.getParentByClass(node, item)
         return dragNode
       })
@@ -1782,7 +1793,7 @@ class Sorter {
   }
 
   sortData (data, start, end) {
-    if (!data || !data.length) {
+    if (!data || !data.length || !(start >= 0) || !(end >= 0) || start === end) {
       return
     }
     const dragItem = this.data.splice(start, 1)[0]
@@ -1793,7 +1804,7 @@ class Sorter {
   }
 
   emitAnimationEvent (node) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       this.event.emit('animationstart')
       node.removeEventListener('transitionend', this.animateNodeEnd)
       node.addEventListener('transitionend', this.animateNodeEnd)
@@ -1808,9 +1819,7 @@ class Sorter {
     // 触发end的条件，拖拽元素有发生交换，拖拽元素有动画
     this.event.emit('animationend')
     this.resolve && this.resolve()
-  };
-
-
+  }
 
   limitNumber (value, min, max) {
     if (value < min) {
@@ -1861,13 +1870,8 @@ class Sorter {
 
     curIndex = this.limitNumber(index, 0, nodes.length - 1)
     this.container.removeChild(nodes[curIndex])
-
     this.removeData(curIndex)
 
-    this.event.emit('removed', {
-      index: curIndex,
-      node: nodes[curIndex]
-    })
     return {
       index: curIndex,
       node: nodes[curIndex]
@@ -1888,13 +1892,9 @@ class Sorter {
 
     this.container.removeChild(nodes[curIndex])
     this.animateNodesDiffPos(nodes, beforePostions)
-    this.emitAnimationEvent(this.lastAnimateNode).then(() => {
-      this.removeData(curIndex)
-      this.event.emit('removed', {
-        index: curIndex,
-        node: nodes[curIndex]
-      })
-    })
+    this.emitAnimationEvent(this.lastAnimateNode)
+    this.removeData(curIndex)
+
     return {
       index: curIndex,
       node: nodes[curIndex]
@@ -1918,10 +1918,6 @@ class Sorter {
     }
 
     this.addData(curIndex, value)
-    this.event.emit('added', {
-      index: curIndex,
-      node: node
-    })
     return {
       index: curIndex,
       node: node
@@ -1939,8 +1935,6 @@ class Sorter {
     if (!Number.isInteger(index)) {
       return
     }
-    console.log(arguments)
-
     const nodes = this.getNodes()
     const beforePostions = this.getPositions(nodes)
     const newNodePosition = position || this.getPosition(node)
@@ -1955,15 +1949,9 @@ class Sorter {
     }
 
     this.animateNodesDiffPos(nodes, beforePostions)
-
     this.animateComplex(node, newNodePosition)
-    this.emitAnimationEvent(node).then(() => {
-      this.addData(curIndex, value)
-      this.event.emit('added', {
-        index: curIndex,
-        node: node
-      })
-    })
+    this.addData(curIndex, value)
+    this.emitAnimationEvent(node)
     return {
       index: curIndex,
       node: node
@@ -2062,6 +2050,9 @@ class Sorter {
   }
 
   sort (start, end) {
+    if (start === end || !Number.isInteger(start) || !Number.isInteger(end)) {
+      return
+    }
     if (this.isSimpleMode) {
       const curStart = this.limitNumber(start, 0, this.items.length - 1)
       const curEnd = this.limitNumber(end, 0, this.items.length - 1)
@@ -2070,10 +2061,14 @@ class Sorter {
       this.setDragNodeStyle()
       this.swapItem()
     } else {
-      const nodes = this.getNodes()
-      const curStart = this.limitNumber(start, 0, nodes.length - 1)
-      const curEnd = this.limitNumber(end, 0, nodes.length - 1)
+      this.setNodes()
+      const curStart = this.limitNumber(start, 0, this.nodes.length - 1)
+      const curEnd = this.limitNumber(end, 0, this.nodes.length - 1)
 
+      this.nodeInitPos = {
+        node: this.nodes[curStart],
+        index: curStart
+      }
       this.setMoveInfo(curStart, curEnd)
       this.setPostions()
       this.swapItem()
@@ -2083,7 +2078,7 @@ class Sorter {
   destroy () {
     this.removeListener()
     if (this.isMobile) {
-      this.items.forEach(item => {
+      this.items.forEach((item) => {
         item.el.draggable = ''
         item.el.dataset.sortIndex = ''
       })

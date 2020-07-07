@@ -27,9 +27,9 @@
         </div>
       </div>
       <div class="operation">
-        <button onclick="select.next()">下一个</button>
-        <button onclick="select.pre()">上一个</button>
-        <button onclick="select.toItem(Math.random()*6)">随机选择</button>
+        <button id="ex-opt1">下一个</button>
+        <button id="ex-opt2">上一个</button>
+        <button id="ex-opt3">随机选择</button>
       </div>
 
       <div class="selected-value"></div>
@@ -81,6 +81,17 @@
     </style>
 
     <script>
+      document.querySelector('.operation').addEventListener('click', (e) => {
+        const id = e.target.id
+
+        if (id === 'ex-opt1') {
+          select.next()
+        } else if (id === 'ex-opt2') {
+          select.pre()
+        } else if (id === 'ex-opt3') {
+          select.toItem(Math.random() * 6)
+        }
+      })
       const SlideSelect = util.SlideSelect
       const select = new SlideSelect(document.querySelector('#slide-select'), {
         slideList: '.slide-select-list',
@@ -108,11 +119,41 @@
         div.innerHTML = data[index]
       })
 
-      select.on('finish', (node, index) => {
+      select.on('finish', ({ index }) => {
         div.innerHTML = data[index]
       })
 
+      select.on('finish', (params) => {
+        console.log('finish:')
+        console.log(params)
+      })
 
+      select.on('slidestart', (params) => {
+        console.log('slidestart:')
+        console.log(params)
+      })
+
+      select.on('slide', () => {
+        console.log('slide')
+      })
+
+      select.on('slideend', () => {
+        console.log('slideend')
+      })
+
+      select.on('change', (params) => {
+        console.log('change:')
+        console.log(params)
+      })
+
+      select.on('selected', (params) => {
+        console.log('selected:')
+        console.log(params)
+      })
+
+      select.on('animationend', () => {
+        console.log('animationend:')
+      })
       select.init()
     </script>
   </body>

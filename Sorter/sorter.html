@@ -14,29 +14,39 @@
   </head>
 
   <body>
-    <div id="sort1" class="list-group1">
-      <div class="list-group-item1">1</div>
-      <div class="list-group-item1">2</div>
-      <div class="list-group-item1">3</div>
-      <div class="list-group-item1">4</div>
-      <div class="list-group-item1">5</div>
-      <div class="list-group-item1">6</div>
-      <div class="list-group-item1">7</div>
-      <div class="list-group-item1">8</div>
-      <div class="list-group-item1">9</div>
-      <div class="list-group-item1">10</div>
-    </div>
-    <div id="sort2" class="list-group2">
-      <div class="list-group-item2">1</div>
-      <div class="list-group-item2">2</div>
-      <div class="list-group-item2">3</div>
-      <div class="list-group-item2">4</div>
-      <div class="list-group-item2">5</div>
-      <div class="list-group-item2">6</div>
-      <div class="list-group-item2">7</div>
-      <div class="list-group-item2">8</div>
-      <div class="list-group-item2">9</div>
-      <div class="list-group-item2">10</div>
+    <div class="example-container">
+      <div id="sort1" class="list-group1">
+        <div class="list-group-item1">1</div>
+        <div class="list-group-item1">2</div>
+        <div class="list-group-item1">3</div>
+        <div class="list-group-item1">4</div>
+        <div class="list-group-item1">5</div>
+        <div class="list-group-item1">6</div>
+        <div class="list-group-item1">7</div>
+        <div class="list-group-item1">8</div>
+        <div class="list-group-item1">9</div>
+        <div class="list-group-item1">10</div>
+      </div>
+      <div id="sort2" class="list-group2">
+        <div class="list-group-item2">1</div>
+        <div class="list-group-item2">2</div>
+        <div class="list-group-item2">3</div>
+        <div class="list-group-item2">4</div>
+        <div class="list-group-item2">5</div>
+        <div class="list-group-item2">6</div>
+        <div class="list-group-item2">7</div>
+        <div class="list-group-item2">8</div>
+        <div class="list-group-item2">9</div>
+        <div class="list-group-item2">10</div>
+      </div>
+
+      <div class="operation">
+        <button id="ex-opt1">排序</button>
+      </div>
+      <div>列表1：</div>
+      <div class="data-1"></div>
+      <div>列表2：</div>
+      <div class="data-2"></div>
     </div>
 
     <style>
@@ -46,7 +56,6 @@
         width: 400px;
         vertical-align: top;
       }
-
       .list-group-item1,
       .list-group-item2 {
         cursor: move;
@@ -58,28 +67,85 @@
         margin: 5px;
         font-size: 16px;
       }
-
       .list-group-item2 {
         background: pink;
+      }
+      .example-container .operation {
+        margin-top: 20px;
+      }
+      .example-container .operation button {
+        display: inline-block;
+        line-height: 1;
+        cursor: pointer;
+        border: 1px solid #dcdfe6;
+        text-align: center;
+        box-sizing: border-box;
+        outline: none;
+        padding: 6px;
+        font-size: 14px;
+        border-radius: 4px;
+        color: #fff;
+        background-color: #409eff;
+        border-color: #409eff;
+        margin: 5px;
       }
     </style>
 
     <script>
+      document.querySelector('.operation').addEventListener('click', (e) => {
+        const id = e.target.id
+
+        if (id === 'ex-opt1') {
+          sort()
+        }
+      })
+      const sort = function () {
+        const length = document.querySelector('#sort1').children.length
+        const start = Math.floor(Math.random() * length)
+        const end = Math.floor(Math.random() * length)
+
+        sorter2.sort(start, end)
+      }
       const Sorter = util.Sorter
+
+      const div1 = document.querySelector('.data-1')
+      const data1 = []
+
+      for (let index = 1; index < 11; index++) {
+        data1[index - 1] = index + '*'
+      }
+      div1.innerHTML = data1.join(', ')
+
       const sorter1 = new Sorter(
         document.querySelector('#sort1'),
         {
           dragNode: 'list-group-item1',
           group: {
             clone: true,
-            put: false
+            put: true
           },
           sort: true
-        }
+        },
+        data1
       )
 
+      sorter1.on('sorted', () => {
+        div1.innerHTML = data1.join(', ')
+      })
+      sorter1.on('sortedOnLists', () => {
+        div1.innerHTML = data1.join(', ')
+      })
+
       sorter1.init()
-      
+
+      const div2 = document.querySelector('.data-2')
+      const data2 = []
+
+      for (let index = 1; index < 11; index++) {
+        data2[index - 1] = index
+      }
+      div2.innerHTML = data2.join(', ')
+
       const sorter2 = new Sorter(
         document.querySelector('#sort2'),
         {
@@ -89,11 +155,44 @@
             put: true
           },
           sort: true
-        }
+        },
+        data2
       )
 
-      sorter2.init()
+      sorter2.on('dragstart', (params) => {
+        console.log('dragstart:')
+        console.log(params)
+      })
 
+      sorter2.on('dragmove', (params) => {
+        console.log('dragmove')
+        console.log(params)
+      })
+      sorter2.on('dragend', (params) => {
+        console.log('dragend')
+        console.log(params)
+      })
+      sorter2.on('change', (params) => {
+        console.log('change:')
+        console.log(params)
+      })
+      sorter2.on('animationstart', () => {
+        console.log('animationstart')
+      })
+      sorter2.on('sorted', (params) => {
+        console.log('sorted')
+        console.log(params)
+
+        div2.innerHTML = data2.join(', ')
+      })
+      sorter2.on('sortedOnLists', () => {
+        div2.innerHTML = data2.join(', ')
+      })
+      sorter2.on('animationend', () => {
+        console.log('animationend')
+      })
+
+      sorter2.init()
       Sorter.group(sorter1, sorter2)
     </script>
   </body>

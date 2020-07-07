@@ -4,6 +4,8 @@ import { Event } from '../util/class/Event'
 import { throttle } from '../util/util'
 
 export class SlideSelect extends Event {
+  // 初始选择的索引
+  firstIndex=0
   // 所选元素索引
   curIndex = 0
   // 上一个所选元素索引
@@ -45,11 +47,11 @@ export class SlideSelect extends Event {
 
     this.options = Object.assign(defaultOptions, options)
     this.addListener()
-    this.domResize = new DomResize(this.el)
+    // this.domResize = new DomResize(this.el)
 
-    this.domResize.on('domResize', () => {
-      this.init()
-    })
+    // this.domResize.on('domResize', () => {
+    //   this.init()
+    // })
 
     this.touch = new Touch(this.el)
   }
@@ -57,10 +59,6 @@ export class SlideSelect extends Event {
   init (options = {}) {
     Object.assign(this.options, options)
     this.setNodes()
-    if (!this.nodeInfo.total) {
-      this.emit('finish', null, '', [])
-      return
-    }
     this.style(this.el, {
       height: this.options.visiableRowCount * this.nodeInfo.height + 'px',
       overflow: 'hidden'
@@ -76,11 +74,18 @@ export class SlideSelect extends Event {
       }
     } else {
       index = 0
+
     }
-    this.setCurIndex(index)
+    this.curIndex = index
+    this.lastIndex = index
+    this.firstIndex = index
+    this.addSelectedClass()
     this.setPosDirect(this.getSelectedPos(this.curIndex))
     this.addSelectBox()
-    this.emit('finish', this.nodes[this.curIndex], this.curIndex, this.nodes)
+    this.emit('finish', {
+      index: this.curIndex,
+      node: this.nodes[this.curIndex]
+    })
   }
 
   addListener () {
@@ -93,32 +98,36 @@ export class SlideSelect extends Event {
   static connect () {}
 
   _slidestart = () => {
+    this.firstIndex = this.curIndex
     this.emit(
       'slidestart',
-      this.nodes[this.curIndex],
-      this.curIndex,
-      this.nodes
+      {
+        index: this.curIndex,
+        node: this.nodes[this.curIndex]
+      }
     )
   }
 
   _slide = (e) => {
     if (!this.isAnimated) {
       this.slide(e.detail.dy)
+      this.emit('slide')
     }
   }
 
   _slideend = () => {
     this.smoothSlide(this.getCorrectPos() - this.translateY)
+    this.emit('slideend')
     this.on(
       'animationend',
       () => {
         this.changeCurIndex()
-        this.emit(
-          'slideend',
-          this.nodes[this.curIndex],
-          this.curIndex,
-          this.nodes
-        )
+        this.emit('selected', {
+          index: this.curIndex,
+          node: this.nodes[this.curIndex],
+          startIndex: this.firstIndex,
+          startNode: this.nodes[this.firstIndex]
+        })
       },
       true
     )
@@ -184,7 +193,6 @@ export class SlideSelect extends Event {
       transform: `translateY(${this.translateY}px)`
     })
     this.changeCurIndex()
-    this.emit('slide', this.nodes[this.curIndex], this.curIndex, this.nodes)
   }
 
   setPosDirect (y) {
@@ -212,6 +220,8 @@ export class SlideSelect extends Event {
 
     const distance = (this.curIndex - cindex) * this.nodeInfo.height
 
+    this.firstIndex = this.curIndex
+
     if (!animation) {
       this.slide(distance)
       this.changeCurIndex()
@@ -221,6 +231,12 @@ export class SlideSelect extends Event {
         'animationend',
         () => {
           this.changeCurIndex()
+          this.emit('selected', {
+            index: this.curIndex,
+            node: this.nodes[this.curIndex],
+            startIndex: this.firstIndex,
+            startNode: this.nodes[this.firstIndex]
+          })
         },
         true
       )
@@ -284,24 +300,19 @@ export class SlideSelect extends Event {
   }
 
   changeCurIndex () {
-    this.curIndex = this.getSelectedIndex(this.translateY)
+    const index = this.getSelectedIndex(this.translateY)
 
-    if (this.lastIndex !== this.curIndex) {
+    if (index !== this.curIndex) {
+      this.lastIndex = this.curIndex
+      this.curIndex = index
       this.addSelectedClass()
       this.emit('change', {
         index: this.curIndex,
         node: this.nodes[this.curIndex],
         lastIndex: this.lastIndex,
-        lastNode: this.nodes[this.lastIndex],
-        nodes: this.nodes
+        lastNode: this.nodes[this.lastIndex]
       })
-      this.lastIndex = this.curIndex
     }
-  }
-
-  setCurIndex (index) {
-    this.curIndex = index
-    this.addSelectedClass()
   }
 
   addSelectedClass () {
@@ -368,7 +379,7 @@ export class SlideSelect extends Event {
       this.el.removeChild(this.selectBox)
     }
     this.touch.destroy()
-    this.domResize.destroy()
+    // this.domResize.destroy()
     this.el.removeEventListener('slidestart', this._slidestart)
     this.el.removeEventListener('slidemove', this._throttleSlide)
     this.el.removeEventListener('slideend', this._slideend)

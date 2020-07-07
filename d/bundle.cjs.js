@@ -1457,8 +1457,12 @@ var Slide = /*#__PURE__*/function () {
    * @param {Number} maxSlideDx - x 方向最大移动距离。
    * @param {Number} maxSlideDy - y 方向最大移动距离。
    */
-  function Slide(el, maxSlideDx, maxSlideDy) {
+  function Slide(el) {
     var _this = this;
+
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+      limitArea: false
+    };
 
     classCallCheck(this, Slide);
 
@@ -1549,12 +1553,36 @@ var Slide = /*#__PURE__*/function () {
       var offsetx = 0;
       var offsety = 0; // 单次滑动过程不能超过设定maxSlideDx值
 
-      if (_this.customData.offsetx + dx > _this.maxSlideDx) {
-        dx = _this.maxSlideDx - _this.customData.offsetx;
-        offsetx = _this.maxSlideDx;
-      } else if (_this.customData.offsetx + dx < -_this.maxSlideDx) {
-        dx = -_this.maxSlideDx - _this.customData.offsetx;
-        offsetx = -_this.maxSlideDx;
+      if (_this.maxSlideDx) {
+        if (_this.customData.offsetx + dx >= _this.maxSlideDx) {
+          dx = _this.maxSlideDx - _this.customData.offsetx;
+          offsetx = _this.maxSlideDx;
+        } else if (_this.customData.offsetx + dx <= -_this.maxSlideDx) {
+          dx = -_this.maxSlideDx - _this.customData.offsetx;
+          offsetx = -_this.maxSlideDx;
+        } else {
+          if (!_this.limitArea) {
+            offsetx = _this.customData.offsetx + dx;
+          } else {
+            var x = endx - _this.customData.startx; // 鼠标在界限范内
+
+            if (x > -_this.maxSlideDx && x < _this.maxSlideDx) {
+              // 处理边界问题
+              // 如果是上次鼠标位置在左边界外面，然后移动到里面
+              // 修正 dx 的值
+              if (_this.prePoint.x - _this.customData.startx < -_this.maxSlideDx) {
+                dx = x - -_this.maxSlideDx;
+              } else if (_this.prePoint.x - _this.customData.startx > _this.maxSlideDx) {
+                dx = x - _this.maxSlideDx;
+              }
+
+              offsetx = x;
+            } else {
+              offsetx = _this.customData.offsetx;
+              dx = 0;
+            }
+          }
+        }
       } else {
         offsetx = endx - _this.customData.startx;
       } // 单次滑动过程不能超过设定maxSlideDy值
@@ -1613,8 +1641,9 @@ var Slide = /*#__PURE__*/function () {
 
     this.el = el; // 单次的最大横向滑动距离
 
-    this.maxSlideDx = maxSlideDx;
-    this.maxSlideDy = maxSlideDy;
+    this.maxSlideDx = options.maxSlideDx;
+    this.maxSlideDy = options.maxSlideDy;
+    this.limitArea = options.limitArea;
 
     this._init();
   }
@@ -2418,6 +2447,7 @@ var Sorter = /*#__PURE__*/function () {
 
       this.initCopyPostion(node);
       this.nodeInitPos = {
+        node: node,
         index: index
       };
       this.moveInfo = {
@@ -2446,9 +2476,9 @@ var Sorter = /*#__PURE__*/function () {
     value: function _move(x, y) {
       if (!this.canDrag) {
         return;
-      }
+      } // const start = performance.now()
+      // 距离开始位置的偏移量
 
-      var start = performance.now(); // 距离开始位置的偏移量
 
       var offsety = y - this.mouse.originY;
       var offsetx = x - this.mouse.originX;
@@ -2529,11 +2559,8 @@ var Sorter = /*#__PURE__*/function () {
         }
 
         this.index = hint;
-      }
+      } // console.log('total:' + (performance.now() - start))
 
-      this.event.emit('change', _objectSpread({
-        position: this.copyPosition
-      }, this.moveInfo)); // console.log('total:' + (performance.now() - start))
     }
   }, {
     key: "_end",
@@ -2600,6 +2627,10 @@ var Sorter = /*#__PURE__*/function () {
           });
         }
       }
+
+      this.event.emit('change', _objectSpread({
+        position: this.copyPosition
+      }, this.moveInfo));
     }
   }, {
     key: "sortEndOnComplex",
@@ -2614,6 +2645,13 @@ var Sorter = /*#__PURE__*/function () {
       if (this.moveInfo.hintNode) {
         this.resetNodesTransitionStyle();
         this.swapDataComplex();
+        this.event.emit('sorted', {
+          startIndex: this.nodeInitPos.index,
+          startNode: this.nodeInitPos.node,
+          hintIndex: this.moveInfo.hintIndex,
+          hintNode: this.moveInfo.hintNode,
+          position: this.copyPosition
+        });
         this.nodeInitPos = null;
       }
 
@@ -3421,7 +3459,7 @@ var Sorter = /*#__PURE__*/function () {
   }, {
     key: "sortData",
     value: function sortData(data, start, end) {
-      if (!data || !data.length) {
+      if (!data || !data.length || !(start >= 0) || !(end >= 0) || start === end) {
         return;
       }
 
@@ -3505,10 +3543,6 @@ var Sorter = /*#__PURE__*/function () {
       curIndex = this.limitNumber(index, 0, nodes.length - 1);
       this.container.removeChild(nodes[curIndex]);
       this.removeData(curIndex);
-      this.event.emit('removed', {
-        index: curIndex,
-        node: nodes[curIndex]
-      });
       return {
         index: curIndex,
         node: nodes[curIndex]
@@ -3517,8 +3551,6 @@ var Sorter = /*#__PURE__*/function () {
   }, {
     key: "removeNodeAnimated",
     value: function removeNodeAnimated(index) {
-      var _this20 = this;
-
       if (!Number.isInteger(index)) {
         return;
       }
@@ -3529,14 +3561,8 @@ var Sorter = /*#__PURE__*/function () {
       var beforePostions = this.getPositions(nodes);
       this.container.removeChild(nodes[curIndex]);
       this.animateNodesDiffPos(nodes, beforePostions);
-      this.emitAnimationEvent(this.lastAnimateNode).then(function () {
-        _this20.removeData(curIndex);
-
-        _this20.event.emit('removed', {
-          index: curIndex,
-          node: nodes[curIndex]
-        });
-      });
+      this.emitAnimationEvent(this.lastAnimateNode);
+      this.removeData(curIndex);
       return {
         index: curIndex,
         node: nodes[curIndex]
@@ -3561,10 +3587,6 @@ var Sorter = /*#__PURE__*/function () {
       }
 
       this.addData(curIndex, value);
-      this.event.emit('added', {
-        index: curIndex,
-        node: node
-      });
       return {
         index: curIndex,
         node: node
@@ -3580,8 +3602,6 @@ var Sorter = /*#__PURE__*/function () {
   }, {
     key: "addNodeAnimated",
     value: function addNodeAnimated(_ref4) {
-      var _this21 = this;
-
       var index = _ref4.index,
           node = _ref4.node,
           position = _ref4.position,
@@ -3591,7 +3611,6 @@ var Sorter = /*#__PURE__*/function () {
         return;
       }
 
-      console.log(arguments);
       var nodes = this.getNodes();
       var beforePostions = this.getPositions(nodes);
       var newNodePosition = position || this.getPosition(node);
@@ -3606,14 +3625,8 @@ var Sorter = /*#__PURE__*/function () {
 
       this.animateNodesDiffPos(nodes, beforePostions);
       this.animateComplex(node, newNodePosition);
-      this.emitAnimationEvent(node).then(function () {
-        _this21.addData(curIndex, value);
-
-        _this21.event.emit('added', {
-          index: curIndex,
-          node: node
-        });
-      });
+      this.addData(curIndex, value);
+      this.emitAnimationEvent(node);
       return {
         index: curIndex,
         node: node
@@ -3725,6 +3738,10 @@ var Sorter = /*#__PURE__*/function () {
   }, {
     key: "sort",
     value: function sort(start, end) {
+      if (start === end || !Number.isInteger(start) || !Number.isInteger(end)) {
+        return;
+      }
+
       if (this.isSimpleMode) {
         var curStart = this.limitNumber(start, 0, this.items.length - 1);
         var curEnd = this.limitNumber(end, 0, this.items.length - 1);
@@ -3732,12 +3749,16 @@ var Sorter = /*#__PURE__*/function () {
         this.setDragNodeStyle();
         this.swapItem();
       } else {
-        var nodes = this.getNodes();
+        this.setNodes();
 
-        var _curStart = this.limitNumber(start, 0, nodes.length - 1);
+        var _curStart = this.limitNumber(start, 0, this.nodes.length - 1);
 
-        var _curEnd = this.limitNumber(end, 0, nodes.length - 1);
+        var _curEnd = this.limitNumber(end, 0, this.nodes.length - 1);
 
+        this.nodeInitPos = {
+          node: this.nodes[_curStart],
+          index: _curStart
+        };
         this.setMoveInfo(_curStart, _curEnd);
         this.setPostions();
         this.swapItem();
@@ -3884,6 +3905,7 @@ var Sorter = /*#__PURE__*/function () {
 
                 var positionsBefore = dragInstance.getPositions(dragInstance.getNodes());
                 var dragNodeCopy = dragNode;
+                var value = dragInstance.data[dragInstance.nodeInitPos.index];
 
                 if (put) {
                   if (cloned) {
@@ -3891,7 +3913,8 @@ var Sorter = /*#__PURE__*/function () {
                       hintInstance.start().removeNode(cloneInfo.index).addNode({
                         index: hintIndex + 1,
                         node: dragNode,
-                        position: _position
+                        position: _position,
+                        value: value
                       }).end(true); // hint前会移除copy元素，所以lastHint代表的索引减1
 
                       if (hintIndex > cloneInfo.index) {
@@ -3910,7 +3933,8 @@ var Sorter = /*#__PURE__*/function () {
                     hintInstance.addNodeAnimated({
                       index: hintIndex + 1,
                       node: dragNode,
-                      position: _position
+                      position: _position,
+                      value: value
                     });
                     positionsBefore.splice(dragInstanceIndex, 1);
                   }
@@ -3919,7 +3943,8 @@ var Sorter = /*#__PURE__*/function () {
                     if (hintInstance === firstInstance) {
                       hintInstance.start().removeNode(cloneInfo.index).addNode({
                         index: cloneInfo.index,
-                        node: dragNode
+                        node: dragNode,
+                        value: value
                       }).end();
                       index = hintInstance.index;
                       positionsBefore.splice(dragInstanceIndex, 1);
@@ -3937,6 +3962,7 @@ var Sorter = /*#__PURE__*/function () {
                     dragInstance.resetDragStyle(dragNodeCopy);
                     dragInstance.addNode(dragInstanceIndex, dragNodeCopy);
                     dragInstance.animateComplex(dragNodeCopy, copyPosition);
+                    dragInstance.swapDataComplex();
                     cloneInfo = {
                       instance: dragInstance,
                       node: dragNodeCopy,
@@ -3945,10 +3971,15 @@ var Sorter = /*#__PURE__*/function () {
                     cloned = true;
                   } else {
                     dragInstance.animateNodesDiffPos(dragInstance.getNodes(), positionsBefore);
+                    dragInstance.removeData(dragInstance.nodeInitPos.index);
                   }
                 } else {
                   dragInstance.animateNodesDiffPos(dragInstance.getNodes(), positionsBefore);
+                  dragInstance.removeData(dragInstance.nodeInitPos.index);
                 }
+
+                dragInstance.event.emit('sortedOnLists', {});
+                hintInstance.event.emit('sortedOnLists', {});
 
                 if (hintInstance === firstInstance && cloned) {
                   cloned = false;
@@ -4025,6 +4056,7 @@ var SlideSelect = /*#__PURE__*/function (_Event) {
 
   var _super = _createSuper$1(SlideSelect);
 
+  // 初始选择的索引
   // 所选元素索引
   // 上一个所选元素索引
   // 父元素偏移量（transform:translateY）
@@ -4039,6 +4071,8 @@ var SlideSelect = /*#__PURE__*/function (_Event) {
     classCallCheck(this, SlideSelect);
 
     _this = _super.call(this);
+
+    defineProperty(assertThisInitialized(_this), "firstIndex", 0);
 
     defineProperty(assertThisInitialized(_this), "curIndex", 0);
 
@@ -4059,22 +4093,36 @@ var SlideSelect = /*#__PURE__*/function (_Event) {
     defineProperty(assertThisInitialized(_this), "el", null);
 
     defineProperty(assertThisInitialized(_this), "_slidestart", function () {
-      _this.emit('slidestart', _this.nodes[_this.curIndex], _this.curIndex, _this.nodes);
+      _this.firstIndex = _this.curIndex;
+
+      _this.emit('slidestart', {
+        index: _this.curIndex,
+        node: _this.nodes[_this.curIndex]
+      });
     });
 
     defineProperty(assertThisInitialized(_this), "_slide", function (e) {
       if (!_this.isAnimated) {
         _this.slide(e.detail.dy);
+
+        _this.emit('slide');
       }
     });
 
     defineProperty(assertThisInitialized(_this), "_slideend", function () {
       _this.smoothSlide(_this.getCorrectPos() - _this.translateY);
 
+      _this.emit('slideend');
+
       _this.on('animationend', function () {
         _this.changeCurIndex();
 
-        _this.emit('slideend', _this.nodes[_this.curIndex], _this.curIndex, _this.nodes);
+        _this.emit('selected', {
+          index: _this.curIndex,
+          node: _this.nodes[_this.curIndex],
+          startIndex: _this.firstIndex,
+          startNode: _this.nodes[_this.firstIndex]
+        });
       }, true);
     });
 
@@ -4098,13 +4146,11 @@ var SlideSelect = /*#__PURE__*/function (_Event) {
     };
     _this.options = Object.assign(defaultOptions, options);
 
-    _this.addListener();
+    _this.addListener(); // this.domResize = new DomResize(this.el)
+    // this.domResize.on('domResize', () => {
+    //   this.init()
+    // })
 
-    _this.domResize = new DomResize(_this.el);
-
-    _this.domResize.on('domResize', function () {
-      _this.init();
-    });
 
     _this.touch = new Slide(_this.el);
     return _this;
@@ -4116,12 +4162,6 @@ var SlideSelect = /*#__PURE__*/function (_Event) {
       var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       Object.assign(this.options, options);
       this.setNodes();
-
-      if (!this.nodeInfo.total) {
-        this.emit('finish', null, '', []);
-        return;
-      }
-
       this.style(this.el, {
         height: this.options.visiableRowCount * this.nodeInfo.height + 'px',
         overflow: 'hidden'
@@ -4139,10 +4179,16 @@ var SlideSelect = /*#__PURE__*/function (_Event) {
         index = 0;
       }
 
-      this.setCurIndex(index);
+      this.curIndex = index;
+      this.lastIndex = index;
+      this.firstIndex = index;
+      this.addSelectedClass();
       this.setPosDirect(this.getSelectedPos(this.curIndex));
       this.addSelectBox();
-      this.emit('finish', this.nodes[this.curIndex], this.curIndex, this.nodes);
+      this.emit('finish', {
+        index: this.curIndex,
+        node: this.nodes[this.curIndex]
+      });
     }
   }, {
     key: "addListener",
@@ -4221,7 +4267,6 @@ var SlideSelect = /*#__PURE__*/function (_Event) {
         transform: "translateY(".concat(this.translateY, "px)")
       });
       this.changeCurIndex();
-      this.emit('slide', this.nodes[this.curIndex], this.curIndex, this.nodes);
     }
   }, {
     key: "setPosDirect",
@@ -4253,6 +4298,7 @@ var SlideSelect = /*#__PURE__*/function (_Event) {
       }
 
       var distance = (this.curIndex - cindex) * this.nodeInfo.height;
+      this.firstIndex = this.curIndex;
 
       if (!animation) {
         this.slide(distance);
@@ -4261,6 +4307,13 @@ var SlideSelect = /*#__PURE__*/function (_Event) {
         this.smoothSlide(distance);
         this.on('animationend', function () {
           _this3.changeCurIndex();
+
+          _this3.emit('selected', {
+            index: _this3.curIndex,
+            node: _this3.nodes[_this3.curIndex],
+            startIndex: _this3.firstIndex,
+            startNode: _this3.nodes[_this3.firstIndex]
+          });
         }, true);
       }
     }
@@ -4330,25 +4383,19 @@ var SlideSelect = /*#__PURE__*/function (_Event) {
   }, {
     key: "changeCurIndex",
     value: function changeCurIndex() {
-      this.curIndex = this.getSelectedIndex(this.translateY);
+      var index = this.getSelectedIndex(this.translateY);
 
-      if (this.lastIndex !== this.curIndex) {
+      if (index !== this.curIndex) {
+        this.lastIndex = this.curIndex;
+        this.curIndex = index;
         this.addSelectedClass();
         this.emit('change', {
           index: this.curIndex,
           node: this.nodes[this.curIndex],
           lastIndex: this.lastIndex,
-          lastNode: this.nodes[this.lastIndex],
-          nodes: this.nodes
+          lastNode: this.nodes[this.lastIndex]
         });
-        this.lastIndex = this.curIndex;
       }
-    }
-  }, {
-    key: "setCurIndex",
-    value: function setCurIndex(index) {
-      this.curIndex = index;
-      this.addSelectedClass();
     }
   }, {
     key: "addSelectedClass",
@@ -4413,8 +4460,8 @@ var SlideSelect = /*#__PURE__*/function (_Event) {
         this.el.removeChild(this.selectBox);
       }
 
-      this.touch.destroy();
-      this.domResize.destroy();
+      this.touch.destroy(); // this.domResize.destroy()
+
       this.el.removeEventListener('slidestart', this._slidestart);
       this.el.removeEventListener('slidemove', this._throttleSlide);
       this.el.removeEventListener('slideend', this._slideend);
@@ -4432,6 +4479,698 @@ var SlideSelect = /*#__PURE__*/function (_Event) {
   return SlideSelect;
 }(Event);
 
+function _createSuper$2(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$2(); return function _createSuperInternal() { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
+
+function _isNativeReflectConstruct$2() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+var Broadcast = /*#__PURE__*/function (_Event) {
+  inherits(Broadcast, _Event);
+
+  var _super = _createSuper$2(Broadcast);
+
+  // 当前轮播的元素索引
+  // 与当前元素交互的元素索引
+  // 父元素偏移量（transform:translateX）
+  // 元素数量（不包括前后占位元素）
+  // 是否正在动画
+  // 各个轮播元素应该在的位置
+  function Broadcast(el) {
+    var _this;
+
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    classCallCheck(this, Broadcast);
+
+    _this = _super.call(this);
+
+    defineProperty(assertThisInitialized(_this), "currentIndex", 0);
+
+    defineProperty(assertThisInitialized(_this), "lastIndex", 0);
+
+    defineProperty(assertThisInitialized(_this), "nextIndex", 0);
+
+    defineProperty(assertThisInitialized(_this), "translateX", 0);
+
+    defineProperty(assertThisInitialized(_this), "length", 0);
+
+    defineProperty(assertThisInitialized(_this), "isAnimated", false);
+
+    defineProperty(assertThisInitialized(_this), "posAry", []);
+
+    defineProperty(assertThisInitialized(_this), "el", null);
+
+    defineProperty(assertThisInitialized(_this), "parentNode", null);
+
+    defineProperty(assertThisInitialized(_this), "transitionend", function () {
+      _this.style(_this.el, {
+        transition: ''
+      });
+
+      _this.isAnimated = false;
+      requestAnimationFrame(function () {
+        _this.emit('_animationend');
+      });
+    });
+
+    defineProperty(assertThisInitialized(_this), "_slidestart", function () {
+      _this.emit('slidestart', {
+        index: _this.currentIndex,
+        node: _this.getNode(_this.currentIndex)
+      });
+    });
+
+    defineProperty(assertThisInitialized(_this), "_slide", function (e) {
+      if (_this.isAnimated) {
+        return;
+      }
+
+      var pos = e.detail;
+
+      if (pos.dx === 0) {
+        return;
+      }
+
+      var dx = pos.dx;
+
+      if (!_this.opt.loop) {
+        // 非loop模式下的 最大左滑和最大右滑
+        var maxOffset = 200;
+        var leftLimit = _this.posAry[0] + maxOffset;
+        var rightLimit = _this.posAry[_this.posAry.length - 1] - maxOffset;
+
+        if (_this.translateX > leftLimit) {
+          dx = 0;
+        } else if (_this.translateX + pos.dx > leftLimit) {
+          dx = maxOffset - _this.translateX;
+        } else if (_this.translateX < rightLimit) {
+          dx = 0;
+        } else if (_this.translateX + pos.dx < rightLimit) {
+          dx = rightLimit - _this.translateX;
+        }
+      }
+
+      _this.slide(dx);
+
+      _this.emit('slide');
+    });
+
+    defineProperty(assertThisInitialized(_this), "_slidend", function () {
+      _this.emit('slideend');
+
+      _this.correctPosition();
+    });
+
+    _this.container = el;
+    var defaultOptions = {
+      startIndex: 0,
+      // 是否循环显示
+      loop: true,
+      // 是否实时根据交互元素高度设置容器高度
+      timingHeight: false,
+      width: 0,
+      broadcastList: '.broadcast-list'
+    };
+    _this.opt = Object.assign(defaultOptions, options); // this.domResize = new DomResize(this.container)
+    // this.domResize.on('domResize', () => {
+    //   // this.init()
+    //   // // 在滑动过程中改变dom大小时，不能直接修正到正常位置
+    //   // this.changeTranslate(this.getCorrectPos())
+    // })
+
+    return _this;
+  }
+
+  createClass(Broadcast, [{
+    key: "init",
+    value: function init() {
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      this.opt = Object.assign(this.opt, options);
+      this.el = document.querySelector(this.opt.broadcastList);
+
+      if (this.opt.loop) {
+        // 首尾元素的变化
+        this.addHolder(); // 元素的个数变化
+
+        this.setNodes();
+        this.length = this.nodes.length - 2; // width的变化或父元素宽度变化
+
+        this.initSize();
+        this.initContainerStyle();
+        this.setPosAry();
+        this.initNodesStyle();
+        this.toItem(0, false);
+      } else {
+        this.setNodes();
+        this.length = this.nodes.length;
+        this.initSize();
+        this.initContainerStyle();
+        this.setPosAry();
+        this.initNodesStyle();
+      }
+
+      if (!this.touch) {
+        this.addlistener();
+      }
+
+      this.setTranslate(this.posAry[this.opt.startIndex]);
+      this.currentIndex = this.opt.startIndex;
+      this.lastIndex = this.currentIndex;
+      this.emit('finish', {
+        index: this.currentIndex,
+        node: this.getNode(this.currentIndex)
+      });
+    }
+  }, {
+    key: "autoResize",
+    value: function autoResize() {}
+  }, {
+    key: "addlistener",
+    value: function addlistener() {
+      this.touch = new Slide(this.el, {
+        limitArea: true
+      });
+      this.touch.setMaxSlideDx(this.size.width);
+      this.throttleSlide = this.throttle(this._slide);
+      this.el.addEventListener('transitionend', this.transitionend);
+      this.el.addEventListener('slidestart', this._slidestart);
+      this.el.addEventListener('slidemove', this._slide);
+      this.el.addEventListener('slideend', this._slidend);
+    }
+  }, {
+    key: "removeListener",
+    value: function removeListener() {
+      this.touch.destroy();
+      this.el.removeEventListener('transitionend', this.transitionend);
+      this.el.removeEventListener('slidestart', this._slidestart);
+      this.el.removeEventListener('slidemove', this._slide);
+      this.el.removeEventListener('slideend', this._slidend);
+    }
+  }, {
+    key: "throttle",
+    value: function throttle(fn) {
+      var curTick = false;
+      var that = this;
+      var params = Array.prototype.slice.call(arguments);
+      params.shift();
+      return function () {
+        var curParams = Array.prototype.slice.call(arguments);
+
+        if (!curTick) {
+          curTick = true;
+          requestAnimationFrame(function () {
+            fn.apply(that, [].concat(toConsumableArray(curParams), [params]));
+            curTick = false;
+          });
+        }
+      };
+    }
+  }, {
+    key: "smoothSlide",
+    value: function smoothSlide(distance) {
+      var _this2 = this;
+
+      return new Promise(function (resolve) {
+        if (!_this2.isAnimated) {
+          _this2.doSmoothSlide(distance);
+
+          _this2.resolve = resolve;
+          _this2.isAnimated = true;
+        }
+      });
+    }
+  }, {
+    key: "doSmoothSlide",
+    value: function doSmoothSlide(distance) {
+      var _this3 = this;
+
+      setTimeout(function () {
+        var piece = 0;
+
+        if (distance > 0) {
+          piece = 5;
+          var d = distance - piece;
+
+          if (d > 0) {
+            _this3.slide(piece);
+
+            _this3.doSmoothSlide(d);
+          } else {
+            _this3.slide(distance);
+
+            _this3.doSmoothSlide(0);
+          }
+        } else if (distance < 0) {
+          piece = -5;
+
+          var _d = distance - piece;
+
+          if (_d < 0) {
+            _this3.slide(piece);
+
+            _this3.doSmoothSlide(_d);
+          } else {
+            _this3.slide(distance);
+
+            _this3.doSmoothSlide(0);
+          }
+        } else {
+          _this3.resolve && _this3.resolve();
+          _this3.resolve = null; // 不在动画状态
+
+          _this3.isAnimated = false;
+        }
+      }, 5);
+    }
+  }, {
+    key: "slide",
+    value: function slide(dx) {
+      this.changeTranslate(dx); // 在滑动过程中实时获得下一个元素索引(待优化，不需要每次执行)
+    }
+  }, {
+    key: "changeTranslate",
+    value: function changeTranslate(dx) {
+      this.translateX += dx;
+      this.style(this.el, {
+        transform: "translateX(".concat(this.translateX, "px)")
+      });
+      this.setNextIndex();
+    }
+  }, {
+    key: "setTranslate",
+    value: function setTranslate(d) {
+      this.translateX = d;
+      this.style(this.el, {
+        transform: "translateX(".concat(this.translateX, "px)")
+      });
+      this.setNextIndex();
+    }
+  }, {
+    key: "resetPostion",
+    value: function resetPostion() {
+      var animation = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      this.toItem(this.currentIndex, animation);
+    }
+  }, {
+    key: "initNodesStyle",
+    value: function initNodesStyle() {
+      var _this4 = this;
+
+      this.nodes.forEach(function (node) {
+        _this4.style(node.el, {
+          display: 'inline-block',
+          width: _this4.size.width + 'px'
+        });
+      });
+    }
+  }, {
+    key: "addHolder",
+    value: function addHolder() {
+      if (this.firstHolder) {
+        this.el.removeChild(this.firstHolder);
+      }
+
+      if (this.lastHolder) {
+        this.el.removeChild(this.lastHolder);
+      }
+
+      var children = this.el.children;
+      this.lastHolder = children[0].cloneNode(true);
+      this.firstHolder = children[children.length - 1].cloneNode(true);
+      this.el.insertBefore(this.firstHolder, children[0]);
+      this.el.appendChild(this.lastHolder);
+    }
+  }, {
+    key: "initSize",
+    value: function initSize() {
+      var style = window.getComputedStyle(this.container);
+      var styleWidth = style.width;
+
+      if (!styleWidth.includes('px')) {
+        styleWidth = 300;
+      }
+
+      this.size = {
+        width: this.opt.width || parseFloat(styleWidth),
+        height: parseFloat(style.height)
+      };
+    }
+  }, {
+    key: "initContainerStyle",
+    value: function initContainerStyle() {
+      this.style(this.container, {
+        overflow: 'hidden'
+      });
+      this.style(this.el, {
+        width: this.size.width * this.nodes.length + 'px'
+      });
+    }
+  }, {
+    key: "setNodes",
+    value: function setNodes() {
+      var children = this.el.children;
+      var nodes = [];
+
+      for (var i = 0; i < children.length; i++) {
+        nodes.push({
+          el: children[i],
+          index: i
+        });
+      }
+
+      this.nodes = nodes;
+    }
+  }, {
+    key: "setPosAry",
+    value: function setPosAry() {
+      // 不包含holder的本身元素位置
+      var posAry = [];
+
+      for (var i = 0; i < this.length; i++) {
+        posAry[i] = this.getPosByIndex(i);
+      }
+
+      this.posAry = posAry;
+
+      if (this.opt.loop) {
+        this.firstHolderPos = 0;
+        this.lastHolderPos = this.posAry[this.posAry.length - 1] - this.size.width;
+      }
+    }
+  }, {
+    key: "correctPosition",
+    value: function correctPosition() {
+      var distance = this.translateX - this.posAry[this.currentIndex];
+      var direction = 0;
+
+      if (distance < 0) {
+        direction = 1;
+      } else {
+        direction = -1;
+      }
+
+      if (Math.abs(distance) > this.size.width / 3) {
+        if (direction === 1) {
+          this.next();
+        } else if (direction === -1) {
+          this.pre();
+        }
+      } else {
+        this.resetPostion();
+      }
+    } // 触摸事件结束时，修正元素位置
+
+  }, {
+    key: "getCorrectPos",
+    value: function getCorrectPos() {
+      var _this5 = this;
+
+      var correctedx = 0;
+      var firstPos = this.posAry[0];
+      var lastPos = this.posAry[this.posAry.length - 1];
+
+      if (this.translateX > firstPos) {
+        // 首元素继续右移时
+        if (this.opt.loop) {
+          var d = Math.abs(this.translateX - firstPos);
+
+          if (d < this.size.width / 2) {
+            correctedx = -d;
+          } else {
+            correctedx = Math.abs(this.translateX);
+          }
+        } else {
+          // 非loop模式下 总是回到首元素
+          correctedx = -this.translateX;
+        }
+      } else if (this.translateX < lastPos) {
+        // 尾元素继续左移时
+        if (this.opt.loop) {
+          var _d2 = Math.abs(this.translateX - lastPos);
+
+          if (_d2 < this.size.width / 2) {
+            correctedx = _d2;
+          } else {
+            correctedx = _d2 - this.size.width;
+          }
+        } else {
+          correctedx = lastPos - this.translateX;
+        }
+      } else {
+        this.posAry.forEach(function (item, index) {
+          if (_this5.translateX < item && _this5.translateX > _this5.posAry[index + 1]) {
+            var _d3 = Math.abs(_this5.translateX - item);
+
+            if (_d3 < _this5.size.width / 2) {
+              correctedx = _d3;
+            } else {
+              correctedx = _this5.posAry[index + 1] - _this5.translateX;
+            }
+          }
+        });
+      }
+
+      return correctedx;
+    } // 获得这个位置的元素索引
+
+  }, {
+    key: "getIndexByPos",
+    value: function getIndexByPos(offsetx) {
+      var index = -offsetx / this.size.width;
+      return this.correctIndex(index);
+    } // 修正两种模式下的元素索引
+
+  }, {
+    key: "correctIndex",
+    value: function correctIndex(index) {
+      var cindex = index;
+
+      if (!this.opt.loop) {
+        if (index < 0) {
+          cindex = 0;
+        } else if (index > this.length - 1) {
+          cindex = this.length - 1;
+        }
+      } else {
+        cindex--;
+
+        if (index < 0) {
+          cindex = this.length - 1;
+        } else if (index > this.length - 1) {
+          cindex = 0;
+        }
+      }
+
+      return cindex;
+    }
+  }, {
+    key: "getNode",
+    value: function getNode(index) {
+      if (!this.opt.loop) {
+        return this.nodes[index].el;
+      }
+
+      return this.nodes[index + 1].el;
+    } // 获得这个元素索引的位置
+
+  }, {
+    key: "getPosByIndex",
+    value: function getPosByIndex(index) {
+      var pos = -index * this.size.width;
+
+      if (!this.opt.loop) {
+        return pos;
+      }
+
+      return pos - this.size.width;
+    } // 实时设置容器高度（如果元素之间的高度不同）
+
+  }, {
+    key: "setConHeightTiming",
+    value: function setConHeightTiming() {
+      var curHeight = window.getComputedStyle(this.nodes[this.currentIndex].el).height;
+      var nextHeight = window.getComputedStyle(this.nodes[this.nextIndex].el).height;
+      var conHeight = Math.max(parseFloat(curHeight), parseFloat(nextHeight));
+      this.conHeight = conHeight;
+      this.style(this.el, {
+        height: conHeight + 'px'
+      });
+    }
+  }, {
+    key: "setCurrentIndex",
+    value: function setCurrentIndex(index) {
+      var tindex = index || this.getIndexByPos(this.translateX);
+
+      if (tindex !== this.currentIndex) {
+        this.lastIndex = this.currentIndex;
+        this.currentIndex = tindex; // currentIndex变化时，设置容器高度
+
+        if (this.opt.timingHeight) {
+          this.setConHeightTiming();
+        }
+      }
+    }
+  }, {
+    key: "setNextIndex",
+    value: function setNextIndex() {
+      this.nextIndex = this.getIndexByPos(this.translateX);
+
+      if (this.nextIndex > 0 && this.nextIndex < this.length - 1) {
+        if (this.nextIndex > this.currentIndex) {
+          this.nextIndex = Math.ceil(this.nextIndex);
+        } else {
+          this.nextIndex = Math.floor(this.nextIndex);
+        }
+      } // nextIndex变化时，设置容器高度
+
+
+      if (this.opt.timingHeight) {
+        if (this.nextIndex !== this.lastNextIndex) {
+          this.lastNextIndex = this.nextIndex;
+          this.setConHeightTiming();
+        }
+      }
+    }
+  }, {
+    key: "style",
+    value: function style(el, obj) {
+      Object.assign(el.style, obj);
+    } // public
+    // direction 表示方向 1 为向右，-1 为向左，loop下有用
+
+  }, {
+    key: "toItem",
+    value: function toItem(index) {
+      var _this6 = this;
+
+      var animation = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+      var direction = arguments.length > 2 ? arguments[2] : undefined;
+      var tindex = Math.floor(index);
+
+      if (index < 0) {
+        tindex = 0;
+      } else if (index > this.length - 1) {
+        tindex = this.length - 1;
+      }
+
+      if (!animation) {
+        this.setTranslate(this.posAry[tindex]);
+        this.setCurrentIndex(tindex);
+        return;
+      }
+
+      var emitAnimationendEvent = function emitAnimationendEvent() {
+        _this6.emit('animationend', {
+          index: _this6.currentIndex,
+          node: _this6.getNode(_this6.currentIndex),
+          lastIndex: _this6.lastIndex,
+          lastNode: _this6.getNode(_this6.lastIndex)
+        });
+      };
+
+      var doSlide = function doSlide(distance) {
+        _this6.smoothSlide(distance).then(function () {
+          _this6.setCurrentIndex(tindex);
+
+          emitAnimationendEvent();
+        });
+      };
+
+      if (tindex === this.currentIndex) {
+        var _distance = this.posAry[this.currentIndex] - this.translateX;
+
+        if (_distance !== 0) {
+          doSlide(_distance);
+        }
+
+        return;
+      }
+
+      var distance = this.posAry[tindex] - this.translateX;
+
+      if (direction && this.opt.loop) {
+        if (direction === 1) {
+          if (this.currentIndex < tindex) {
+            doSlide(distance);
+          } else {
+            distance = this.lastHolderPos - this.translateX;
+            var distance2 = this.posAry[tindex] - this.posAry[0];
+            this.smoothSlide(distance).then(function () {
+              _this6.setTranslate(_this6.posAry[0]);
+
+              if (distance2 === 0) {
+                _this6.setCurrentIndex(tindex);
+
+                emitAnimationendEvent();
+              } else {
+                _this6.smoothSlide(distance2).then(function () {
+                  _this6.setCurrentIndex(tindex);
+
+                  emitAnimationendEvent();
+                });
+              }
+            });
+          }
+        } else if (direction === -1) {
+          if (this.currentIndex > tindex) {
+            doSlide(distance);
+          } else {
+            distance = this.firstHolderPos - this.translateX;
+
+            var _distance2 = this.posAry[tindex] - this.posAry[this.length - 1];
+
+            this.smoothSlide(distance).then(function () {
+              _this6.setTranslate(_this6.posAry[_this6.length - 1]);
+
+              if (_distance2 === 0) {
+                _this6.setCurrentIndex(tindex);
+
+                emitAnimationendEvent();
+              } else {
+                _this6.smoothSlide(_distance2).then(function () {
+                  _this6.setCurrentIndex(tindex);
+
+                  emitAnimationendEvent();
+                });
+              }
+            });
+          }
+        }
+      } else {
+        doSlide(distance);
+      }
+    }
+  }, {
+    key: "next",
+    value: function next() {
+      var animation = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+      if (this.currentIndex === this.length - 1 && this.opt.loop) {
+        this.toItem(0, animation, 1);
+      } else {
+        this.toItem(this.currentIndex + 1, animation);
+      }
+    }
+  }, {
+    key: "pre",
+    value: function pre() {
+      var animation = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+      if (this.currentIndex === 0 && this.opt.loop) {
+        this.toItem(this.length - 1, animation, -1);
+      } else {
+        this.toItem(this.currentIndex - 1, animation);
+      }
+    }
+  }, {
+    key: "destroy",
+    value: function destroy() {
+      this.removeListener();
+    }
+  }]);
+
+  return Broadcast;
+}(Event);
+
+exports.Broadcast = Broadcast;
 exports.DomResize = DomResize;
 exports.Event = Event;
 exports.HTMLDecode = HTMLDecode;
