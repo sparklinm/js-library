@@ -19,3 +19,5 @@ export * from './util/class/Slide'
 export * from './marquee/marquee.js'
 
 export * from './Sorter/Sorter.js'
+
+export * from './SlideSelect/SlideSelect.js'
