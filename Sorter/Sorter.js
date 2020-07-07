@@ -344,7 +344,7 @@ class Sorter {
                 } else {
                   hintInstance.addNodeAnimated({
                     index: hintIndex + 1,
-                    newNode: dragNode,
+                    node: dragNode,
                     position
                   })
                   positionsBefore.splice(dragInstanceIndex, 1)
@@ -709,7 +709,6 @@ class Sorter {
     const node = event.target
     const dragNode = this.checkNode(node)
 
-
     // 鼠标移出浏览器时不会触发mouseup事件，此时进入浏览器点击鼠标左键需要执行上一次的end
 
     if (!this.isRightNode) {
@@ -845,7 +844,11 @@ class Sorter {
       this.mouse.index = index
     }
     this.index = index
-    this.event.emit('dragstart')
+    this.event.emit('dragstart', {
+      node,
+      index,
+      position: this.copyPosition
+    })
     return index
   }
 
@@ -892,7 +895,11 @@ class Sorter {
       this.nodeCopy.style.transform = `translate(${offsetx}px,${offsety}px)`
     }
 
-    this.event.emit('dragmove', this.copyPosition)
+    this.event.emit('dragmove', {
+      node: this.moveInfo.dragNode,
+      index: this.moveInfo.dragIndex,
+      position: this.copyPosition
+    })
     // 不在容器内
     if (
       !this.checkInContainer(
@@ -940,7 +947,10 @@ class Sorter {
       }
       this.index = hint
     }
-    this.event.emit('change', this.moveInfo)
+    this.event.emit('change', {
+      position: this.copyPosition,
+      ...this.moveInfo
+    })
 
     // console.log('total:' + (performance.now() - start))
   }
@@ -955,6 +965,11 @@ class Sorter {
       this.nodeCopy = null
       this.hasNodeCopy = false
     }
+    this.event.emit('dragend', {
+      node: this.moveInfo.dragNode,
+      index: this.moveInfo.dragIndex,
+      position: this.copyPosition
+    })
     // 拖拽结束，但动画未结束，不触发节点交换
     if (this.isSimpleMode) {
       if (this.isMoveEnd && this.options.animation) {
@@ -965,7 +980,6 @@ class Sorter {
         this.sortEndOnComplex()
       }
     }
-    this.event.emit('dragend')
   }
 
   swapItem () {
@@ -1615,11 +1629,11 @@ class Sorter {
     if (this.canScrollContainer) {
       scroll(this.container, this.containerPosition)
     } else if (this.canScrollBody) {
-      scroll(document.documentElement, this.bodyPosition).then(() => {
-        // 重绘是昂贵的
-        const oldScrollX = window.scrollX
-        const oldScrollY = window.scrollY
+      // 重绘是昂贵的
+      const oldScrollX = window.scrollX
+      const oldScrollY = window.scrollY
 
+      scroll(document.documentElement, this.bodyPosition).then(() => {
         this.setCopyPosition(scrollX - oldScrollX, scrollY - oldScrollY)
         this.setBodyPosition()
       })
@@ -1712,7 +1726,7 @@ class Sorter {
     if (!node) {
       return null
     }
-    if (node.className && node.className.includes(pClass)) {
+    if (node.className && node.className.split(' ').includes(pClass)) {
       return node
     }
     return this.getParentByClass(node.parentNode, pClass)
@@ -1925,6 +1939,8 @@ class Sorter {
     if (!Number.isInteger(index)) {
       return
     }
+    console.log(arguments)
+
     const nodes = this.getNodes()
     const beforePostions = this.getPositions(nodes)
     const newNodePosition = position || this.getPosition(node)

@@ -19,10 +19,6 @@
       <div class="list-group-item1">2</div>
       <div class="list-group-item1">3</div>
       <div class="list-group-item1">4</div>
-      <br />
-      <div class="list-group-item1">3</div>
-      <div class="list-group-item1">4</div>
-      <br />
       <div class="list-group-item1">5</div>
       <div class="list-group-item1">6</div>
       <div class="list-group-item1">7</div>
@@ -30,12 +26,9 @@
       <div class="list-group-item1">9</div>
       <div class="list-group-item1">10</div>
     </div>
-
     <div id="sort2" class="list-group2">
       <div class="list-group-item2">1</div>
       <div class="list-group-item2">2</div>
-      <div class="list-group-item2">3</div>
-      <div class="list-group-item2">4</div>
       <div class="list-group-item2">3</div>
       <div class="list-group-item2">4</div>
       <div class="list-group-item2">5</div>
@@ -76,7 +69,7 @@
       const sorter1 = new Sorter(
         document.querySelector('#sort1'),
         {
-          dragNode: 'list-group-item',
+          dragNode: 'list-group-item1',
           group: {
             clone: true,
             put: false
@@ -90,7 +83,7 @@
       const sorter2 = new Sorter(
         document.querySelector('#sort2'),
         {
-          dragNode: 'list-group-item',
+          dragNode: 'list-group-item2',
           group: {
             clone: true,
             put: true
