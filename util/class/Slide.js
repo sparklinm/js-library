@@ -52,11 +52,17 @@ export class Slide {
    * @param {Number} maxSlideDy - y 方向最大移动距离。
    */
 
-  constructor (el, maxSlideDx, maxSlideDy) {
+  constructor (
+    el,
+    options = {
+      limitArea: false
+    }
+  ) {
     this.el = el
     // 单次的最大横向滑动距离
-    this.maxSlideDx = maxSlideDx
-    this.maxSlideDy = maxSlideDy
+    this.maxSlideDx = options.maxSlideDx
+    this.maxSlideDy = options.maxSlideDy
+    this.limitArea = options.limitArea
     this._init()
   }
 
@@ -158,12 +164,39 @@ export class Slide {
     let offsety = 0
 
     // 单次滑动过程不能超过设定maxSlideDx值
-    if (this.customData.offsetx + dx > this.maxSlideDx) {
-      dx = this.maxSlideDx - this.customData.offsetx
-      offsetx = this.maxSlideDx
-    } else if (this.customData.offsetx + dx < -this.maxSlideDx) {
-      dx = -this.maxSlideDx - this.customData.offsetx
-      offsetx = -this.maxSlideDx
+    if (this.maxSlideDx) {
+      if (this.customData.offsetx + dx >= this.maxSlideDx) {
+        dx = this.maxSlideDx - this.customData.offsetx
+        offsetx = this.maxSlideDx
+      } else if (this.customData.offsetx + dx <= -this.maxSlideDx) {
+        dx = -this.maxSlideDx - this.customData.offsetx
+        offsetx = -this.maxSlideDx
+      } else {
+        if (!this.limitArea) {
+          offsetx = this.customData.offsetx + dx
+        } else {
+          const x = endx - this.customData.startx
+
+          // 鼠标在界限范内
+          if (x > -this.maxSlideDx && x < this.maxSlideDx) {
+            // 处理边界问题
+            // 如果是上次鼠标位置在左边界外面，然后移动到里面
+            // 修正 dx 的值
+            if (this.prePoint.x - this.customData.startx < -this.maxSlideDx) {
+              dx = x - -this.maxSlideDx
+            } else if (
+              this.prePoint.x - this.customData.startx >
+              this.maxSlideDx
+            ) {
+              dx = x - this.maxSlideDx
+            }
+            offsetx = x
+          } else {
+            offsetx = this.customData.offsetx
+            dx = 0
+          }
+        }
+      }
     } else {
       offsetx = endx - this.customData.startx
     }
