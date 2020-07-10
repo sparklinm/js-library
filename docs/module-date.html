@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Common Modules Module: date</title>
+	<title>Tool Function Module: date</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -20,7 +20,7 @@
 <div class="navbar navbar-default navbar-fixed-top navbar-inverse">
 <div class="container">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="index.html">Common Modules</a>
+		<a class="navbar-brand" href="index.html">Tool Function</a>
 		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
@@ -160,16 +160,12 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~countMaxConsecutiveDate"><span class="type-signature">&lt;inner> </span>countMaxConsecutiveDate<span class="signature">(dates)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    <h4 class="name" id=".countMaxConsecutiveDate"><span class="type-signature">&lt;static> </span>countMaxConsecutiveDate<span class="signature">(dates)</span><span class="type-signature"> &rarr; {Number}</span></h4>
     
     
 </dt>
 <dd>
 
-    
-    <div class="description">
-        <p>最大的连续天数数量。</p>
-    </div>
     
 
     
@@ -265,7 +261,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="date-util.js.html">date-util.js</a>,
-				 <a href="date-util.js.html#sunlight-1-line-297">line 297</a>
+				 <a href="date-util.js.html#sunlight-1-line-308">line 308</a>
 			</li>
 		</ul>
 	</dd>
@@ -318,12 +314,7 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">countMaxConsecutiveDate([
-  new Date(2015, 1, 1),
-  new Date(2015, 1, 4),
-  new Date(2015, 1, 5)
-])
-// 2</pre>
+    <pre class="sunlight-highlight-javascript">countMaxConsecutiveDate([  new Date(2015, 1, 1),  new Date(2015, 1, 4),  new Date(2015, 1, 5)])// 2</pre>
 
 
     
@@ -333,7 +324,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~dateFormatter"><span class="type-signature">&lt;inner> </span>dateFormatter<span class="signature">(date, format)</span><span class="type-signature"> &rarr; {String}</span></h4>
+    <h4 class="name" id=".dateFormatter"><span class="type-signature">&lt;static> </span>dateFormatter<span class="signature">(date, format)</span><span class="type-signature"> &rarr; {String}</span></h4>
     
     
 </dt>
@@ -465,7 +456,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="date-util.js.html">date-util.js</a>,
-				 <a href="date-util.js.html#sunlight-1-line-22">line 22</a>
+				 <a href="date-util.js.html#sunlight-1-line-23">line 23</a>
 			</li>
 		</ul>
 	</dd>
@@ -518,14 +509,7 @@
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">dateFormatter(new Date(2015, 1, 10, 14, 25, 33), &#x27;yyyy-MM-dd hh:mm:ss&#x27;)
-dateFormatter(new Date(2015, 1, 10, 14, 25, 33), &#x27;yyyy-M-d hh:mm:ss&#x27;)
-dateFormatter(&#x27;2015-2-10 14:25:33&#x27;, &#x27;yyyy-M-d h:m:ss&#x27;)
-dateFormatter(&#x27;2015-2-10 14:25:33&#x27;, &#x27;yyyy年第qq季度&#x27;)
-// 2015-02-10 14:25:33
-// 2015-2-10 14:25:33
-// 2015-2-10 14:25:33
-// 2015年第01季度</pre>
+    <pre class="sunlight-highlight-javascript">dateFormatter(new Date(2015, 1, 10, 14, 25, 33), &#x27;yyyy-MM-dd hh:mm:ss&#x27;)dateFormatter(new Date(2015, 1, 10, 14, 25, 33), &#x27;yyyy-M-d hh:mm:ss&#x27;)dateFormatter(&#x27;2015-2-10 14:25:33&#x27;, &#x27;yyyy-M-d h:m:ss&#x27;)dateFormatter(&#x27;2015-2-10 14:25:33&#x27;, &#x27;yyyy年第qq季度&#x27;)// 2015-02-10 14:25:33// 2015-2-10 14:25:33// 2015-2-10 14:25:33// 2015年第01季度</pre>
 
 
     
@@ -535,16 +519,12 @@ dateFormatter(&#x27;2015-2-10 14:25:33&#x27;, &#x27;yyyy年第qq季度&#x27;)
             
 <hr>
 <dt>
-    <h4 class="name" id="~getMonthDays"><span class="type-signature">&lt;inner> </span>getMonthDays<span class="signature">(date)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    <h4 class="name" id=".getMonthDays"><span class="type-signature">&lt;static> </span>getMonthDays<span class="signature">(date)</span><span class="type-signature"> &rarr; {Number}</span></h4>
     
     
 </dt>
 <dd>
 
-    
-    <div class="description">
-        <p>获取月份天数</p>
-    </div>
     
 
     
@@ -640,7 +620,7 @@ dateFormatter(&#x27;2015-2-10 14:25:33&#x27;, &#x27;yyyy年第qq季度&#x27;)
 		<ul class="dummy">
 			<li>
 				<a href="date-util.js.html">date-util.js</a>,
-				 <a href="date-util.js.html#sunlight-1-line-114">line 114</a>
+				 <a href="date-util.js.html#sunlight-1-line-119">line 119</a>
 			</li>
 		</ul>
 	</dd>
@@ -697,16 +677,12 @@ dateFormatter(&#x27;2015-2-10 14:25:33&#x27;, &#x27;yyyy年第qq季度&#x27;)
             
 <hr>
 <dt>
-    <h4 class="name" id="~getPeriod"><span class="type-signature">&lt;inner> </span>getPeriod<span class="signature">(date, unit)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    <h4 class="name" id=".getPeriod"><span class="type-signature">&lt;static> </span>getPeriod<span class="signature">(date, unit)</span><span class="type-signature"> &rarr; {Array}</span></h4>
     
     
 </dt>
 <dd>
 
-    
-    <div class="description">
-        <p>根据日、周、月、年获取指定日期所在时间段。</p>
-    </div>
     
 
     
@@ -832,7 +808,7 @@ dateFormatter(&#x27;2015-2-10 14:25:33&#x27;, &#x27;yyyy年第qq季度&#x27;)
 		<ul class="dummy">
 			<li>
 				<a href="date-util.js.html">date-util.js</a>,
-				 <a href="date-util.js.html#sunlight-1-line-245">line 245</a>
+				 <a href="date-util.js.html#sunlight-1-line-255">line 255</a>
 			</li>
 		</ul>
 	</dd>
@@ -885,9 +861,7 @@ dateFormatter(&#x27;2015-2-10 14:25:33&#x27;, &#x27;yyyy年第qq季度&#x27;)
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">getPeriod(&#x27;2015-3-2&#x27;,&#x27;month&#x27;)
-// new Date(&#x27;2015-3-1&#x27;)
-// new Date(&#x27;2015-3-31&#x27;)</pre>
+    <pre class="sunlight-highlight-javascript">getPeriod(&#x27;2015-3-2&#x27;,&#x27;month&#x27;)// new Date(&#x27;2015-3-1&#x27;)// new Date(&#x27;2015-3-31&#x27;)</pre>
 
 
     
@@ -897,16 +871,12 @@ dateFormatter(&#x27;2015-2-10 14:25:33&#x27;, &#x27;yyyy年第qq季度&#x27;)
             
 <hr>
 <dt>
-    <h4 class="name" id="~isEqualDate"><span class="type-signature">&lt;inner> </span>isEqualDate<span class="signature">(stime, ttime)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    <h4 class="name" id=".isEqualDate"><span class="type-signature">&lt;static> </span>isEqualDate<span class="signature">(stime, ttime)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
     
     
 </dt>
 <dd>
 
-    
-    <div class="description">
-        <p>判断日期相等</p>
-    </div>
     
 
     
@@ -1032,7 +1002,7 @@ dateFormatter(&#x27;2015-2-10 14:25:33&#x27;, &#x27;yyyy年第qq季度&#x27;)
 		<ul class="dummy">
 			<li>
 				<a href="date-util.js.html">date-util.js</a>,
-				 <a href="date-util.js.html#sunlight-1-line-152">line 152</a>
+				 <a href="date-util.js.html#sunlight-1-line-159">line 159</a>
 			</li>
 		</ul>
 	</dd>
@@ -1089,16 +1059,12 @@ dateFormatter(&#x27;2015-2-10 14:25:33&#x27;, &#x27;yyyy年第qq季度&#x27;)
             
 <hr>
 <dt>
-    <h4 class="name" id="~isEqualDateFuzzy"><span class="type-signature">&lt;inner> </span>isEqualDateFuzzy<span class="signature">(stime, ttime, tag)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    <h4 class="name" id=".isEqualDateFuzzy"><span class="type-signature">&lt;static> </span>isEqualDateFuzzy<span class="signature">(stime, ttime, tag)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
     
     
 </dt>
 <dd>
 
-    
-    <div class="description">
-        <p>判断日期模糊相等</p>
-    </div>
     
 
     
@@ -1250,7 +1216,7 @@ day — 星期。</p></td>
 		<ul class="dummy">
 			<li>
 				<a href="date-util.js.html">date-util.js</a>,
-				 <a href="date-util.js.html#sunlight-1-line-194">line 194</a>
+				 <a href="date-util.js.html#sunlight-1-line-203">line 203</a>
 			</li>
 		</ul>
 	</dd>
@@ -1303,8 +1269,7 @@ day — 星期。</p></td>
     
         <h5>Example</h5>
         
-    <pre class="sunlight-highlight-javascript">isEqualDateFuzzy(&#x27;2015-3-2&#x27;,&#x27;2015-3-2 12:56&#x27;,&#x27;date&#x27;)
-// true</pre>
+    <pre class="sunlight-highlight-javascript">isEqualDateFuzzy(&#x27;2015-3-2&#x27;,&#x27;2015-3-2 12:56&#x27;,&#x27;date&#x27;)// true</pre>
 
 
     
@@ -1314,16 +1279,12 @@ day — 星期。</p></td>
             
 <hr>
 <dt>
-    <h4 class="name" id="~isLeapYear"><span class="type-signature">&lt;inner> </span>isLeapYear<span class="signature">(year)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    <h4 class="name" id=".isLeapYear"><span class="type-signature">&lt;static> </span>isLeapYear<span class="signature">(year)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
     
     
 </dt>
 <dd>
 
-    
-    <div class="description">
-        <p>判断是否是润年</p>
-    </div>
     
 
     
@@ -1419,7 +1380,7 @@ day — 星期。</p></td>
 		<ul class="dummy">
 			<li>
 				<a href="date-util.js.html">date-util.js</a>,
-				 <a href="date-util.js.html#sunlight-1-line-91">line 91</a>
+				 <a href="date-util.js.html#sunlight-1-line-94">line 94</a>
 			</li>
 		</ul>
 	</dd>
@@ -1476,16 +1437,12 @@ day — 星期。</p></td>
             
 <hr>
 <dt>
-    <h4 class="name" id="~isValidDate"><span class="type-signature">&lt;inner> </span>isValidDate<span class="signature">(date)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    <h4 class="name" id=".isValidDate"><span class="type-signature">&lt;static> </span>isValidDate<span class="signature">(date)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
     
     
 </dt>
 <dd>
 
-    
-    <div class="description">
-        <p>判断是否是合法日期对象</p>
-    </div>
     
 
     
@@ -1581,7 +1538,7 @@ day — 星期。</p></td>
 		<ul class="dummy">
 			<li>
 				<a href="date-util.js.html">date-util.js</a>,
-				 <a href="date-util.js.html#sunlight-1-line-78">line 78</a>
+				 <a href="date-util.js.html#sunlight-1-line-80">line 80</a>
 			</li>
 		</ul>
 	</dd>
@@ -1638,16 +1595,12 @@ day — 星期。</p></td>
             
 <hr>
 <dt>
-    <h4 class="name" id="~toDate"><span class="type-signature">&lt;inner> </span>toDate<span class="signature">(time)</span><span class="type-signature"> &rarr; {Date}</span></h4>
+    <h4 class="name" id=".toDate"><span class="type-signature">&lt;static> </span>toDate<span class="signature">(time)</span><span class="type-signature"> &rarr; {Date}</span></h4>
     
     
 </dt>
 <dd>
 
-    
-    <div class="description">
-        <p>转换成日期对象</p>
-    </div>
     
 
     
@@ -1743,7 +1696,7 @@ day — 星期。</p></td>
 		<ul class="dummy">
 			<li>
 				<a href="date-util.js.html">date-util.js</a>,
-				 <a href="date-util.js.html#sunlight-1-line-136">line 136</a>
+				 <a href="date-util.js.html#sunlight-1-line-142">line 142</a>
 			</li>
 		</ul>
 	</dd>
@@ -1843,14 +1796,10 @@ day — 星期。</p></td>
 <footer>
 
 
-	<span class="copyright">
-	https://lzw.me.
-	</span>
-
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a>
 	
-		on Thu Jul 2nd 2020
+		on 2020-07-10T22:27:02+08:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

@@ -17,12 +17,12 @@ module.exports = {
     // "logoFile": "images/logo.png",        //logo 文件路径
     cleverLinks: false,
     monospaceLinks: false,
-    dateFormat: 'ddd MMM Do YYYY', // 当需要打印日期时使用的格式
+    // dateFormat: 'ddd MMM Do YYYY', // 当需要打印日期时使用的格式
     outputSourceFiles: true, // 是否输出文件源码
     outputSourcePath: true, // 是否输出源码路径
-    systemName: 'Common Modules', // 系统名称
+    systemName: 'Tool Function', // 系统名称
     footer: '', // 页脚内容
-    copyright: 'https://lzw.me.', // 页脚版权信息
+    // copyright: 'https://lzw.me.', // 页脚版权信息
     navType: 'vertical', // vertical 或 inline
     // docstrap 模板主题。可取值: cosmo, cyborg, flatly, journal, lumen, paper,
     // readable, sandstone, simplex, slate, spacelab, superhero, united, yeti
@@ -36,7 +36,7 @@ module.exports = {
   // 命令行执行参数配置。在这里配置了后
   // 命令行只需要执行: jsdoc -c jsdoc-conf.json 即可
   opts: {
-    // "template": "templates/default",      //使用 JSDoc 默认模板
+    // 'template': 'templates/default', // 使用 JSDoc 默认模板
     template: './node_modules/ink-docstrap/template', // 使用 docstrap 模板
     destination: './docs/', // 输出目录。等同于 -d ./out/
     recurse: true, // 是否递归查找。 -r

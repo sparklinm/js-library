@@ -4,6 +4,7 @@
  */
 
 /**
+ * @static
  * @description 判断页面是否可以滚动
  * @return {Boolean} trye or false
  */
@@ -23,6 +24,7 @@ function checkPageCanScroll () {
 }
 
 /**
+ * @static
  * @description 判断节点内部是否可以滚动
  * @param {HTMLElement} el html 节点
  * @return {Boolean} trye or false
@@ -38,6 +40,7 @@ function checkNodeCanScroll (el) {
 }
 
 /**
+ * @static
  * @description 截断文字添加省略号，单位长度为一个汉字长度。
  * @example
  * cutText('xxxyyy', 2)
@@ -73,6 +76,7 @@ function cutText (text, length) {
 }
 
 /**
+ * @static
  * @description 获取 canvas 存储的像素比 和 屏幕像素比比值 。<br>
  * 即如果比值为x，那么canvas的真正大小（width属性）应该是：css像素*x。
  * @return {Number} 比值。
@@ -94,6 +98,7 @@ function getPixelRatio () {
 }
 
 /**
+ * @static
  * @description 获取 canvas dataURL（转化为图片）。<br>
  * 获取的图片分辨率适应当前设备的设备像素比，即在 Retina 屏幕下获取的图片分辨率更高。
  * @param {HTMLElement} canvas - canvas 节点。
@@ -109,11 +114,74 @@ function canvasToImg (canvas) {
   return canvas.toDataURL()
 }
 
+
 /**
- * @ignore
+ * @static
+ * @description 图片 url 转换为 dataURL。
+ * @param {String} url - 图片 url。
+ * @returns {String} dataURL。
+ */
+
+function urlToDataURL (url) {
+  return new Promise ((resolve, reject) => {
+    const image = new Image()
+
+    image.onload = function () {
+      const canvas = document.createElement('canvas')
+
+      // 实际宽高
+      canvas.width = this.naturalWidth
+      canvas.height = this.naturalHeight
+      // 将图片插入画布并开始绘制
+      canvas.getContext('2d').drawImage(image, 0, 0)
+      // result
+      const result = canvas.toDataURL('image/png')
+
+      resolve(result)
+    }
+    // CORS 策略，会存在跨域问题https://stackoverflow.com/questions/20424279/canvas-todataurl-securityerror
+    image.setAttribute('crossOrigin', 'Anonymous')
+    image.src = url
+    // 图片加载失败的错误处理
+    image.onerror = () => {
+      reject(new Error('img error'))
+    }
+  })
+}
+
+
+/**
+ * @static
+ * @example
+ * blobToDataURL(blob).then(dataURL => {
+ *   console.log(dataURL)
+ * })
+ * @description blob 对象转换为 dataURL。
+ * @param {Blob} blob - blob 对象。
+ * @returns {String} dataURL 。
+ */
+
+function blobToDataURL (blob) {
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader()
+
+    fileReader.onload = (e) => {
+      resolve(e.target.result)
+    }
+    // readAsDataURL
+    fileReader.readAsDataURL(blob)
+    fileReader.onerror = () => {
+      reject(new Error('file error'))
+    }
+  })
+}
+
+
+/**
+ * @static
  * @description dataURL 转换为 blob 对象。
  * @param {String} dataURL - dataURL。
- * @param {Blob} Blob 对象。
+ * @returns {Blob} Blob 对象。
  */
 
 function dataURLToBlob (dataURL) {
@@ -129,11 +197,13 @@ function dataURLToBlob (dataURL) {
 }
 
 /**
+ * @static
+ * @todo 需要进一步优化。
  * @description 下载图片，如果是网络图片（http开头），需要同域名。<br>
  * 同时依赖于a标签的download兼容性，移动端兼容性差。
  * @param {String} src - 图片链接，可以是blob url, dataURL, 网络图片（http开头）。
  * @param {Number} imgName - 图片名字。
- * @param {Number} useblob - 转换为blob url，只有dataURL可以转换。
+ * @param {Number} [useblob=false] useblob - 转换为blob url，只有dataURL可以转换。
  */
 
 function downloadImg (src, imgName, useblob = false) {
@@ -172,11 +242,12 @@ function downloadImg (src, imgName, useblob = false) {
 }
 
 /**
- * @description 插入字符串形式的<script>标签。
- *  @example
+ * @static
+ * @description 插入字符串形式的 script 标签。
+ * @example
  * insertScripts('<script></script><script></script>')
  * insertScripts(['<script></script><script></script>','<script></script>'])
- * @param {String|Array} scripts - 字符串形式的<script>标签。
+ * @param {String|Array} scripts - 字符串形式的 script 标签。
  * @param {HTMLElement} container 插入到的节点容器。
  */
 
@@ -208,8 +279,9 @@ function insertScripts (scripts, container) {
 }
 
 /**
+ * @static
  * @description HTML转义。
- *  @example
+ * @example
  * HTMLEncode('<div class=""> xx </div>')
  * // &lt;div&nbsp;class=&quot;&quot;&gt;&nbsp;xx&nbsp;&lt;/div&gt;
  * @param {String} str - 字符串形式的html。
@@ -243,8 +315,9 @@ function HTMLEncode (str) {
 }
 
 /**
+ * @static
  * @description 解析转义后的html。
- *  @example
+ * @example
  * HTMLEncode('&lt;div&nbsp;class=&quot;&quot;&gt;&nbsp;xx&nbsp;&lt;/div&gt;')
  * // <div class=""> xx </div>
  * @param {String} str - 转义后的字符串html。
@@ -284,5 +357,8 @@ export {
   downloadImg,
   insertScripts,
   HTMLEncode,
-  HTMLDecode
+  HTMLDecode,
+  urlToDataURL,
+  blobToDataURL,
+  dataURLToBlob
 }

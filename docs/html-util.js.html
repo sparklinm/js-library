@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Common Modules Source: html-util.js</title>
+	<title>Tool Function Source: html-util.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -20,7 +20,7 @@
 <div class="navbar navbar-default navbar-fixed-top navbar-inverse">
 <div class="container">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="index.html">Common Modules</a>
+		<a class="navbar-brand" href="index.html">Tool Function</a>
 		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
@@ -83,6 +83,7 @@
  */
 
 /**
+ * @static
  * @description 判断页面是否可以滚动
  * @return {Boolean} trye or false
  */
@@ -102,6 +103,7 @@ function checkPageCanScroll () {
 }
 
 /**
+ * @static
  * @description 判断节点内部是否可以滚动
  * @param {HTMLElement} el html 节点
  * @return {Boolean} trye or false
@@ -117,6 +119,7 @@ function checkNodeCanScroll (el) {
 }
 
 /**
+ * @static
  * @description 截断文字添加省略号，单位长度为一个汉字长度。
  * @example
  * cutText('xxxyyy', 2)
@@ -152,6 +155,7 @@ function cutText (text, length) {
 }
 
 /**
+ * @static
  * @description 获取 canvas 存储的像素比 和 屏幕像素比比值 。&lt;br>
  * 即如果比值为x，那么canvas的真正大小（width属性）应该是：css像素*x。
  * @return {Number} 比值。
@@ -173,6 +177,7 @@ function getPixelRatio () {
 }
 
 /**
+ * @static
  * @description 获取 canvas dataURL（转化为图片）。&lt;br>
  * 获取的图片分辨率适应当前设备的设备像素比，即在 Retina 屏幕下获取的图片分辨率更高。
  * @param {HTMLElement} canvas - canvas 节点。
@@ -189,6 +194,7 @@ function canvasToImg (canvas) {
 }
 
 /**
+ * @static
  * @ignore
  * @description dataURL 转换为 blob 对象。
  * @param {String} dataURL - dataURL。
@@ -208,6 +214,7 @@ function dataURLToBlob (dataURL) {
 }
 
 /**
+ * @static
  * @description 下载图片，如果是网络图片（http开头），需要同域名。&lt;br>
  * 同时依赖于a标签的download兼容性，移动端兼容性差。
  * @param {String} src - 图片链接，可以是blob url, dataURL, 网络图片（http开头）。
@@ -249,6 +256,125 @@ function downloadImg (src, imgName, useblob = false) {
   // 释放创建的url对象
   URL.revokeObjectURL(url)
 }
+
+/**
+ * @static
+ * @description 插入字符串形式的 script 标签。
+ * @example
+ * insertScripts('&lt;script>&lt;/script>&lt;script>&lt;/script>')
+ * insertScripts(['&lt;script>&lt;/script>&lt;script>&lt;/script>','&lt;script>&lt;/script>'])
+ * @param {String|Array} scripts - 字符串形式的 script 标签。
+ * @param {HTMLElement} container 插入到的节点容器。
+ */
+
+function insertScripts (scripts, container) {
+  if (document) {
+    const str = Array.isArray(scripts) ? scripts.join('') : scripts
+    let cont = document.createElement('div')
+
+    cont.innerHTML = str
+    const oldScripts = cont.querySelectorAll('script')
+
+    cont = null
+
+    oldScripts.forEach((oldScript) => {
+      const newScript = document.createElement('script')
+
+      newScript.type = 'text/javascript'
+      newScript.innerHTML = oldScript.innerHTML
+      if (oldScript.src) {
+        newScript.src = oldScript.src
+      }
+      if (container) {
+        container.appendChild(newScript)
+      } else {
+        document.documentElement.appendChild(newScript)
+      }
+    })
+  }
+}
+
+/**
+ * @static
+ * @description HTML转义。
+ * @example
+ * HTMLEncode('&lt;div class=""> xx &lt;/div>')
+ * // &amp;lt;div&amp;nbsp;class=&amp;quot;&amp;quot;&amp;gt;&amp;nbsp;xx&amp;nbsp;&amp;lt;/div&amp;gt;
+ * @param {String} str - 字符串形式的html。
+ * @returns {String} - 转义后的字符串html。
+ */
+
+function HTMLEncode (str) {
+  if (typeof document !== 'undefined') {
+    let temp = document.createElement('div')
+
+    temp.textContent !== null
+      ? (temp.textContent = str)
+      : (temp.innerText = str)
+    const output = temp.innerHTML
+
+    temp = null
+    return output
+  }
+
+  let s = ''
+
+  if (str.length === 0) return ''
+  s = str.replace(/&amp;/g, '&amp;amp;')
+  s = s.replace(/&lt;/g, '&amp;lt;')
+  s = s.replace(/>/g, '&amp;gt;')
+  s = s.replace(/ /g, '&amp;nbsp;')
+  s = s.replace(/'/g, '&amp;#39;')
+  s = s.replace(/"/g, '&amp;quot;')
+  s = s.replace(/\n/g, '&lt;br/>')
+  return s
+}
+
+/**
+ * @static
+ * @description 解析转义后的html。
+ * @example
+ * HTMLEncode('&amp;lt;div&amp;nbsp;class=&amp;quot;&amp;quot;&amp;gt;&amp;nbsp;xx&amp;nbsp;&amp;lt;/div&amp;gt;')
+ * // &lt;div class=""> xx &lt;/div>
+ * @param {String} str - 转义后的字符串html。
+ * @returns {String} - 字符串形式的html。
+ */
+
+function HTMLDecode (str) {
+  if (typeof document !== 'undefined') {
+    let temp = document.createElement('div')
+
+    temp.innerHTML = str
+    const output = temp.innerText || temp.textContent
+
+    temp = null
+    return output
+  }
+
+  let s = ''
+
+  if (str.length === 0) return ''
+  s = str.replace(/&amp;amp;/g, '&amp;')
+  s = s.replace(/&amp;lt;/g, '&lt;')
+  s = s.replace(/&amp;gt;/g, '>')
+  s = s.replace(/&amp;nbsp;/g, ' ')
+  s = s.replace(/&amp;#39;/g, '\'')
+  s = s.replace(/&amp;quot;/g, '"')
+  s = s.replace(/&lt;br\/>|&lt;br>/g, '\n')
+  return s
+}
+
+export {
+  checkPageCanScroll,
+  checkNodeCanScroll,
+  cutText,
+  getPixelRatio,
+  canvasToImg,
+  downloadImg,
+  insertScripts,
+  HTMLEncode,
+  HTMLDecode
+}
 </pre>
     </article>
 </section>
@@ -287,14 +413,10 @@ function downloadImg (src, imgName, useblob = false) {
 <footer>
 
 
-	<span class="copyright">
-	https://lzw.me.
-	</span>
-
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a>
 	
-		on Thu Jul 2nd 2020
+		on 2020-07-10T22:27:02+08:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
