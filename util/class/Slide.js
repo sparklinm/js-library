@@ -50,6 +50,11 @@ export class Slide {
    * @param {HTMLElement} el - html 节点。
    * @param {Number} maxSlideDx - x 方向最大移动距离。
    * @param {Number} maxSlideDy - y 方向最大移动距离。
+   * @param {Boolean} [limitArea=false] - 是否限制区域。
+   * 如果为true，当滑动超过 maxSlideDx 限定的区域内，
+   * 获取到的 dx 为 0，offsetx 为 ±maxSlideDx。
+   * 如果为false，当滑动超过 maxSlideDx 限定的区域内，
+   * 获取到的 dx 为 正常值，offsetx 为 ±maxSlideDx。
    */
 
   constructor (
@@ -84,12 +89,58 @@ export class Slide {
       cancelable: true
     })
     // 监听原生触摸事件
-    this.el.addEventListener('touchstart', this._start)
-    this.el.addEventListener('touchmove', this._move)
-    this.el.addEventListener('touchend', this._end)
-    window.addEventListener('mousedown', this._start)
-    window.addEventListener('mousemove', this._move)
-    window.addEventListener('mouseup', this._end)
+    this.setSupportsPassive()
+    if ('ontouchstart' in window) {
+      this._on(this.el, 'touchstart', this._start)
+      this._on(this.el, 'touchmove', this._move)
+      this._on(this.el, 'touchend', this._end)
+    } else {
+      this._on(window, 'mousedown', this._start)
+      this._on(window, 'mousemove', this._move)
+      this._on(window, 'mouseup', this._end)
+    }
+  }
+
+  _on (el, event, fn) {
+    el.addEventListener(
+      event,
+      fn,
+      this.supportsPassive
+        ? {
+          capture: false,
+          passive: false
+        }
+        : false
+    )
+  }
+
+  _off (el, event, fn) {
+    el.removeEventListener(
+      event,
+      fn,
+      this.supportsPassive
+        ? {
+          capture: false,
+          passive: false
+        }
+        : false
+    )
+  }
+
+  setSupportsPassive () {
+    try {
+      const opts = Object.defineProperty({}, 'passive', {
+        get: () => {
+          this.supportsPassive = true
+          return true
+        }
+      })
+
+      window.addEventListener('testPassive', null, opts)
+      window.removeEventListener('testPassive', null, opts)
+    } catch (e) {
+      console.error(e)
+    }
   }
 
   checkNode (node) {
@@ -103,6 +154,7 @@ export class Slide {
   }
 
   _start = (e) => {
+    e.preventDefault()
     let startx = 0
     let starty = 0
 
@@ -116,10 +168,10 @@ export class Slide {
         this.canSlide = false
         return
       }
-      e.preventDefault()
       startx = e.pageX
       starty = e.pageY
     } else {
+      e.preventDefault()
       startx = e.targetTouches[0].pageX
       starty = e.targetTouches[0].pageY
     }
@@ -260,8 +312,11 @@ export class Slide {
 
   // 销毁自定义事件
   destroy () {
-    this.el.removeEventListener('touchstart', this._start)
-    this.el.removeEventListener('touchmove', this._move)
-    this.el.removeEventListener('touchend', this._end)
+    this._off(this.el, 'touchstart', this._start)
+    this._off(this.el, 'touchmove', this._move)
+    this._off(this.el, 'touchend', this._end)
+    this._off(window, 'mousedown', this._start)
+    this._off(window, 'mousemove', this._move)
+    this._off(window, 'mouseup', this._end)
   }
 }

@@ -4,6 +4,7 @@
  */
 
 /**
+ * @static
  * @description 时间格式化
  * @example
  * dateFormatter(new Date(2015, 1, 10, 14, 25, 33), 'yyyy-MM-dd hh:mm:ss')
@@ -70,6 +71,7 @@ function dateFormatter (date, format) {
 }
 
 /**
+ * @static
  * 判断是否是合法日期对象
  * @param {Date} date 日期对象
  * @returns {Boolean} true or false
@@ -83,6 +85,7 @@ function isValidDate (date) {
 }
 
 /**
+ * @static
  * 判断是否是润年
  * @param {Number} year 年份
  * @returns {Boolean} true or false
@@ -93,6 +96,7 @@ function isLeapYear (year) {
 }
 
 /**
+ * @static
  * @ignore
  * 判断是否是大月
  * @param {Number} month 月份
@@ -106,6 +110,7 @@ function isBigMonth (month) {
 }
 
 /**
+ * @static
  * 获取月份天数
  * @param {Date} date 日期
  * @returns {Number} 天数
@@ -128,6 +133,7 @@ function getMonthDays (date) {
 }
 
 /**
+ * @static
  * 转换成日期对象
  * @param {String} time 时间字符串
  * @returns {Date} 日期对象
@@ -143,6 +149,7 @@ function toDate (time) {
 }
 
 /**
+ * @static
  * 判断日期相等
  * @param {Date|String} stime 日期1
  * @param {Date|String} ttime 日期2
@@ -160,6 +167,7 @@ function isEqualDate (stime, ttime) {
 }
 
 /**
+ * @static
  * @ignore
  * 获取完全的日期，年月日时分秒毫秒
  * @param {Date|String} date 日期
@@ -179,6 +187,7 @@ function getFullDate (date) {
 }
 
 /**
+ * @static
  * 判断日期模糊相等
  * @example
  * isEqualDateFuzzy('2015-3-2','2015-3-2 12:56','date')
@@ -232,6 +241,7 @@ function isEqualDateFuzzy (stime, ttime, tag) {
 }
 
 /**
+ * @static
  * 根据日、周、月、年获取指定日期所在时间段。
  * @example
  * getPeriod('2015-3-2','month')
@@ -282,6 +292,7 @@ function getPeriod (date = new Date(), unit) {
 }
 
 /**
+ * @static
  * 最大的连续天数数量。
  * @example
  * countMaxConsecutiveDate([

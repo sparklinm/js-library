@@ -4,6 +4,7 @@
  */
 
 /**
+ * @static
  * @description Hex颜色转Rgb
  * @example
  * HexToRgb('#fff333')
@@ -27,6 +28,7 @@ function HexToRgb (str) {
 }
 
 /**
+ * @static
  * @description Rgb 转 Hex
  * @example
  * RgbToHex('rgb(255,243,51)')
@@ -58,6 +60,7 @@ function RgbToHex (rgb) {
 }
 
 /**
+ * @static
  * @description Rgb 转 Rgba
  * @example
  * toRgba('#fff333', 0.6)
@@ -86,6 +89,7 @@ function toRgba (color, opacity) {
 }
 
 /**
+ * @static
  * @description 颜色变深
  * @example
  * darkenColor('rgb(40, 40, 40)', 0.2)
@@ -111,6 +115,7 @@ function darkenColor (color, level) {
 }
 
 /**
+ * @static
  * @description 颜色变浅
  * @lightnessColor
  * darkenColor('rgb(40, 40, 40)', 0.2)

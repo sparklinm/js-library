@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Common Modules Module: html</title>
+	<title>Tool Function Module: html</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -20,7 +20,7 @@
 <div class="navbar navbar-default navbar-fixed-top navbar-inverse">
 <div class="container">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="index.html">Common Modules</a>
+		<a class="navbar-brand" href="index.html">Tool Function</a>
 		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
@@ -123,7 +123,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="html-util.js.html">html-util.js</a>,
-				 <a href="html-util.js.html#sunlight-1-line-1">line 1</a>
+				 <a href="html-util.js.html#sunlight-1-line-3">line 3</a>
 			</li>
 		</ul>
 	</dd>
@@ -160,7 +160,177 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~canvasToImg"><span class="type-signature">&lt;inner> </span>canvasToImg<span class="signature">(canvas)</span><span class="type-signature"> &rarr; {String}</span></h4>
+    <h4 class="name" id=".blobToDataURL"><span class="type-signature">&lt;static> </span>blobToDataURL<span class="signature">(blob)</span><span class="type-signature"> &rarr; {String}</span></h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>blob 对象转换为 dataURL。</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>blob</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Blob</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>blob 对象。</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="html-util.js.html">html-util.js</a>,
+				 <a href="html-util.js.html#sunlight-1-line-164">line 164</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>dataURL 。</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">blobToDataURL(blob).then(dataURL =&gt; {
+  console.log(dataURL)
+})</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".canvasToImg"><span class="type-signature">&lt;static> </span>canvasToImg<span class="signature">(canvas)</span><span class="type-signature"> &rarr; {String}</span></h4>
     
     
 </dt>
@@ -266,7 +436,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="html-util.js.html">html-util.js</a>,
-				 <a href="html-util.js.html#sunlight-1-line-103">line 103</a>
+				 <a href="html-util.js.html#sunlight-1-line-110">line 110</a>
 			</li>
 		</ul>
 	</dd>
@@ -323,7 +493,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~checkNodeCanScroll"><span class="type-signature">&lt;inner> </span>checkNodeCanScroll<span class="signature">(el)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    <h4 class="name" id=".checkNodeCanScroll"><span class="type-signature">&lt;static> </span>checkNodeCanScroll<span class="signature">(el)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
     
     
 </dt>
@@ -428,7 +598,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="html-util.js.html">html-util.js</a>,
-				 <a href="html-util.js.html#sunlight-1-line-31">line 31</a>
+				 <a href="html-util.js.html#sunlight-1-line-35">line 35</a>
 			</li>
 		</ul>
 	</dd>
@@ -485,7 +655,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~checkPageCanScroll"><span class="type-signature">&lt;inner> </span>checkPageCanScroll<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    <h4 class="name" id=".checkPageCanScroll"><span class="type-signature">&lt;static> </span>checkPageCanScroll<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
     
     
 </dt>
@@ -540,7 +710,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="html-util.js.html">html-util.js</a>,
-				 <a href="html-util.js.html#sunlight-1-line-11">line 11</a>
+				 <a href="html-util.js.html#sunlight-1-line-14">line 14</a>
 			</li>
 		</ul>
 	</dd>
@@ -597,7 +767,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~cutText"><span class="type-signature">&lt;inner> </span>cutText<span class="signature">(text, length)</span><span class="type-signature"> &rarr; {String}</span></h4>
+    <h4 class="name" id=".cutText"><span class="type-signature">&lt;static> </span>cutText<span class="signature">(text, length)</span><span class="type-signature"> &rarr; {String}</span></h4>
     
     
 </dt>
@@ -726,7 +896,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="html-util.js.html">html-util.js</a>,
-				 <a href="html-util.js.html#sunlight-1-line-50">line 50</a>
+				 <a href="html-util.js.html#sunlight-1-line-55">line 55</a>
 			</li>
 		</ul>
 	</dd>
@@ -790,7 +960,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~downloadImg"><span class="type-signature">&lt;inner> </span>downloadImg<span class="signature">(src, imgName, useblob)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".dataURLToBlob"><span class="type-signature">&lt;static> </span>dataURLToBlob<span class="signature">(dataURL)</span><span class="type-signature"> &rarr; {Blob}</span></h4>
     
     
 </dt>
@@ -798,8 +968,7 @@
 
     
     <div class="description">
-        <p>下载图片，如果是网络图片（http开头），需要同域名。<br><br>
-同时依赖于a标签的download兼容性，移动端兼容性差。</p>
+        <p>dataURL 转换为 blob 对象。</p>
     </div>
     
 
@@ -824,8 +993,6 @@
         
 
         
-        <th>Default</th>
-        
 
         <th class="last">Description</th>
     </tr>
@@ -836,7 +1003,7 @@
 
         <tr>
             
-                <td class="name"><code>src</code></td>
+                <td class="name"><code>dataURL</code></td>
             
 
             <td class="type">
@@ -852,70 +1019,8 @@
             
 
             
-                <td class="default">
-                
-                </td>
-            
 
-            <td class="description last"><p>图片链接，可以是blob url, dataURL, 网络图片（http开头）。</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>imgName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last"><p>图片名字。</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>useblob</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-                <td class="default">
-                
-                    false
-                
-                </td>
-            
-
-            <td class="description last"><p>转换为blob url，只有dataURL可以转换。</p></td>
+            <td class="description last"><p>dataURL。</p></td>
         </tr>
 
     
@@ -960,7 +1065,221 @@
 		<ul class="dummy">
 			<li>
 				<a href="html-util.js.html">html-util.js</a>,
-				 <a href="html-util.js.html#sunlight-1-line-139">line 139</a>
+				 <a href="html-util.js.html#sunlight-1-line-186">line 186</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>Blob 对象。</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Blob</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".downloadImg"><span class="type-signature">&lt;async, static> </span>downloadImg<span class="signature">(src, imgName, useType)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>下载图片。<br>
+依赖于 a 标签的 download 兼容性，移动端兼容性差。</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>src</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>图片链接，可以是blob url, dataURL, 网络图片（http开头）。</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>imgName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>图片名字。<br>
+需要加上格式，同时原图片是什么格式，这里就必须是什么格式。</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>useType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>可选值为 dataURL 或者 blobURL，表示转换为哪种格式下载。<br>
+仅对 dataURL, 网络图片 有效，本身为 blobURL 不可转换。<br>
+如果是网络图片，不转换成 dataURL 或者 blobURL 无法跨域下载。</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="html-util.js.html">html-util.js</a>,
+				 <a href="html-util.js.html#sunlight-1-line-211">line 211</a>
 			</li>
 		</ul>
 	</dd>
@@ -993,7 +1312,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~getPixelRatio"><span class="type-signature">&lt;inner> </span>getPixelRatio<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    <h4 class="name" id=".getPixelRatio"><span class="type-signature">&lt;static> </span>getPixelRatio<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span></h4>
     
     
 </dt>
@@ -1049,7 +1368,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="html-util.js.html">html-util.js</a>,
-				 <a href="html-util.js.html#sunlight-1-line-81">line 81</a>
+				 <a href="html-util.js.html#sunlight-1-line-87">line 87</a>
 			</li>
 		</ul>
 	</dd>
@@ -1090,6 +1409,1275 @@
     <dd>
         
 <span class="param-type">Number</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".hiddenRows"><span class="type-signature">&lt;static> </span>hiddenRows<span class="signature">(el [, rows] [, exceededRows])</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>文本超出指定行后隐藏。<br>
+因为使用了 getComputedStyle 获取高度，所以节点不能是内联节点。</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>el</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTMLElement</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>html节点。</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>rows</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    5
+                
+                </td>
+            
+
+            <td class="description last"><p>指定的行数。</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>exceededRows</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last"><p>超出 指定行数 多少行 后才隐藏。</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="html-util.js.html">html-util.js</a>,
+				 <a href="html-util.js.html#sunlight-1-line-420">line 420</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>对象，包括是否隐藏的标志和文本高度。</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">hiddenRows (el, 6, 2)
+// 表示超过 6+2 行后才隐藏
+// 隐藏后的行数显示为6行
+// {
+//   hidden: false or true,
+//   height: 文本高度
+// }</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".HTMLDecode"><span class="type-signature">&lt;static> </span>HTMLDecode<span class="signature">(str)</span><span class="type-signature"> &rarr; {String}</span></h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>解析转义后的html。</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>str</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>转义后的字符串html。</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="html-util.js.html">html-util.js</a>,
+				 <a href="html-util.js.html#sunlight-1-line-378">line 378</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li>字符串形式的html。</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">HTMLEncode(&#x27;&amp;lt;div&amp;nbsp;class=&amp;quot;&amp;quot;&amp;gt;&amp;nbsp;xx&amp;nbsp;&amp;lt;/div&amp;gt;&#x27;)
+// &lt;div class=&quot;&quot;&gt; xx &lt;/div&gt;</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".HTMLEncode"><span class="type-signature">&lt;static> </span>HTMLEncode<span class="signature">(str)</span><span class="type-signature"> &rarr; {String}</span></h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>HTML转义。</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>str</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>字符串形式的html。</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="html-util.js.html">html-util.js</a>,
+				 <a href="html-util.js.html#sunlight-1-line-342">line 342</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <ul>
+<li>转义后的字符串html。</li>
+</ul>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">HTMLEncode(&#x27;&lt;div class=&quot;&quot;&gt; xx &lt;/div&gt;&#x27;)
+// &amp;lt;div&amp;nbsp;class=&amp;quot;&amp;quot;&amp;gt;&amp;nbsp;xx&amp;nbsp;&amp;lt;/div&amp;gt;</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".infiniteScroll"><span class="type-signature">&lt;static> </span>infiniteScroll<span class="signature">(options)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>无限滚动。</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>配置参数。</p>
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>el</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTMLElement</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    document.documentElement
+                
+                </td>
+            
+
+            <td class="description last"><p>无限滚动的节点。</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>callback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>回调函数。</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>distance</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last"><p>距离底部多少调用回调函数。</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="html-util.js.html">html-util.js</a>,
+				 <a href="html-util.js.html#sunlight-1-line-471">line 471</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>对象，包含摧毁监听的方法 destory。</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">// const ins = infiniteScroll({
+//   el: &#x27;html节点&#x27;,
+//   distance: 10,
+//   callback: () =&gt; {
+//     console.log(&#x27;a&#x27;)
+//   }
+// })
+
+// ins.destory()</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".insertScripts"><span class="type-signature">&lt;static> </span>insertScripts<span class="signature">(scripts, container)</span><span class="type-signature"></span></h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>插入字符串形式的 script 标签。</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>scripts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Array</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>字符串形式的 script 标签。</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>container</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">HTMLElement</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>插入到的节点容器。</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="html-util.js.html">html-util.js</a>,
+				 <a href="html-util.js.html#sunlight-1-line-305">line 305</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">insertScripts(&#x27;&lt;script&gt;&lt;/script&gt;&lt;script&gt;&lt;/script&gt;&#x27;)
+insertScripts([&#x27;&lt;script&gt;&lt;/script&gt;&lt;script&gt;&lt;/script&gt;&#x27;,&#x27;&lt;script&gt;&lt;/script&gt;&#x27;])</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".urlToDataURL"><span class="type-signature">&lt;static> </span>urlToDataURL<span class="signature">(url)</span><span class="type-signature"> &rarr; {String}</span></h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>图片 url 转换为 dataURL。</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>图片 url。</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="html-util.js.html">html-util.js</a>,
+				 <a href="html-util.js.html#sunlight-1-line-126">line 126</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>dataURL。</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
 
 
 
@@ -1149,14 +2737,10 @@
 <footer>
 
 
-	<span class="copyright">
-	https://lzw.me.
-	</span>
-
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a>
 	
-		on Thu Jul 2nd 2020
+		on 2020-07-28T14:07:36+08:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

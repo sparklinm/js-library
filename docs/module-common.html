@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Common Modules Module: common</title>
+	<title>Tool Function Module: common</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -20,7 +20,7 @@
 <div class="navbar navbar-default navbar-fixed-top navbar-inverse">
 <div class="container">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="index.html">Common Modules</a>
+		<a class="navbar-brand" href="index.html">Tool Function</a>
 		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
@@ -160,7 +160,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~countMaxDuplicateNumber"><span class="type-signature">&lt;inner> </span>countMaxDuplicateNumber<span class="signature">(array)</span><span class="type-signature"> &rarr; {Number}</span></h4>
+    <h4 class="name" id=".countMaxDuplicateNumber"><span class="type-signature">&lt;static> </span>countMaxDuplicateNumber<span class="signature">(array)</span><span class="type-signature"> &rarr; {Number}</span></h4>
     
     
 </dt>
@@ -265,7 +265,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="util.js.html">util.js</a>,
-				 <a href="util.js.html#sunlight-1-line-49">line 49</a>
+				 <a href="util.js.html#sunlight-1-line-51">line 51</a>
 			</li>
 		</ul>
 	</dd>
@@ -329,7 +329,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~curry"><span class="type-signature">&lt;inner> </span>curry<span class="signature">(fn)</span><span class="type-signature"> &rarr; {function}</span></h4>
+    <h4 class="name" id=".curry"><span class="type-signature">&lt;static> </span>curry<span class="signature">(fn)</span><span class="type-signature"> &rarr; {function}</span></h4>
     
     
 </dt>
@@ -434,7 +434,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="util.js.html">util.js</a>,
-				 <a href="util.js.html#sunlight-1-line-21">line 21</a>
+				 <a href="util.js.html#sunlight-1-line-22">line 22</a>
 			</li>
 		</ul>
 	</dd>
@@ -503,7 +503,218 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive)
             
 <hr>
 <dt>
-    <h4 class="name" id="~throttle"><span class="type-signature">&lt;inner> </span>throttle<span class="signature">(fn)</span><span class="type-signature"> &rarr; {function}</span></h4>
+    <h4 class="name" id=".promiseOrder"><span class="type-signature">&lt;static> </span>promiseOrder<span class="signature">(pFAry)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>依次按序执行 promise，全部调用完毕后返回一个新的 promise。</p>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>pFAry</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Arry</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>数组，元素是函数，函数返回 promise 对象。<br>
+函数接收上一次 promise resolve 的参数。</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="util.js.html">util.js</a>,
+				 <a href="util.js.html#sunlight-1-line-152">line 152</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    <p>新的 fulfilled 状态 promise 对象。<br>
+传递最后一次 promise resolve 的参数。</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+        <h5>Example</h5>
+        
+    <pre class="sunlight-highlight-javascript">function getA() {
+    return new Promise((resolve, reject) =&gt; {
+        get(&#x27;/user/a&#x27;, (status, res) =&gt; {
+            if (status == 200) {
+                resolve(res)
+            } else {
+                reject(&#x27;error&#x27;)
+            }
+        })
+    })
+}
+
+function getB(dataA) {
+    return new Promise((resolve, reject) =&gt; {
+        get(&#x27;/user/b&#x27;, dataA, (status, res) =&gt; {
+            if (status == 200) {
+                resolve(res)
+            } else {
+                reject(&#x27;error&#x27;)
+            }
+        })
+
+    })
+}
+
+function getC(dataB) {
+    return new Promise((resolve, reject) =&gt; {
+        get(&#x27;/user/c&#x27;, dataB, (status, res) =&gt; {
+            if (status == 200) {
+                resolve(res)
+            } else {
+                reject(&#x27;error&#x27;)
+            }
+        })
+
+    })
+}
+
+promiseOrder([getA,getB,getC]).then((res)=&gt;{
+    console.log(&#x27;success&#x27;);
+    console.log(res);
+})</pre>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".throttle"><span class="type-signature">&lt;static> </span>throttle<span class="signature">(fn)</span><span class="type-signature"> &rarr; {function}</span></h4>
     
     
 </dt>
@@ -608,7 +819,7 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive)
 		<ul class="dummy">
 			<li>
 				<a href="util.js.html">util.js</a>,
-				 <a href="util.js.html#sunlight-1-line-78">line 78</a>
+				 <a href="util.js.html#sunlight-1-line-81">line 81</a>
 			</li>
 		</ul>
 	</dd>
@@ -708,14 +919,10 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive)
 <footer>
 
 
-	<span class="copyright">
-	https://lzw.me.
-	</span>
-
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a>
 	
-		on Thu Jul 2nd 2020
+		on 2020-07-28T14:07:36+08:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
