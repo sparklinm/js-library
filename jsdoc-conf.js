@@ -37,7 +37,8 @@ module.exports = {
   // 命令行只需要执行: jsdoc -c jsdoc-conf.json 即可
   opts: {
     // 'template': 'templates/default', // 使用 JSDoc 默认模板
-    template: './node_modules/ink-docstrap/template', // 使用 docstrap 模板
+    // template: './node_modules/ink-docstrap/template', // 使用 docstrap 模板
+    template: './node_modules/minami', // 使用 docstrap 模板
     destination: './docs/', // 输出目录。等同于 -d ./out/
     recurse: true, // 是否递归查找。 -r
     debug: true, // 启用调试模式。--debug

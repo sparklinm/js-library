@@ -44,7 +44,7 @@ function curry (fn) {
  * @example
  * countMaxDuplicateNumber([1,2,2,5,5,5])
  * // 3
- * @param {Array} array 数字数组
+ * @param {Array<Number>} array 数字数组
  * @return {Number} 数量
  */
 
