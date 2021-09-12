@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>DomResize - Documentation</title>
+    <title>ast - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">DomResize</h1>
+    <h1 class="page-title">ast</h1>
     
 
     
@@ -41,9 +41,8 @@
 
 <header>
     
-        <h2>
-        DomResize
-        </h2>
+        
+            
         
     
 </header>
@@ -52,18 +51,118 @@
     <div class="container-overview">
     
         
+            <div class="description"><p>ast 编译相关</p></div>
+        
+
+        
+            
+<div class="section-method">
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ast_generateElementId.js.html">ast/generateElementId.js</a>, <a href="ast_generateElementId.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
 <div class="section-method">
 
     
 
-    <h4 class="name" id="DomResize"><span class="type-signature"></span>new DomResize<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".generateElementUniqueFlag"><span class="type-signature">(static) </span>generateElementUniqueFlag<span class="signature">(dom, options)</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    <p>节点大小监测。</p>
+    <p>为微信小程序 dom 节点生成唯一标志，存储在特定 data-[name] 下。<br>
+节点唯一标志 = 父节点唯一标志 + 在父节点下的索引 + 标签名 + 节点本身id<br>
+根节点唯一标志 = 节点唯一标志 + 页面path<br>
+wx:for 节点唯一标志 = 节点唯一标志 + index</p>
 </div>
 
 
@@ -99,7 +198,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="class_DomResize.js.html">class/DomResize.js</a>, <a href="class_DomResize.js.html#line18">line 18</a>
+        <a href="ast_generateElementId.js.html">ast/generateElementId.js</a>, <a href="ast_generateElementId.js.html#line275">line 275</a>
     </li></ul></dd>
     
 
@@ -116,6 +215,239 @@
 
 
 
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>dom</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>htmlParser2 解析后得到的 dom ast 树</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>配置项</p>
+                
+                    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>indexPrefix</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    index
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>wx:for-index 值得前缀，会主动给 wx:for 节点设置 wx:for-index</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>flagKey</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    uflag
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>data-[flagKey] 存储唯一 id</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>filePath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    ''
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>文件路径，多个文件是，需要加上文件路径才能保证每个节点 id 唯一</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -135,33 +467,236 @@
 <div class="section-examples">
 <h5>Example</h5>
 
-    <pre class="prettyprint"><code>// 使用let event = new DomResize(document.querySelector('#contianer'))event.on('dom-resize', callback)</code></pre>
+    <pre class="prettyprint"><code>generateElementUniqueFlag(dom, {
+        indexPrefix: 'index',
+        flagKey: 'uid',
+        filePath: 'C:\\Users\xx\Desktop\project\src\util\page.wxml'
+    })</code></pre>
 
 </div>
 
 </div>
-    
-    </div>
+        
+            
+<div class="section-method">
 
     
 
-    
-
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="DomResize.html">DomResize</a></dt>
-            <dd></dd>
-        </dl>
-    
-
-     
+    <h4 class="name" id=".getExpression"><span class="type-signature">(static) </span>getExpression<span class="signature">(content, startFlag, endFlag)</span><span class="type-signature"> &rarr; {Array}</span></h4>
 
     
 
+
+
+<div class="description">
+    <p>解析获得特定字符之间的表达式，例如 &quot;{{}}&quot;, &quot;{}&quot;</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
     
 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ast_generateElementId.js.html">ast/generateElementId.js</a>, <a href="ast_generateElementId.js.html#line22">line 22</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>content</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>startFlag</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>endFlag</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Array</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    <p>表达式数组</p>
+</div>
+
+    
+</div>
+
+
+
+<div class="section-examples">
+<h5>Example</h5>
+
+    <pre class="prettyprint"><code>getExpression("{{a+1}}{{b+1}}", "{{", "}}")
+// ['a+1','b+1']</code></pre>
+
+</div>
+
+</div>
+        
     
 
     

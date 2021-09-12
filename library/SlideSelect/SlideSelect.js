@@ -1,7 +1,7 @@
-import { Slide as Touch } from '../util/class/Slide'
-import { DomResize } from '../util/class/DomResize'
-import { Event } from '../util/class/Event'
-import { throttle } from '../util/util'
+import { Slide as Touch } from '../../util/class/Slide'
+import { DomResize } from '../../util/class/DomResize'
+import { Event } from '../../util/class/Event'
+import { throttle } from '../../util/util'
 
 export class SlideSelect extends Event {
   // 初始选择的索引

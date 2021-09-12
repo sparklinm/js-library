@@ -16,10 +16,12 @@ export * from './util/class/RandomSeed'
 
 export * from './util/class/Slide'
 
-export * from './marquee/marquee.js'
+export * from './util/ast/generateElementId.js'
 
-export * from './Sorter/Sorter.js'
+export * from './library/marquee/marquee.js'
 
-export * from './SlideSelect/SlideSelect.js'
+export * from './library/Sorter/Sorter.js'
 
-export * from './Broadcast/Broadcast.js'
+export * from './library/SlideSelect/SlideSelect.js'
+
+export * from './library/Broadcast/Broadcast.js'

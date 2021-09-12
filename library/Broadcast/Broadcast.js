@@ -1,6 +1,6 @@
-import { Slide as Touch } from '../util/class/Slide'
-import { DomResize } from '../util/class/DomResize'
-import { Event } from '../util/class/Event'
+import { Slide as Touch } from '../../util/class/Slide'
+import { DomResize } from '../../util/class/DomResize'
+import { Event } from '../../util/class/Event'
 
 export class Broadcast extends Event {
   // 当前轮播的元素索引

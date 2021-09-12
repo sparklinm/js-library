@@ -14,17 +14,17 @@
  */
 
 function HexToRgb (str) {
-  const hexReg = /^#?[0-9A-Fa-f]{6}$/
+    const hexReg = /^#?[0-9A-Fa-f]{6}$/
 
-  if (!hexReg.test(str)) {
-    return str
-  }
+    if (!hexReg.test(str)) {
+        return str
+    }
 
-  const color = str.replace('#', '')
-  const hxs = color.match(/../g)
+    const color = str.replace('#', '')
+    const hxs = color.match(/../g)
 
-  for (let i = 0; i < 3; i++) hxs[i] = parseInt(hxs[i], 16)
-  return `rbg(${hxs.join(',')})`
+    for (let i = 0; i < 3; i++) hxs[i] = parseInt(hxs[i], 16)
+    return `rbg(${hxs.join(',')})`
 }
 
 /**
@@ -38,25 +38,25 @@ function HexToRgb (str) {
  */
 
 function RgbToHex (rgb) {
-  const reg = /\d{1,3}/g
-  const rgbAry = rgb.match(reg)
+    const reg = /\d{1,3}/g
+    const rgbAry = rgb.match(reg)
 
-  if (rgbAry.length !== 3) {
-    return rgb
-  }
-
-  const hexs = [
-    parseInt(rgbAry[0]).toString(16),
-    parseInt(rgbAry[1]).toString(16),
-    parseInt(rgbAry[2]).toString(16)
-  ]
-
-  for (let i = 0; i < 3; i++) {
-    if (hexs[i].length === 1) {
-      hexs[i] = '0' + hexs[i]
+    if (rgbAry.length !== 3) {
+        return rgb
     }
-  }
-  return '#' + hexs.join('')
+
+    const hexs = [
+        parseInt(rgbAry[0]).toString(16),
+        parseInt(rgbAry[1]).toString(16),
+        parseInt(rgbAry[2]).toString(16)
+    ]
+
+    for (let i = 0; i < 3; i++) {
+        if (hexs[i].length === 1) {
+            hexs[i] = '0' + hexs[i]
+        }
+    }
+    return '#' + hexs.join('')
 }
 
 /**
@@ -73,19 +73,19 @@ function RgbToHex (rgb) {
  */
 
 function toRgba (color, opacity) {
-  if (typeof opacity !== 'number' || opacity > 1 || opacity < 0) {
-    return color
-  }
-  const rgb = HexToRgb(color)
-  const reg = /\d{1,3}/g
-  const rgbAry = rgb.match(reg)
+    if (typeof opacity !== 'number' || opacity > 1 || opacity < 0) {
+        return color
+    }
+    const rgb = HexToRgb(color)
+    const reg = /\d{1,3}/g
+    const rgbAry = rgb.match(reg)
 
-  if (!rgbAry.length) {
-    return
-  }
+    if (!rgbAry.length) {
+        return
+    }
 
-  rgbAry.push(opacity)
-  return `rgba(${rgbAry.join(', ')})`
+    rgbAry.push(opacity)
+    return `rgba(${rgbAry.join(', ')})`
 }
 
 /**
@@ -100,18 +100,18 @@ function toRgba (color, opacity) {
  */
 
 function darkenColor (color, level) {
-  if (typeof level !== 'number' || level > 1 || level < 0) {
-    return color
-  }
-  const rgb = HexToRgb(color)
-  const reg = /\d{1,3}/g
-  const rgbAry = rgb.match(reg)
+    if (typeof level !== 'number' || level > 1 || level < 0) {
+        return color
+    }
+    const rgb = HexToRgb(color)
+    const reg = /\d{1,3}/g
+    const rgbAry = rgb.match(reg)
 
-  for (let i = 0; i < 3; i++) {
-    rgbAry[i] = Math.floor(rgbAry[i] * (1 - level))
-  }
+    for (let i = 0; i < 3; i++) {
+        rgbAry[i] = Math.floor(rgbAry[i] * (1 - level))
+    }
 
-  return `rgb(${rgbAry.join(', ')})`
+    return `rgb(${rgbAry.join(', ')})`
 }
 
 /**
@@ -126,25 +126,25 @@ function darkenColor (color, level) {
  */
 
 function lightnessColor (color, level) {
-  if (typeof level !== 'number' || level > 1 || level < 0) {
-    return color
-  }
-  const rgb = HexToRgb(color)
-  const reg = /\d{1,3}/g
-  const rgbAry = rgb.match(reg).map(item => parseInt(item))
+    if (typeof level !== 'number' || level > 1 || level < 0) {
+        return color
+    }
+    const rgb = HexToRgb(color)
+    const reg = /\d{1,3}/g
+    const rgbAry = rgb.match(reg).map(item => parseInt(item))
 
-  for (let i = 0; i < 3; i++) {
-    rgbAry[i] = Math.floor((255 - rgbAry[i]) * level + rgbAry[i])
-  }
+    for (let i = 0; i < 3; i++) {
+        rgbAry[i] = Math.floor((255 - rgbAry[i]) * level + rgbAry[i])
+    }
 
-  return `rgb(${rgbAry.join(', ')})`
+    return `rgb(${rgbAry.join(', ')})`
 }
 
 
 export {
-  HexToRgb,
-  RgbToHex,
-  toRgba,
-  darkenColor,
-  lightnessColor
+    HexToRgb,
+    RgbToHex,
+    toRgba,
+    darkenColor,
+    lightnessColor
 }

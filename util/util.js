@@ -20,22 +20,22 @@
  */
 
 function curry (fn) {
-  // fn的无默认值参数的个数
-  if (fn.length === 0) {
-    return fn
-  }
-
-  function _curried (depth, args) {
-    return function (newArgument) {
-      // 需要传入fn需要的参数个数，才会返回值
-      if (depth - 1 === 0) {
-        return fn(...args, newArgument)
-      }
-      return _curried(depth - 1, [...args, newArgument])
+    // fn的无默认值参数的个数
+    if (fn.length === 0) {
+        return fn
     }
-  }
 
-  return _curried(fn.length, [])
+    function _curried (depth, args) {
+        return function (newArgument) {
+            // 需要传入fn需要的参数个数，才会返回值
+            if (depth - 1 === 0) {
+                return fn(...args, newArgument)
+            }
+            return _curried(depth - 1, [...args, newArgument])
+        }
+    }
+
+    return _curried(fn.length, [])
 }
 
 /**
@@ -49,26 +49,26 @@ function curry (fn) {
  */
 
 function countMaxDuplicateNumber (array) {
-  if (!array.length) {
-    return 0
-  }
-  const sortedAry = array.sort((a, b) => {
-    return a - b
-  })
-  let count = 1
-  let max = 1
-
-  for (let i = 1; i < sortedAry.length; i++) {
-    if (sortedAry[i - 1] === sortedAry[i]) {
-      max++
-    } else {
-      if (max > count) {
-        count = max
-      }
-      max = 1
+    if (!array.length) {
+        return 0
     }
-  }
-  return count
+    const sortedAry = array.sort((a, b) => {
+        return a - b
+    })
+    let count = 1
+    let max = 1
+
+    for (let i = 1; i < sortedAry.length; i++) {
+        if (sortedAry[i - 1] === sortedAry[i]) {
+            max++
+        } else {
+            if (max > count) {
+                count = max
+            }
+            max = 1
+        }
+    }
+    return count
 }
 
 /**
@@ -79,22 +79,22 @@ function countMaxDuplicateNumber (array) {
  */
 
 function throttle (fn) {
-  let curTick = false
-  const that = this
-  const params = [...arguments]
+    let curTick = false
+    const that = this
+    const params = [...arguments]
 
-  params.shift()
-  return function () {
-    const curParams = [...arguments]
+    params.shift()
+    return function () {
+        const curParams = [...arguments]
 
-    if (!curTick) {
-      curTick = true
-      requestAnimationFrame(() => {
-        fn.apply(that, [...curParams, params])
-        curTick = false
-      })
+        if (!curTick) {
+            curTick = true
+            requestAnimationFrame(() => {
+                fn.apply(that, [...curParams, params])
+                curTick = false
+            })
+        }
     }
-  }
 }
 
 /**
@@ -150,31 +150,31 @@ function throttle (fn) {
  */
 
 function promiseOrder (pFAry) {
-  return new Promise((resolve, reject) => {
-    let promise = Promise.resolve()
+    return new Promise((resolve, reject) => {
+        let promise = Promise.resolve()
 
-    // 由于要最后一个promise执行完毕，才resolve，这里需要pFAry.length + 1
-    for (let i = 0; i < pFAry.length + 1; i++) {
-      promise = promise
-        .then((res) => {
-          if (i === pFAry.length) {
-            resolve(res)
-          } else {
-            return pFAry[i](res)
-          }
-        })
-        .catch((error) => {
-          reject(error)
-          // 捕获错误后由于下一次循环依然会添加then，需要返回一个pending状态的promise来中断后面的所有操作
-          return new Promise(() => {})
-        })
-    }
-  })
+        // 由于要最后一个promise执行完毕，才resolve，这里需要pFAry.length + 1
+        for (let i = 0; i < pFAry.length + 1; i++) {
+            promise = promise
+                .then((res) => {
+                    if (i === pFAry.length) {
+                        resolve(res)
+                    } else {
+                        return pFAry[i](res)
+                    }
+                })
+                .catch((error) => {
+                    reject(error)
+                    // 捕获错误后由于下一次循环依然会添加then，需要返回一个pending状态的promise来中断后面的所有操作
+                    return new Promise(() => {})
+                })
+        }
+    })
 }
 
 export {
-  curry,
-  throttle,
-  countMaxDuplicateNumber,
-  promiseOrder
+    curry,
+    throttle,
+    countMaxDuplicateNumber,
+    promiseOrder
 }

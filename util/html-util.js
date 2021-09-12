@@ -12,17 +12,17 @@ import { throttle } from './util'
  */
 
 function checkPageCanScroll () {
-  const viewHeight = document.documentElement.clientHeight
-  const viewWidth = document.documentElement.clientWidth
-  const bodyStyle = window.getComputedStyle(document.body)
-  const htmlStyle = window.getComputedStyle(document.documentElement)
+    const viewHeight = document.documentElement.clientHeight
+    const viewWidth = document.documentElement.clientWidth
+    const bodyStyle = window.getComputedStyle(document.body)
+    const htmlStyle = window.getComputedStyle(document.documentElement)
 
-  return (
-    bodyStyle.overflow !== 'hidden' &&
+    return (
+        bodyStyle.overflow !== 'hidden' &&
     htmlStyle.overflow !== 'hidden' &&
     (document.documentElement.scrollHeight > viewHeight ||
       document.documentElement.scrollWidth > viewWidth)
-  )
+    )
 }
 
 /**
@@ -33,12 +33,12 @@ function checkPageCanScroll () {
  */
 
 function checkNodeCanScroll (el) {
-  const elStyle = window.getComputedStyle(el)
+    const elStyle = window.getComputedStyle(el)
 
-  return (
-    (elStyle.overflow === 'scroll' || elStyle.overflow === 'auto') &&
+    return (
+        (elStyle.overflow === 'scroll' || elStyle.overflow === 'auto') &&
     (el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth)
-  )
+    )
 }
 
 /**
@@ -53,28 +53,28 @@ function checkNodeCanScroll (el) {
  */
 
 function cutText (text, length) {
-  let realLength = 0
-  let charCode = -1
-  let index = 0
+    let realLength = 0
+    let charCode = -1
+    let index = 0
 
-  for (let i = 0; i < text.length; i++) {
-    charCode = text.charCodeAt(i)
-    if (charCode >= 0 && charCode <= 128) {
-      // 占一个宽度的字符
-      realLength += 1
-    } else {
-      // 占两个宽度的字符，例如：汉字
-      realLength += 2
+    for (let i = 0; i < text.length; i++) {
+        charCode = text.charCodeAt(i)
+        if (charCode >= 0 && charCode <= 128) {
+            // 占一个宽度的字符
+            realLength += 1
+        } else {
+            // 占两个宽度的字符，例如：汉字
+            realLength += 2
+        }
+        if (realLength > length * 2) {
+            index = i
+            break
+        }
     }
-    if (realLength > length * 2) {
-      index = i
-      break
+    if (index > length - 1) {
+        return text.slice(0, index) + '...'
     }
-  }
-  if (index > length - 1) {
-    return text.slice(0, index) + '...'
-  }
-  return text
+    return text
 }
 
 /**
@@ -85,18 +85,18 @@ function cutText (text, length) {
  */
 
 function getPixelRatio () {
-  const canvas = document.createElement('canvas')
-  const context = canvas.getContext('2d')
-  const backingStoreRatio =
+    const canvas = document.createElement('canvas')
+    const context = canvas.getContext('2d')
+    const backingStoreRatio =
     context.webkitBackingStorePixelRatio ||
     context.mozBackingStorePixelRatio ||
     context.msBackingStorePixelRatio ||
     context.oBackingStorePixelRatio ||
     context.backingStorePixelRatio ||
     1
-  const devicePixelRatio = window.devicePixelRatio || 1
+    const devicePixelRatio = window.devicePixelRatio || 1
 
-  return devicePixelRatio / backingStoreRatio
+    return devicePixelRatio / backingStoreRatio
 }
 
 /**
@@ -108,12 +108,12 @@ function getPixelRatio () {
  */
 
 function canvasToImg (canvas) {
-  const scale = getPixelRatio()
-  const style = window.getComputedStyle(canvas)
+    const scale = getPixelRatio()
+    const style = window.getComputedStyle(canvas)
 
-  canvas.width = scale * parseFloat(style.width)
-  canvas.height = scale * parseFloat(style.height)
-  return canvas.toDataURL()
+    canvas.width = scale * parseFloat(style.width)
+    canvas.height = scale * parseFloat(style.height)
+    return canvas.toDataURL()
 }
 
 /**
@@ -124,30 +124,30 @@ function canvasToImg (canvas) {
  */
 
 function urlToDataURL (url) {
-  return new Promise((resolve, reject) => {
-    const image = new Image()
+    return new Promise((resolve, reject) => {
+        const image = new Image()
 
-    image.onload = function () {
-      const canvas = document.createElement('canvas')
+        image.onload = function () {
+            const canvas = document.createElement('canvas')
 
-      // 实际宽高
-      canvas.width = this.naturalWidth
-      canvas.height = this.naturalHeight
-      // 将图片插入画布并开始绘制
-      canvas.getContext('2d').drawImage(image, 0, 0)
-      // result
-      const result = canvas.toDataURL('image/png')
+            // 实际宽高
+            canvas.width = this.naturalWidth
+            canvas.height = this.naturalHeight
+            // 将图片插入画布并开始绘制
+            canvas.getContext('2d').drawImage(image, 0, 0)
+            // result
+            const result = canvas.toDataURL('image/png')
 
-      resolve(result)
-    }
-    // CORS 策略，会存在跨域问题https://stackoverflow.com/questions/20424279/canvas-todataurl-securityerror
-    image.setAttribute('crossOrigin', 'Anonymous')
-    image.src = url
-    // 图片加载失败的错误处理
-    image.onerror = () => {
-      reject(new Error('img error'))
-    }
-  })
+            resolve(result)
+        }
+        // CORS 策略，会存在跨域问题https://stackoverflow.com/questions/20424279/canvas-todataurl-securityerror
+        image.setAttribute('crossOrigin', 'Anonymous')
+        image.src = url
+        // 图片加载失败的错误处理
+        image.onerror = () => {
+            reject(new Error('img error'))
+        }
+    })
 }
 
 /**
@@ -162,18 +162,18 @@ function urlToDataURL (url) {
  */
 
 function blobToDataURL (blob) {
-  return new Promise((resolve, reject) => {
-    const fileReader = new FileReader()
+    return new Promise((resolve, reject) => {
+        const fileReader = new FileReader()
 
-    fileReader.onload = (e) => {
-      resolve(e.target.result)
-    }
-    // readAsDataURL
-    fileReader.readAsDataURL(blob)
-    fileReader.onerror = () => {
-      reject(new Error('file error'))
-    }
-  })
+        fileReader.onload = (e) => {
+            resolve(e.target.result)
+        }
+        // readAsDataURL
+        fileReader.readAsDataURL(blob)
+        fileReader.onerror = () => {
+            reject(new Error('file error'))
+        }
+    })
 }
 
 /**
@@ -184,15 +184,15 @@ function blobToDataURL (blob) {
  */
 
 function dataURLToBlob (dataURL) {
-  // atob：解码base64，并提取data部分
-  const data = atob(dataURL.split(',')[1])
-  const len = data.length
-  const arr = new Uint8Array(len)
+    // atob：解码base64，并提取data部分
+    const data = atob(dataURL.split(',')[1])
+    const len = data.length
+    const arr = new Uint8Array(len)
 
-  for (let i = 0; i < len; i++) {
-    arr[i] = data.charCodeAt(i)
-  }
-  return new Blob([arr])
+    for (let i = 0; i < len; i++) {
+        arr[i] = data.charCodeAt(i)
+    }
+    return new Blob([arr])
 }
 
 /**
@@ -209,87 +209,87 @@ function dataURLToBlob (dataURL) {
  */
 
 async function downloadImg (src, imgName, useType) {
-  let url = ''
-  let type = ''
+    let url = ''
+    let type = ''
 
-  if (src.startsWith('blob:')) {
+    if (src.startsWith('blob:')) {
     // 本身是 blob url
-    type = 'blobURL'
-  } else if (src.startsWith('data:')) {
-    type = 'dataURL'
-  } else {
-    type = 'httpURL'
-  }
+        type = 'blobURL'
+    } else if (src.startsWith('data:')) {
+        type = 'dataURL'
+    } else {
+        type = 'httpURL'
+    }
 
 
-  const download = (url) => {
-    const a = document.createElement('a')
+    const download = (url) => {
+        const a = document.createElement('a')
 
-    a.download = imgName
-    a.href = url
-    a.click()
-    a.remove()
-  }
+        a.download = imgName
+        a.href = url
+        a.click()
+        a.remove()
+    }
 
-  if (type === 'blobURL') {
+    if (type === 'blobURL') {
     // 本身是 blob url
-    url = src
-    download(url)
-    return
-  }
-
-  if (type === 'dataURL') {
-    if (useType === 'blobURL') {
-      const blob = dataURLToBlob(src)
-
-      if (window.navigator.msSaveBlob) {
-        try {
-          window.navigator.msSaveBlob(blob, imgName)
-        } catch (e) {
-          console.error(e)
-        }
+        url = src
+        download(url)
         return
-      }
+    }
 
-      url = URL.createObjectURL(blob)
-      download(url)
-      URL.revokeObjectURL(url)
-      return
+    if (type === 'dataURL') {
+        if (useType === 'blobURL') {
+            const blob = dataURLToBlob(src)
+
+            if (window.navigator.msSaveBlob) {
+                try {
+                    window.navigator.msSaveBlob(blob, imgName)
+                } catch (e) {
+                    console.error(e)
+                }
+                return
+            }
+
+            url = URL.createObjectURL(blob)
+            download(url)
+            URL.revokeObjectURL(url)
+            return
+        }
+
+        url = src
+        download(url)
+        return
+    }
+
+    // 网络图片
+    if (useType === 'dataURL') {
+        url = await urlToDataURL(src)
+        download(url)
+        return
+    }
+
+    if (useType === 'blobURL') {
+        url = await urlToDataURL(src)
+        const blob = dataURLToBlob(url)
+
+        if (window.navigator.msSaveBlob) {
+            try {
+                window.navigator.msSaveBlob(blob, imgName)
+            } catch (e) {
+                console.error(e)
+            }
+            return
+        }
+
+        url = URL.createObjectURL(blob)
+        download(url)
+        URL.revokeObjectURL(url)
+        return
     }
 
     url = src
     download(url)
-    return
-  }
-
-  // 网络图片
-  if (useType === 'dataURL') {
-    url = await urlToDataURL(src)
-    download(url)
-    return
-  }
-
-  if (useType === 'blobURL') {
-    url = await urlToDataURL(src)
-    const blob = dataURLToBlob(url)
-
-    if (window.navigator.msSaveBlob) {
-      try {
-        window.navigator.msSaveBlob(blob, imgName)
-      } catch (e) {
-        console.error(e)
-      }
-      return
-    }
-
-    url = URL.createObjectURL(blob)
-    download(url)
-    URL.revokeObjectURL(url)
-    return
-  }
-
-  url = src
-  download(url)
 }
 
 /**
@@ -303,30 +303,30 @@ async function downloadImg (src, imgName, useType) {
  */
 
 function insertScripts (scripts, container) {
-  if (document) {
-    const str = Array.isArray(scripts) ? scripts.join('') : scripts
-    let cont = document.createElement('div')
+    if (document) {
+        const str = Array.isArray(scripts) ? scripts.join('') : scripts
+        let cont = document.createElement('div')
 
-    cont.innerHTML = str
-    const oldScripts = cont.querySelectorAll('script')
+        cont.innerHTML = str
+        const oldScripts = cont.querySelectorAll('script')
 
-    cont = null
+        cont = null
 
-    oldScripts.forEach((oldScript) => {
-      const newScript = document.createElement('script')
+        oldScripts.forEach((oldScript) => {
+            const newScript = document.createElement('script')
 
-      newScript.type = 'text/javascript'
-      newScript.innerHTML = oldScript.innerHTML
-      if (oldScript.src) {
-        newScript.src = oldScript.src
-      }
-      if (container) {
-        container.appendChild(newScript)
-      } else {
-        document.documentElement.appendChild(newScript)
-      }
-    })
-  }
+            newScript.type = 'text/javascript'
+            newScript.innerHTML = oldScript.innerHTML
+            if (oldScript.src) {
+                newScript.src = oldScript.src
+            }
+            if (container) {
+                container.appendChild(newScript)
+            } else {
+                document.documentElement.appendChild(newScript)
+            }
+        })
+    }
 }
 
 /**
@@ -340,29 +340,29 @@ function insertScripts (scripts, container) {
  */
 
 function HTMLEncode (str) {
-  if (typeof document !== 'undefined') {
-    let temp = document.createElement('div')
+    if (typeof document !== 'undefined') {
+        let temp = document.createElement('div')
 
-    temp.textContent !== null
-      ? (temp.textContent = str)
-      : (temp.innerText = str)
-    const output = temp.innerHTML
+        temp.textContent !== null
+            ? (temp.textContent = str)
+            : (temp.innerText = str)
+        const output = temp.innerHTML
 
-    temp = null
-    return output
-  }
+        temp = null
+        return output
+    }
 
-  let s = ''
+    let s = ''
 
-  if (str.length === 0) return ''
-  s = str.replace(/&/g, '&amp;')
-  s = s.replace(/</g, '&lt;')
-  s = s.replace(/>/g, '&gt;')
-  s = s.replace(/ /g, '&nbsp;')
-  s = s.replace(/'/g, '&#39;')
-  s = s.replace(/"/g, '&quot;')
-  s = s.replace(/\n/g, '<br/>')
-  return s
+    if (str.length === 0) return ''
+    s = str.replace(/&/g, '&amp;')
+    s = s.replace(/</g, '&lt;')
+    s = s.replace(/>/g, '&gt;')
+    s = s.replace(/ /g, '&nbsp;')
+    s = s.replace(/'/g, '&#39;')
+    s = s.replace(/"/g, '&quot;')
+    s = s.replace(/\n/g, '<br/>')
+    return s
 }
 
 /**
@@ -376,27 +376,27 @@ function HTMLEncode (str) {
  */
 
 function HTMLDecode (str) {
-  if (typeof document !== 'undefined') {
-    let temp = document.createElement('div')
+    if (typeof document !== 'undefined') {
+        let temp = document.createElement('div')
 
-    temp.innerHTML = str
-    const output = temp.innerText || temp.textContent
+        temp.innerHTML = str
+        const output = temp.innerText || temp.textContent
 
-    temp = null
-    return output
-  }
+        temp = null
+        return output
+    }
 
-  let s = ''
+    let s = ''
 
-  if (str.length === 0) return ''
-  s = str.replace(/&amp;/g, '&')
-  s = s.replace(/&lt;/g, '<')
-  s = s.replace(/&gt;/g, '>')
-  s = s.replace(/&nbsp;/g, ' ')
-  s = s.replace(/&#39;/g, '\'')
-  s = s.replace(/&quot;/g, '"')
-  s = s.replace(/<br\/>|<br>/g, '\n')
-  return s
+    if (str.length === 0) return ''
+    s = str.replace(/&amp;/g, '&')
+    s = s.replace(/&lt;/g, '<')
+    s = s.replace(/&gt;/g, '>')
+    s = s.replace(/&nbsp;/g, ' ')
+    s = s.replace(/&#39;/g, '\'')
+    s = s.replace(/&quot;/g, '"')
+    s = s.replace(/<br\/>|<br>/g, '\n')
+    return s
 }
 
 /**
@@ -418,33 +418,33 @@ function HTMLDecode (str) {
  */
 
 function hiddenRows (el, rows = 5, exceededRows = 0) {
-  const style = window.getComputedStyle(el)
-  const height = parseFloat(style.height)
-  const lineHeight = parseFloat(style.lineHeight)
-  const boxSizing = style.boxSizing
-  let paddingTop = 0
-  let paddingBottom = 0
+    const style = window.getComputedStyle(el)
+    const height = parseFloat(style.height)
+    const lineHeight = parseFloat(style.lineHeight)
+    const boxSizing = style.boxSizing
+    let paddingTop = 0
+    let paddingBottom = 0
 
-  // border-box 盒模型下 padding 影响内容高度
-  if (boxSizing === 'border-box') {
-    paddingTop = parseFloat(style.paddingTop)
-    paddingBottom = parseFloat(style.paddingBottom)
-  }
-
-  const totalRows = Math.ceil(
-    (height - paddingTop - paddingBottom) / lineHeight
-  )
-
-  if (totalRows > rows + exceededRows) {
-    return {
-      hidden: true,
-      height: rows * lineHeight
+    // border-box 盒模型下 padding 影响内容高度
+    if (boxSizing === 'border-box') {
+        paddingTop = parseFloat(style.paddingTop)
+        paddingBottom = parseFloat(style.paddingBottom)
     }
-  }
-  return {
-    hidden: false,
-    height
-  }
+
+    const totalRows = Math.ceil(
+        (height - paddingTop - paddingBottom) / lineHeight
+    )
+
+    if (totalRows > rows + exceededRows) {
+        return {
+            hidden: true,
+            height: rows * lineHeight
+        }
+    }
+    return {
+        hidden: false,
+        height
+    }
 }
 
 
@@ -469,64 +469,64 @@ function hiddenRows (el, rows = 5, exceededRows = 0) {
  */
 
 function infiniteScroll (options) {
-  if (!options.callback) {
-    return
-  }
-  let container = document
-  const opt = Object.assign(
-    {
-      el: document.documentElement,
-      distance: 0
-    },
-    options
-  )
-  const el = opt.el
-  let canEmitCallback = true
-
-  if (el !== document.documentElement) {
-    container = el
-  }
-
-  function scroll () {
-    const { scrollTop, scrollHeight, clientHeight } = el
-
-    if (clientHeight + scrollTop + opt.distance >= scrollHeight) {
-      if (canEmitCallback) {
-        opt.callback()
-        canEmitCallback = false
-      }
-    } else {
-      canEmitCallback = true
+    if (!options.callback) {
+        return
     }
-  }
+    let container = document
+    const opt = Object.assign(
+        {
+            el: document.documentElement,
+            distance: 0
+        },
+        options
+    )
+    const el = opt.el
+    let canEmitCallback = true
 
-  const throttleScroll = throttle(scroll)
+    if (el !== document.documentElement) {
+        container = el
+    }
 
-  function destory () {
-    container.removeEventListener('scroll', throttleScroll)
-  }
+    function scroll () {
+        const { scrollTop, scrollHeight, clientHeight } = el
 
-  container.addEventListener('scroll', throttleScroll)
+        if (clientHeight + scrollTop + opt.distance >= scrollHeight) {
+            if (canEmitCallback) {
+                opt.callback()
+                canEmitCallback = false
+            }
+        } else {
+            canEmitCallback = true
+        }
+    }
 
-  return {
-    destory
-  }
+    const throttleScroll = throttle(scroll)
+
+    function destory () {
+        container.removeEventListener('scroll', throttleScroll)
+    }
+
+    container.addEventListener('scroll', throttleScroll)
+
+    return {
+        destory
+    }
 }
 
 
 export {
-  checkPageCanScroll,
-  checkNodeCanScroll,
-  cutText,
-  getPixelRatio,
-  canvasToImg,
-  downloadImg,
-  insertScripts,
-  HTMLEncode,
-  HTMLDecode,
-  urlToDataURL,
-  blobToDataURL,
-  dataURLToBlob,
-  hiddenRows,
-  infiniteScroll
+    checkPageCanScroll,
+    checkNodeCanScroll,
+    cutText,
+    getPixelRatio,
+    canvasToImg,
+    downloadImg,
+    insertScripts,
+    HTMLEncode,
+    HTMLDecode,
+    urlToDataURL,
+    blobToDataURL,
+    dataURLToBlob,
+    hiddenRows,
+    infiniteScroll
 }

@@ -1,8 +1,14 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('core-js/modules/es.array.concat'), require('core-js/modules/es.array.slice'), require('core-js/modules/es.array.for-each'), require('core-js/modules/es.array.iterator'), require('core-js/modules/es.array.join'), require('core-js/modules/es.object.to-string'), require('core-js/modules/es.regexp.exec'), require('core-js/modules/es.string.iterator'), require('core-js/modules/es.string.replace'), require('core-js/modules/es.string.split'), require('core-js/modules/es.string.starts-with'), require('core-js/modules/es.typed-array.uint8-array'), require('core-js/modules/es.typed-array.copy-within'), require('core-js/modules/es.typed-array.every'), require('core-js/modules/es.typed-array.fill'), require('core-js/modules/es.typed-array.filter'), require('core-js/modules/es.typed-array.find'), require('core-js/modules/es.typed-array.find-index'), require('core-js/modules/es.typed-array.for-each'), require('core-js/modules/es.typed-array.includes'), require('core-js/modules/es.typed-array.index-of'), require('core-js/modules/es.typed-array.iterator'), require('core-js/modules/es.typed-array.join'), require('core-js/modules/es.typed-array.last-index-of'), require('core-js/modules/es.typed-array.map'), require('core-js/modules/es.typed-array.reduce'), require('core-js/modules/es.typed-array.reduce-right'), require('core-js/modules/es.typed-array.reverse'), require('core-js/modules/es.typed-array.set'), require('core-js/modules/es.typed-array.slice'), require('core-js/modules/es.typed-array.some'), require('core-js/modules/es.typed-array.sort'), require('core-js/modules/es.typed-array.subarray'), require('core-js/modules/es.typed-array.to-locale-string'), require('core-js/modules/es.typed-array.to-string'), require('core-js/modules/web.dom-collections.for-each'), require('core-js/modules/web.dom-collections.iterator'), require('core-js/modules/web.url'), require('core-js/modules/es.array.includes'), require('core-js/modules/es.array.index-of'), require('core-js/modules/es.array.map'), require('core-js/modules/es.regexp.to-string'), require('core-js/modules/es.string.match'), require('core-js/modules/es.reflect.construct'), require('core-js/modules/es.array.filter'), require('core-js/modules/es.array.splice'), require('core-js/modules/es.function.name'), require('core-js/modules/es.object.assign'), require('core-js/modules/es.promise'), require('core-js/modules/es.array.reduce'), require('core-js/modules/es.array.some'), require('core-js/modules/es.symbol'), require('core-js/modules/es.array.fill'), require('core-js/modules/es.array.find-index'), require('core-js/modules/es.number.constructor'), require('core-js/modules/es.number.is-integer'), require('core-js/modules/es.object.get-own-property-descriptor'), require('core-js/modules/es.object.get-own-property-descriptors'), require('core-js/modules/es.object.keys'), require('core-js/modules/es.string.includes')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'core-js/modules/es.array.concat', 'core-js/modules/es.array.slice', 'core-js/modules/es.array.for-each', 'core-js/modules/es.array.iterator', 'core-js/modules/es.array.join', 'core-js/modules/es.object.to-string', 'core-js/modules/es.regexp.exec', 'core-js/modules/es.string.iterator', 'core-js/modules/es.string.replace', 'core-js/modules/es.string.split', 'core-js/modules/es.string.starts-with', 'core-js/modules/es.typed-array.uint8-array', 'core-js/modules/es.typed-array.copy-within', 'core-js/modules/es.typed-array.every', 'core-js/modules/es.typed-array.fill', 'core-js/modules/es.typed-array.filter', 'core-js/modules/es.typed-array.find', 'core-js/modules/es.typed-array.find-index', 'core-js/modules/es.typed-array.for-each', 'core-js/modules/es.typed-array.includes', 'core-js/modules/es.typed-array.index-of', 'core-js/modules/es.typed-array.iterator', 'core-js/modules/es.typed-array.join', 'core-js/modules/es.typed-array.last-index-of', 'core-js/modules/es.typed-array.map', 'core-js/modules/es.typed-array.reduce', 'core-js/modules/es.typed-array.reduce-right', 'core-js/modules/es.typed-array.reverse', 'core-js/modules/es.typed-array.set', 'core-js/modules/es.typed-array.slice', 'core-js/modules/es.typed-array.some', 'core-js/modules/es.typed-array.sort', 'core-js/modules/es.typed-array.subarray', 'core-js/modules/es.typed-array.to-locale-string', 'core-js/modules/es.typed-array.to-string', 'core-js/modules/web.dom-collections.for-each', 'core-js/modules/web.dom-collections.iterator', 'core-js/modules/web.url', 'core-js/modules/es.array.includes', 'core-js/modules/es.array.index-of', 'core-js/modules/es.array.map', 'core-js/modules/es.regexp.to-string', 'core-js/modules/es.string.match', 'core-js/modules/es.reflect.construct', 'core-js/modules/es.array.filter', 'core-js/modules/es.array.splice', 'core-js/modules/es.function.name', 'core-js/modules/es.object.assign', 'core-js/modules/es.promise', 'core-js/modules/es.array.reduce', 'core-js/modules/es.array.some', 'core-js/modules/es.symbol', 'core-js/modules/es.array.fill', 'core-js/modules/es.array.find-index', 'core-js/modules/es.number.constructor', 'core-js/modules/es.number.is-integer', 'core-js/modules/es.object.get-own-property-descriptor', 'core-js/modules/es.object.get-own-property-descriptors', 'core-js/modules/es.object.keys', 'core-js/modules/es.string.includes'], factory) :
-  (global = global || self, factory(global.util = {}));
-}(this, (function (exports) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('core-js/modules/es.array.concat'), require('core-js/modules/es.array.slice'), require('core-js/modules/es.object.to-string'), require('core-js/modules/es.promise'), require('core-js/modules/es.array.for-each'), require('core-js/modules/es.array.iterator'), require('core-js/modules/es.array.join'), require('core-js/modules/es.object.assign'), require('core-js/modules/es.regexp.exec'), require('core-js/modules/es.string.iterator'), require('core-js/modules/es.string.replace'), require('core-js/modules/es.string.split'), require('core-js/modules/es.string.starts-with'), require('core-js/modules/es.typed-array.uint8-array'), require('core-js/modules/es.typed-array.copy-within'), require('core-js/modules/es.typed-array.every'), require('core-js/modules/es.typed-array.fill'), require('core-js/modules/es.typed-array.filter'), require('core-js/modules/es.typed-array.find'), require('core-js/modules/es.typed-array.find-index'), require('core-js/modules/es.typed-array.for-each'), require('core-js/modules/es.typed-array.includes'), require('core-js/modules/es.typed-array.index-of'), require('core-js/modules/es.typed-array.iterator'), require('core-js/modules/es.typed-array.join'), require('core-js/modules/es.typed-array.last-index-of'), require('core-js/modules/es.typed-array.map'), require('core-js/modules/es.typed-array.reduce'), require('core-js/modules/es.typed-array.reduce-right'), require('core-js/modules/es.typed-array.reverse'), require('core-js/modules/es.typed-array.set'), require('core-js/modules/es.typed-array.slice'), require('core-js/modules/es.typed-array.some'), require('core-js/modules/es.typed-array.sort'), require('core-js/modules/es.typed-array.subarray'), require('core-js/modules/es.typed-array.to-locale-string'), require('core-js/modules/es.typed-array.to-string'), require('core-js/modules/web.dom-collections.for-each'), require('core-js/modules/web.dom-collections.iterator'), require('core-js/modules/web.url'), require('core-js/modules/es.array.includes'), require('core-js/modules/es.array.index-of'), require('core-js/modules/es.array.map'), require('core-js/modules/es.regexp.to-string'), require('core-js/modules/es.string.match'), require('core-js/modules/es.reflect.construct'), require('core-js/modules/es.array.filter'), require('core-js/modules/es.array.splice'), require('core-js/modules/es.function.name'), require('core-js/modules/es.array.reduce'), require('core-js/modules/es.array.some'), require('core-js/modules/es.object.keys'), require('@babel/parser'), require('@babel/generator'), require('@babel/traverse'), require('core-js/modules/es.symbol'), require('core-js/modules/es.array.fill'), require('core-js/modules/es.array.find-index'), require('core-js/modules/es.number.constructor'), require('core-js/modules/es.number.is-integer'), require('core-js/modules/es.object.get-own-property-descriptor'), require('core-js/modules/es.object.get-own-property-descriptors'), require('core-js/modules/es.string.includes')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'core-js/modules/es.array.concat', 'core-js/modules/es.array.slice', 'core-js/modules/es.object.to-string', 'core-js/modules/es.promise', 'core-js/modules/es.array.for-each', 'core-js/modules/es.array.iterator', 'core-js/modules/es.array.join', 'core-js/modules/es.object.assign', 'core-js/modules/es.regexp.exec', 'core-js/modules/es.string.iterator', 'core-js/modules/es.string.replace', 'core-js/modules/es.string.split', 'core-js/modules/es.string.starts-with', 'core-js/modules/es.typed-array.uint8-array', 'core-js/modules/es.typed-array.copy-within', 'core-js/modules/es.typed-array.every', 'core-js/modules/es.typed-array.fill', 'core-js/modules/es.typed-array.filter', 'core-js/modules/es.typed-array.find', 'core-js/modules/es.typed-array.find-index', 'core-js/modules/es.typed-array.for-each', 'core-js/modules/es.typed-array.includes', 'core-js/modules/es.typed-array.index-of', 'core-js/modules/es.typed-array.iterator', 'core-js/modules/es.typed-array.join', 'core-js/modules/es.typed-array.last-index-of', 'core-js/modules/es.typed-array.map', 'core-js/modules/es.typed-array.reduce', 'core-js/modules/es.typed-array.reduce-right', 'core-js/modules/es.typed-array.reverse', 'core-js/modules/es.typed-array.set', 'core-js/modules/es.typed-array.slice', 'core-js/modules/es.typed-array.some', 'core-js/modules/es.typed-array.sort', 'core-js/modules/es.typed-array.subarray', 'core-js/modules/es.typed-array.to-locale-string', 'core-js/modules/es.typed-array.to-string', 'core-js/modules/web.dom-collections.for-each', 'core-js/modules/web.dom-collections.iterator', 'core-js/modules/web.url', 'core-js/modules/es.array.includes', 'core-js/modules/es.array.index-of', 'core-js/modules/es.array.map', 'core-js/modules/es.regexp.to-string', 'core-js/modules/es.string.match', 'core-js/modules/es.reflect.construct', 'core-js/modules/es.array.filter', 'core-js/modules/es.array.splice', 'core-js/modules/es.function.name', 'core-js/modules/es.array.reduce', 'core-js/modules/es.array.some', 'core-js/modules/es.object.keys', '@babel/parser', '@babel/generator', '@babel/traverse', 'core-js/modules/es.symbol', 'core-js/modules/es.array.fill', 'core-js/modules/es.array.find-index', 'core-js/modules/es.number.constructor', 'core-js/modules/es.number.is-integer', 'core-js/modules/es.object.get-own-property-descriptor', 'core-js/modules/es.object.get-own-property-descriptors', 'core-js/modules/es.string.includes'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.util = {}, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, global.parser, global.generator, global.traverse$1));
+}(this, (function (exports, es_array_concat, es_array_slice, es_object_toString, es_promise, es_array_forEach, es_array_iterator, es_array_join, es_object_assign, es_regexp_exec, es_string_iterator, es_string_replace, es_string_split, es_string_startsWith, es_typedArray_uint8Array, es_typedArray_copyWithin, es_typedArray_every, es_typedArray_fill, es_typedArray_filter, es_typedArray_find, es_typedArray_findIndex, es_typedArray_forEach, es_typedArray_includes, es_typedArray_indexOf, es_typedArray_iterator, es_typedArray_join, es_typedArray_lastIndexOf, es_typedArray_map, es_typedArray_reduce, es_typedArray_reduceRight, es_typedArray_reverse, es_typedArray_set, es_typedArray_slice, es_typedArray_some, es_typedArray_sort, es_typedArray_subarray, es_typedArray_toLocaleString, es_typedArray_toString, web_domCollections_forEach, web_domCollections_iterator, web_url, es_array_includes, es_array_indexOf, es_array_map, es_regexp_toString, es_string_match, es_reflect_construct, es_array_filter, es_array_splice, es_function_name, es_array_reduce, es_array_some, es_object_keys, parser, generator, traverse$1) { 'use strict';
+
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  var parser__default = /*#__PURE__*/_interopDefaultLegacy(parser);
+  var generator__default = /*#__PURE__*/_interopDefaultLegacy(generator);
+  var traverse__default = /*#__PURE__*/_interopDefaultLegacy(traverse$1);
 
   function _arrayLikeToArray(arr, len) {
     if (len == null || len > arr.length) len = arr.length;
@@ -59,6 +65,7 @@
    */
 
   /**
+   * @static
    * @description 函数柯里化。
    * @example
    * function add(a, b) {
@@ -91,11 +98,12 @@
     return _curried(fn.length, []);
   }
   /**
+   * @static
    * @description 最大重复数数量
    * @example
    * countMaxDuplicateNumber([1,2,2,5,5,5])
    * // 3
-   * @param {Array} array 数字数组
+   * @param {Array<Number>} array 数字数组
    * @return {Number} 数量
    */
 
@@ -126,13 +134,14 @@
     return count;
   }
   /**
+   * @static
    * @description requestAnimationFrame 节流函数。
    * @param {Function} fn 数字数组。
    * @return {Function} 节流函数。
    */
 
 
-  function throttle(fn) {
+  function throttle$1(fn) {
     var curTick = false;
     var that = this;
     var params = Array.prototype.slice.call(arguments);
@@ -149,6 +158,857 @@
       }
     };
   }
+  /**
+   * @static
+   * @description 依次按序执行 promise，全部调用完毕后返回一个新的 promise。
+   * @example
+   * function getA() {
+   *     return new Promise((resolve, reject) => {
+   *         get('/user/a', (status, res) => {
+   *             if (status == 200) {
+   *                 resolve(res)
+   *             } else {
+   *                 reject('error')
+   *             }
+   *         })
+   *     })
+   * }
+   *
+   * function getB(dataA) {
+   *     return new Promise((resolve, reject) => {
+   *         get('/user/b', dataA, (status, res) => {
+   *             if (status == 200) {
+   *                 resolve(res)
+   *             } else {
+   *                 reject('error')
+   *             }
+   *         })
+   *
+   *     })
+   * }
+   *
+   * function getC(dataB) {
+   *     return new Promise((resolve, reject) => {
+   *         get('/user/c', dataB, (status, res) => {
+   *             if (status == 200) {
+   *                 resolve(res)
+   *             } else {
+   *                 reject('error')
+   *             }
+   *         })
+   *
+   *     })
+   * }
+   *
+   * promiseOrder([getA,getB,getC]).then((res)=>{
+   *     console.log('success');
+   *     console.log(res);
+   * })
+   * @param {Arry} pFAry 数组，元素是函数，函数返回 promise 对象。
+   * 函数接收上一次 promise resolve 的参数。
+   * @returns {Promise} 新的 fulfilled 状态 promise 对象。
+   * 传递最后一次 promise resolve 的参数。
+   */
+
+
+  function promiseOrder(pFAry) {
+    return new Promise(function (resolve, reject) {
+      var promise = Promise.resolve(); // 由于要最后一个promise执行完毕，才resolve，这里需要pFAry.length + 1
+
+      var _loop = function _loop(i) {
+        promise = promise.then(function (res) {
+          if (i === pFAry.length) {
+            resolve(res);
+          } else {
+            return pFAry[i](res);
+          }
+        }).catch(function (error) {
+          reject(error); // 捕获错误后由于下一次循环依然会添加then，需要返回一个pending状态的promise来中断后面的所有操作
+
+          return new Promise(function () {});
+        });
+      };
+
+      for (var i = 0; i < pFAry.length + 1; i++) {
+        _loop(i);
+      }
+    });
+  }
+
+  function createCommonjsModule(fn, module) {
+  	return module = { exports: {} }, fn(module, module.exports), module.exports;
+  }
+
+  var runtime_1 = createCommonjsModule(function (module) {
+  /**
+   * Copyright (c) 2014-present, Facebook, Inc.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   */
+
+  var runtime = (function (exports) {
+
+    var Op = Object.prototype;
+    var hasOwn = Op.hasOwnProperty;
+    var undefined$1; // More compressible than void 0.
+    var $Symbol = typeof Symbol === "function" ? Symbol : {};
+    var iteratorSymbol = $Symbol.iterator || "@@iterator";
+    var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
+    var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+
+    function wrap(innerFn, outerFn, self, tryLocsList) {
+      // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
+      var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
+      var generator = Object.create(protoGenerator.prototype);
+      var context = new Context(tryLocsList || []);
+
+      // The ._invoke method unifies the implementations of the .next,
+      // .throw, and .return methods.
+      generator._invoke = makeInvokeMethod(innerFn, self, context);
+
+      return generator;
+    }
+    exports.wrap = wrap;
+
+    // Try/catch helper to minimize deoptimizations. Returns a completion
+    // record like context.tryEntries[i].completion. This interface could
+    // have been (and was previously) designed to take a closure to be
+    // invoked without arguments, but in all the cases we care about we
+    // already have an existing method we want to call, so there's no need
+    // to create a new function object. We can even get away with assuming
+    // the method takes exactly one argument, since that happens to be true
+    // in every case, so we don't have to touch the arguments object. The
+    // only additional allocation required is the completion record, which
+    // has a stable shape and so hopefully should be cheap to allocate.
+    function tryCatch(fn, obj, arg) {
+      try {
+        return { type: "normal", arg: fn.call(obj, arg) };
+      } catch (err) {
+        return { type: "throw", arg: err };
+      }
+    }
+
+    var GenStateSuspendedStart = "suspendedStart";
+    var GenStateSuspendedYield = "suspendedYield";
+    var GenStateExecuting = "executing";
+    var GenStateCompleted = "completed";
+
+    // Returning this object from the innerFn has the same effect as
+    // breaking out of the dispatch switch statement.
+    var ContinueSentinel = {};
+
+    // Dummy constructor functions that we use as the .constructor and
+    // .constructor.prototype properties for functions that return Generator
+    // objects. For full spec compliance, you may wish to configure your
+    // minifier not to mangle the names of these two functions.
+    function Generator() {}
+    function GeneratorFunction() {}
+    function GeneratorFunctionPrototype() {}
+
+    // This is a polyfill for %IteratorPrototype% for environments that
+    // don't natively support it.
+    var IteratorPrototype = {};
+    IteratorPrototype[iteratorSymbol] = function () {
+      return this;
+    };
+
+    var getProto = Object.getPrototypeOf;
+    var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+    if (NativeIteratorPrototype &&
+        NativeIteratorPrototype !== Op &&
+        hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
+      // This environment has a native %IteratorPrototype%; use it instead
+      // of the polyfill.
+      IteratorPrototype = NativeIteratorPrototype;
+    }
+
+    var Gp = GeneratorFunctionPrototype.prototype =
+      Generator.prototype = Object.create(IteratorPrototype);
+    GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
+    GeneratorFunctionPrototype.constructor = GeneratorFunction;
+    GeneratorFunctionPrototype[toStringTagSymbol] =
+      GeneratorFunction.displayName = "GeneratorFunction";
+
+    // Helper for defining the .next, .throw, and .return methods of the
+    // Iterator interface in terms of a single ._invoke method.
+    function defineIteratorMethods(prototype) {
+      ["next", "throw", "return"].forEach(function(method) {
+        prototype[method] = function(arg) {
+          return this._invoke(method, arg);
+        };
+      });
+    }
+
+    exports.isGeneratorFunction = function(genFun) {
+      var ctor = typeof genFun === "function" && genFun.constructor;
+      return ctor
+        ? ctor === GeneratorFunction ||
+          // For the native GeneratorFunction constructor, the best we can
+          // do is to check its .name property.
+          (ctor.displayName || ctor.name) === "GeneratorFunction"
+        : false;
+    };
+
+    exports.mark = function(genFun) {
+      if (Object.setPrototypeOf) {
+        Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
+      } else {
+        genFun.__proto__ = GeneratorFunctionPrototype;
+        if (!(toStringTagSymbol in genFun)) {
+          genFun[toStringTagSymbol] = "GeneratorFunction";
+        }
+      }
+      genFun.prototype = Object.create(Gp);
+      return genFun;
+    };
+
+    // Within the body of any async function, `await x` is transformed to
+    // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
+    // `hasOwn.call(value, "__await")` to determine if the yielded value is
+    // meant to be awaited.
+    exports.awrap = function(arg) {
+      return { __await: arg };
+    };
+
+    function AsyncIterator(generator, PromiseImpl) {
+      function invoke(method, arg, resolve, reject) {
+        var record = tryCatch(generator[method], generator, arg);
+        if (record.type === "throw") {
+          reject(record.arg);
+        } else {
+          var result = record.arg;
+          var value = result.value;
+          if (value &&
+              typeof value === "object" &&
+              hasOwn.call(value, "__await")) {
+            return PromiseImpl.resolve(value.__await).then(function(value) {
+              invoke("next", value, resolve, reject);
+            }, function(err) {
+              invoke("throw", err, resolve, reject);
+            });
+          }
+
+          return PromiseImpl.resolve(value).then(function(unwrapped) {
+            // When a yielded Promise is resolved, its final value becomes
+            // the .value of the Promise<{value,done}> result for the
+            // current iteration.
+            result.value = unwrapped;
+            resolve(result);
+          }, function(error) {
+            // If a rejected Promise was yielded, throw the rejection back
+            // into the async generator function so it can be handled there.
+            return invoke("throw", error, resolve, reject);
+          });
+        }
+      }
+
+      var previousPromise;
+
+      function enqueue(method, arg) {
+        function callInvokeWithMethodAndArg() {
+          return new PromiseImpl(function(resolve, reject) {
+            invoke(method, arg, resolve, reject);
+          });
+        }
+
+        return previousPromise =
+          // If enqueue has been called before, then we want to wait until
+          // all previous Promises have been resolved before calling invoke,
+          // so that results are always delivered in the correct order. If
+          // enqueue has not been called before, then it is important to
+          // call invoke immediately, without waiting on a callback to fire,
+          // so that the async generator function has the opportunity to do
+          // any necessary setup in a predictable way. This predictability
+          // is why the Promise constructor synchronously invokes its
+          // executor callback, and why async functions synchronously
+          // execute code before the first await. Since we implement simple
+          // async functions in terms of async generators, it is especially
+          // important to get this right, even though it requires care.
+          previousPromise ? previousPromise.then(
+            callInvokeWithMethodAndArg,
+            // Avoid propagating failures to Promises returned by later
+            // invocations of the iterator.
+            callInvokeWithMethodAndArg
+          ) : callInvokeWithMethodAndArg();
+      }
+
+      // Define the unified helper method that is used to implement .next,
+      // .throw, and .return (see defineIteratorMethods).
+      this._invoke = enqueue;
+    }
+
+    defineIteratorMethods(AsyncIterator.prototype);
+    AsyncIterator.prototype[asyncIteratorSymbol] = function () {
+      return this;
+    };
+    exports.AsyncIterator = AsyncIterator;
+
+    // Note that simple async functions are implemented on top of
+    // AsyncIterator objects; they just return a Promise for the value of
+    // the final result produced by the iterator.
+    exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
+      if (PromiseImpl === void 0) PromiseImpl = Promise;
+
+      var iter = new AsyncIterator(
+        wrap(innerFn, outerFn, self, tryLocsList),
+        PromiseImpl
+      );
+
+      return exports.isGeneratorFunction(outerFn)
+        ? iter // If outerFn is a generator, return the full iterator.
+        : iter.next().then(function(result) {
+            return result.done ? result.value : iter.next();
+          });
+    };
+
+    function makeInvokeMethod(innerFn, self, context) {
+      var state = GenStateSuspendedStart;
+
+      return function invoke(method, arg) {
+        if (state === GenStateExecuting) {
+          throw new Error("Generator is already running");
+        }
+
+        if (state === GenStateCompleted) {
+          if (method === "throw") {
+            throw arg;
+          }
+
+          // Be forgiving, per 25.3.3.3.3 of the spec:
+          // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
+          return doneResult();
+        }
+
+        context.method = method;
+        context.arg = arg;
+
+        while (true) {
+          var delegate = context.delegate;
+          if (delegate) {
+            var delegateResult = maybeInvokeDelegate(delegate, context);
+            if (delegateResult) {
+              if (delegateResult === ContinueSentinel) continue;
+              return delegateResult;
+            }
+          }
+
+          if (context.method === "next") {
+            // Setting context._sent for legacy support of Babel's
+            // function.sent implementation.
+            context.sent = context._sent = context.arg;
+
+          } else if (context.method === "throw") {
+            if (state === GenStateSuspendedStart) {
+              state = GenStateCompleted;
+              throw context.arg;
+            }
+
+            context.dispatchException(context.arg);
+
+          } else if (context.method === "return") {
+            context.abrupt("return", context.arg);
+          }
+
+          state = GenStateExecuting;
+
+          var record = tryCatch(innerFn, self, context);
+          if (record.type === "normal") {
+            // If an exception is thrown from innerFn, we leave state ===
+            // GenStateExecuting and loop back for another invocation.
+            state = context.done
+              ? GenStateCompleted
+              : GenStateSuspendedYield;
+
+            if (record.arg === ContinueSentinel) {
+              continue;
+            }
+
+            return {
+              value: record.arg,
+              done: context.done
+            };
+
+          } else if (record.type === "throw") {
+            state = GenStateCompleted;
+            // Dispatch the exception by looping back around to the
+            // context.dispatchException(context.arg) call above.
+            context.method = "throw";
+            context.arg = record.arg;
+          }
+        }
+      };
+    }
+
+    // Call delegate.iterator[context.method](context.arg) and handle the
+    // result, either by returning a { value, done } result from the
+    // delegate iterator, or by modifying context.method and context.arg,
+    // setting context.delegate to null, and returning the ContinueSentinel.
+    function maybeInvokeDelegate(delegate, context) {
+      var method = delegate.iterator[context.method];
+      if (method === undefined$1) {
+        // A .throw or .return when the delegate iterator has no .throw
+        // method always terminates the yield* loop.
+        context.delegate = null;
+
+        if (context.method === "throw") {
+          // Note: ["return"] must be used for ES3 parsing compatibility.
+          if (delegate.iterator["return"]) {
+            // If the delegate iterator has a return method, give it a
+            // chance to clean up.
+            context.method = "return";
+            context.arg = undefined$1;
+            maybeInvokeDelegate(delegate, context);
+
+            if (context.method === "throw") {
+              // If maybeInvokeDelegate(context) changed context.method from
+              // "return" to "throw", let that override the TypeError below.
+              return ContinueSentinel;
+            }
+          }
+
+          context.method = "throw";
+          context.arg = new TypeError(
+            "The iterator does not provide a 'throw' method");
+        }
+
+        return ContinueSentinel;
+      }
+
+      var record = tryCatch(method, delegate.iterator, context.arg);
+
+      if (record.type === "throw") {
+        context.method = "throw";
+        context.arg = record.arg;
+        context.delegate = null;
+        return ContinueSentinel;
+      }
+
+      var info = record.arg;
+
+      if (! info) {
+        context.method = "throw";
+        context.arg = new TypeError("iterator result is not an object");
+        context.delegate = null;
+        return ContinueSentinel;
+      }
+
+      if (info.done) {
+        // Assign the result of the finished delegate to the temporary
+        // variable specified by delegate.resultName (see delegateYield).
+        context[delegate.resultName] = info.value;
+
+        // Resume execution at the desired location (see delegateYield).
+        context.next = delegate.nextLoc;
+
+        // If context.method was "throw" but the delegate handled the
+        // exception, let the outer generator proceed normally. If
+        // context.method was "next", forget context.arg since it has been
+        // "consumed" by the delegate iterator. If context.method was
+        // "return", allow the original .return call to continue in the
+        // outer generator.
+        if (context.method !== "return") {
+          context.method = "next";
+          context.arg = undefined$1;
+        }
+
+      } else {
+        // Re-yield the result returned by the delegate method.
+        return info;
+      }
+
+      // The delegate iterator is finished, so forget it and continue with
+      // the outer generator.
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    // Define Generator.prototype.{next,throw,return} in terms of the
+    // unified ._invoke helper method.
+    defineIteratorMethods(Gp);
+
+    Gp[toStringTagSymbol] = "Generator";
+
+    // A Generator should always return itself as the iterator object when the
+    // @@iterator function is called on it. Some browsers' implementations of the
+    // iterator prototype chain incorrectly implement this, causing the Generator
+    // object to not be returned from this call. This ensures that doesn't happen.
+    // See https://github.com/facebook/regenerator/issues/274 for more details.
+    Gp[iteratorSymbol] = function() {
+      return this;
+    };
+
+    Gp.toString = function() {
+      return "[object Generator]";
+    };
+
+    function pushTryEntry(locs) {
+      var entry = { tryLoc: locs[0] };
+
+      if (1 in locs) {
+        entry.catchLoc = locs[1];
+      }
+
+      if (2 in locs) {
+        entry.finallyLoc = locs[2];
+        entry.afterLoc = locs[3];
+      }
+
+      this.tryEntries.push(entry);
+    }
+
+    function resetTryEntry(entry) {
+      var record = entry.completion || {};
+      record.type = "normal";
+      delete record.arg;
+      entry.completion = record;
+    }
+
+    function Context(tryLocsList) {
+      // The root entry object (effectively a try statement without a catch
+      // or a finally block) gives us a place to store values thrown from
+      // locations where there is no enclosing try statement.
+      this.tryEntries = [{ tryLoc: "root" }];
+      tryLocsList.forEach(pushTryEntry, this);
+      this.reset(true);
+    }
+
+    exports.keys = function(object) {
+      var keys = [];
+      for (var key in object) {
+        keys.push(key);
+      }
+      keys.reverse();
+
+      // Rather than returning an object with a next method, we keep
+      // things simple and return the next function itself.
+      return function next() {
+        while (keys.length) {
+          var key = keys.pop();
+          if (key in object) {
+            next.value = key;
+            next.done = false;
+            return next;
+          }
+        }
+
+        // To avoid creating an additional object, we just hang the .value
+        // and .done properties off the next function object itself. This
+        // also ensures that the minifier will not anonymize the function.
+        next.done = true;
+        return next;
+      };
+    };
+
+    function values(iterable) {
+      if (iterable) {
+        var iteratorMethod = iterable[iteratorSymbol];
+        if (iteratorMethod) {
+          return iteratorMethod.call(iterable);
+        }
+
+        if (typeof iterable.next === "function") {
+          return iterable;
+        }
+
+        if (!isNaN(iterable.length)) {
+          var i = -1, next = function next() {
+            while (++i < iterable.length) {
+              if (hasOwn.call(iterable, i)) {
+                next.value = iterable[i];
+                next.done = false;
+                return next;
+              }
+            }
+
+            next.value = undefined$1;
+            next.done = true;
+
+            return next;
+          };
+
+          return next.next = next;
+        }
+      }
+
+      // Return an iterator with no values.
+      return { next: doneResult };
+    }
+    exports.values = values;
+
+    function doneResult() {
+      return { value: undefined$1, done: true };
+    }
+
+    Context.prototype = {
+      constructor: Context,
+
+      reset: function(skipTempReset) {
+        this.prev = 0;
+        this.next = 0;
+        // Resetting context._sent for legacy support of Babel's
+        // function.sent implementation.
+        this.sent = this._sent = undefined$1;
+        this.done = false;
+        this.delegate = null;
+
+        this.method = "next";
+        this.arg = undefined$1;
+
+        this.tryEntries.forEach(resetTryEntry);
+
+        if (!skipTempReset) {
+          for (var name in this) {
+            // Not sure about the optimal order of these conditions:
+            if (name.charAt(0) === "t" &&
+                hasOwn.call(this, name) &&
+                !isNaN(+name.slice(1))) {
+              this[name] = undefined$1;
+            }
+          }
+        }
+      },
+
+      stop: function() {
+        this.done = true;
+
+        var rootEntry = this.tryEntries[0];
+        var rootRecord = rootEntry.completion;
+        if (rootRecord.type === "throw") {
+          throw rootRecord.arg;
+        }
+
+        return this.rval;
+      },
+
+      dispatchException: function(exception) {
+        if (this.done) {
+          throw exception;
+        }
+
+        var context = this;
+        function handle(loc, caught) {
+          record.type = "throw";
+          record.arg = exception;
+          context.next = loc;
+
+          if (caught) {
+            // If the dispatched exception was caught by a catch block,
+            // then let that catch block handle the exception normally.
+            context.method = "next";
+            context.arg = undefined$1;
+          }
+
+          return !! caught;
+        }
+
+        for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+          var entry = this.tryEntries[i];
+          var record = entry.completion;
+
+          if (entry.tryLoc === "root") {
+            // Exception thrown outside of any try block that could handle
+            // it, so set the completion value of the entire function to
+            // throw the exception.
+            return handle("end");
+          }
+
+          if (entry.tryLoc <= this.prev) {
+            var hasCatch = hasOwn.call(entry, "catchLoc");
+            var hasFinally = hasOwn.call(entry, "finallyLoc");
+
+            if (hasCatch && hasFinally) {
+              if (this.prev < entry.catchLoc) {
+                return handle(entry.catchLoc, true);
+              } else if (this.prev < entry.finallyLoc) {
+                return handle(entry.finallyLoc);
+              }
+
+            } else if (hasCatch) {
+              if (this.prev < entry.catchLoc) {
+                return handle(entry.catchLoc, true);
+              }
+
+            } else if (hasFinally) {
+              if (this.prev < entry.finallyLoc) {
+                return handle(entry.finallyLoc);
+              }
+
+            } else {
+              throw new Error("try statement without catch or finally");
+            }
+          }
+        }
+      },
+
+      abrupt: function(type, arg) {
+        for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+          var entry = this.tryEntries[i];
+          if (entry.tryLoc <= this.prev &&
+              hasOwn.call(entry, "finallyLoc") &&
+              this.prev < entry.finallyLoc) {
+            var finallyEntry = entry;
+            break;
+          }
+        }
+
+        if (finallyEntry &&
+            (type === "break" ||
+             type === "continue") &&
+            finallyEntry.tryLoc <= arg &&
+            arg <= finallyEntry.finallyLoc) {
+          // Ignore the finally entry if control is not jumping to a
+          // location outside the try/catch block.
+          finallyEntry = null;
+        }
+
+        var record = finallyEntry ? finallyEntry.completion : {};
+        record.type = type;
+        record.arg = arg;
+
+        if (finallyEntry) {
+          this.method = "next";
+          this.next = finallyEntry.finallyLoc;
+          return ContinueSentinel;
+        }
+
+        return this.complete(record);
+      },
+
+      complete: function(record, afterLoc) {
+        if (record.type === "throw") {
+          throw record.arg;
+        }
+
+        if (record.type === "break" ||
+            record.type === "continue") {
+          this.next = record.arg;
+        } else if (record.type === "return") {
+          this.rval = this.arg = record.arg;
+          this.method = "return";
+          this.next = "end";
+        } else if (record.type === "normal" && afterLoc) {
+          this.next = afterLoc;
+        }
+
+        return ContinueSentinel;
+      },
+
+      finish: function(finallyLoc) {
+        for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+          var entry = this.tryEntries[i];
+          if (entry.finallyLoc === finallyLoc) {
+            this.complete(entry.completion, entry.afterLoc);
+            resetTryEntry(entry);
+            return ContinueSentinel;
+          }
+        }
+      },
+
+      "catch": function(tryLoc) {
+        for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+          var entry = this.tryEntries[i];
+          if (entry.tryLoc === tryLoc) {
+            var record = entry.completion;
+            if (record.type === "throw") {
+              var thrown = record.arg;
+              resetTryEntry(entry);
+            }
+            return thrown;
+          }
+        }
+
+        // The context.catch method must only be called with a location
+        // argument that corresponds to a known catch block.
+        throw new Error("illegal catch attempt");
+      },
+
+      delegateYield: function(iterable, resultName, nextLoc) {
+        this.delegate = {
+          iterator: values(iterable),
+          resultName: resultName,
+          nextLoc: nextLoc
+        };
+
+        if (this.method === "next") {
+          // Deliberately forget the last sent value so that we don't
+          // accidentally pass it on to the delegate.
+          this.arg = undefined$1;
+        }
+
+        return ContinueSentinel;
+      }
+    };
+
+    // Regardless of whether this script is executing as a CommonJS module
+    // or not, return the runtime object so that we can declare the variable
+    // regeneratorRuntime in the outer scope, which allows this module to be
+    // injected easily by `bin/regenerator --include-runtime script.js`.
+    return exports;
+
+  }(
+    // If this script is executing as a CommonJS module, use module.exports
+    // as the regeneratorRuntime namespace. Otherwise create a new empty
+    // object. Either way, the resulting object will be used to initialize
+    // the regeneratorRuntime variable at the top of this file.
+    module.exports 
+  ));
+
+  try {
+    regeneratorRuntime = runtime;
+  } catch (accidentalStrictMode) {
+    // This module should not be running in strict mode, so the above
+    // assignment should always work unless something is misconfigured. Just
+    // in case runtime.js accidentally runs in strict mode, we can escape
+    // strict mode using a global Function call. This could conceivably fail
+    // if a Content Security Policy forbids using Function, but in that case
+    // the proper solution is to fix the accidental strict mode problem. If
+    // you've misconfigured your bundler to force strict mode and applied a
+    // CSP to forbid Function, and you're not willing to fix either of those
+    // problems, please detail your unique predicament in a GitHub issue.
+    Function("r", "regeneratorRuntime = r")(runtime);
+  }
+  });
+
+  var regenerator = runtime_1;
+
+  function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+    try {
+      var info = gen[key](arg);
+      var value = info.value;
+    } catch (error) {
+      reject(error);
+      return;
+    }
+
+    if (info.done) {
+      resolve(value);
+    } else {
+      Promise.resolve(value).then(_next, _throw);
+    }
+  }
+
+  function _asyncToGenerator(fn) {
+    return function () {
+      var self = this,
+          args = arguments;
+      return new Promise(function (resolve, reject) {
+        var gen = fn.apply(self, args);
+
+        function _next(value) {
+          asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+        }
+
+        function _throw(err) {
+          asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+        }
+
+        _next(undefined);
+      });
+    };
+  }
+
+  var asyncToGenerator = _asyncToGenerator;
 
   /**
    * 页面相关函数。
@@ -156,10 +1016,12 @@
    */
 
   /**
+   * @static
    * @description 判断页面是否可以滚动
    * @return {Boolean} trye or false
    */
-  function checkPageCanScroll() {
+
+  function checkPageCanScroll$1() {
     var viewHeight = document.documentElement.clientHeight;
     var viewWidth = document.documentElement.clientWidth;
     var bodyStyle = window.getComputedStyle(document.body);
@@ -167,17 +1029,19 @@
     return bodyStyle.overflow !== 'hidden' && htmlStyle.overflow !== 'hidden' && (document.documentElement.scrollHeight > viewHeight || document.documentElement.scrollWidth > viewWidth);
   }
   /**
+   * @static
    * @description 判断节点内部是否可以滚动
    * @param {HTMLElement} el html 节点
    * @return {Boolean} trye or false
    */
 
 
-  function checkNodeCanScroll(el) {
+  function checkNodeCanScroll$1(el) {
     var elStyle = window.getComputedStyle(el);
     return (elStyle.overflow === 'scroll' || elStyle.overflow === 'auto') && (el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth);
   }
   /**
+   * @static
    * @description 截断文字添加省略号，单位长度为一个汉字长度。
    * @example
    * cutText('xxxyyy', 2)
@@ -217,6 +1081,7 @@
     return text;
   }
   /**
+   * @static
    * @description 获取 canvas 存储的像素比 和 屏幕像素比比值 。<br>
    * 即如果比值为x，那么canvas的真正大小（width属性）应该是：css像素*x。
    * @return {Number} 比值。
@@ -231,6 +1096,7 @@
     return devicePixelRatio / backingStoreRatio;
   }
   /**
+   * @static
    * @description 获取 canvas dataURL（转化为图片）。<br>
    * 获取的图片分辨率适应当前设备的设备像素比，即在 Retina 屏幕下获取的图片分辨率更高。
    * @param {HTMLElement} canvas - canvas 节点。
@@ -246,10 +1112,71 @@
     return canvas.toDataURL();
   }
   /**
-   * @ignore
+   * @static
+   * @description 图片 url 转换为 dataURL。
+   * @param {String} url - 图片 url。
+   * @returns {String} dataURL。
+   */
+
+
+  function urlToDataURL(url) {
+    return new Promise(function (resolve, reject) {
+      var image = new Image();
+
+      image.onload = function () {
+        var canvas = document.createElement('canvas'); // 实际宽高
+
+        canvas.width = this.naturalWidth;
+        canvas.height = this.naturalHeight; // 将图片插入画布并开始绘制
+
+        canvas.getContext('2d').drawImage(image, 0, 0); // result
+
+        var result = canvas.toDataURL('image/png');
+        resolve(result);
+      }; // CORS 策略，会存在跨域问题https://stackoverflow.com/questions/20424279/canvas-todataurl-securityerror
+
+
+      image.setAttribute('crossOrigin', 'Anonymous');
+      image.src = url; // 图片加载失败的错误处理
+
+      image.onerror = function () {
+        reject(new Error('img error'));
+      };
+    });
+  }
+  /**
+   * @static
+   * @example
+   * blobToDataURL(blob).then(dataURL => {
+   *   console.log(dataURL)
+   * })
+   * @description blob 对象转换为 dataURL。
+   * @param {Blob} blob - blob 对象。
+   * @returns {String} dataURL 。
+   */
+
+
+  function blobToDataURL(blob) {
+    return new Promise(function (resolve, reject) {
+      var fileReader = new FileReader();
+
+      fileReader.onload = function (e) {
+        resolve(e.target.result);
+      }; // readAsDataURL
+
+
+      fileReader.readAsDataURL(blob);
+
+      fileReader.onerror = function () {
+        reject(new Error('file error'));
+      };
+    });
+  }
+  /**
+   * @static
    * @description dataURL 转换为 blob 对象。
    * @param {String} dataURL - dataURL。
-   * @param {Blob} Blob 对象。
+   * @returns {Blob} Blob 对象。
    */
 
 
@@ -266,58 +1193,167 @@
     return new Blob([arr]);
   }
   /**
-   * @description 下载图片，如果是网络图片（http开头），需要同域名。<br>
-   * 同时依赖于a标签的download兼容性，移动端兼容性差。
+   * @static
+   * @description 下载图片。
+   * 依赖于 a 标签的 download 兼容性，移动端兼容性差。
    * @param {String} src - 图片链接，可以是blob url, dataURL, 网络图片（http开头）。
    * @param {Number} imgName - 图片名字。
-   * @param {Number} useblob - 转换为blob url，只有dataURL可以转换。
+   * 需要加上格式，同时原图片是什么格式，这里就必须是什么格式。
+   * @param {Number} useType
+   * 可选值为 dataURL 或者 blobURL，表示转换为哪种格式下载。
+   * 仅对 dataURL, 网络图片 有效，本身为 blobURL 不可转换。
+   * 如果是网络图片，不转换成 dataURL 或者 blobURL 无法跨域下载。
    */
 
 
-  function downloadImg(src, imgName) {
-    var useblob = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-    var url = '';
-
-    if (src.startsWith('blob:')) {
-      // 本身是 blob url
-      url = src;
-    } else {
-      if (useblob) {
-        var blob = dataURLToBlob(src);
-
-        if (window.navigator.msSaveBlob) {
-          try {
-            window.navigator.msSaveBlob(blob, imgName);
-          } catch (e) {
-            console.error(e);
-          }
-
-          return;
-        }
-
-        url = URL.createObjectURL(blob);
-      } else {
-        url = src;
-      }
-    }
-
-    var a = document.createElement('a');
-    a.download = imgName;
-    a.href = url;
-    a.click();
-    a.remove(); // 释放创建的url对象
-
-    URL.revokeObjectURL(url);
+  function downloadImg(_x, _x2, _x3) {
+    return _downloadImg.apply(this, arguments);
   }
   /**
-   * @description 插入字符串形式的<script>标签。
-   *  @example
+   * @static
+   * @description 插入字符串形式的 script 标签。
+   * @example
    * insertScripts('<script></script><script></script>')
    * insertScripts(['<script></script><script></script>','<script></script>'])
-   * @param {String|Array} scripts - 字符串形式的<script>标签。
+   * @param {String|Array} scripts - 字符串形式的 script 标签。
    * @param {HTMLElement} container 插入到的节点容器。
    */
 
+
+  function _downloadImg() {
+    _downloadImg = asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee(src, imgName, useType) {
+      var url, type, download, blob, _blob;
+
+      return regenerator.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              url = '';
+              type = '';
+
+              if (src.startsWith('blob:')) {
+                // 本身是 blob url
+                type = 'blobURL';
+              } else if (src.startsWith('data:')) {
+                type = 'dataURL';
+              } else {
+                type = 'httpURL';
+              }
+
+              download = function download(url) {
+                var a = document.createElement('a');
+                a.download = imgName;
+                a.href = url;
+                a.click();
+                a.remove();
+              };
+
+              if (!(type === 'blobURL')) {
+                _context.next = 8;
+                break;
+              }
+
+              // 本身是 blob url
+              url = src;
+              download(url);
+              return _context.abrupt("return");
+
+            case 8:
+              if (!(type === 'dataURL')) {
+                _context.next = 21;
+                break;
+              }
+
+              if (!(useType === 'blobURL')) {
+                _context.next = 18;
+                break;
+              }
+
+              blob = dataURLToBlob(src);
+
+              if (!window.navigator.msSaveBlob) {
+                _context.next = 14;
+                break;
+              }
+
+              try {
+                window.navigator.msSaveBlob(blob, imgName);
+              } catch (e) {
+                console.error(e);
+              }
+
+              return _context.abrupt("return");
+
+            case 14:
+              url = URL.createObjectURL(blob);
+              download(url);
+              URL.revokeObjectURL(url);
+              return _context.abrupt("return");
+
+            case 18:
+              url = src;
+              download(url);
+              return _context.abrupt("return");
+
+            case 21:
+              if (!(useType === 'dataURL')) {
+                _context.next = 27;
+                break;
+              }
+
+              _context.next = 24;
+              return urlToDataURL(src);
+
+            case 24:
+              url = _context.sent;
+              download(url);
+              return _context.abrupt("return");
+
+            case 27:
+              if (!(useType === 'blobURL')) {
+                _context.next = 39;
+                break;
+              }
+
+              _context.next = 30;
+              return urlToDataURL(src);
+
+            case 30:
+              url = _context.sent;
+              _blob = dataURLToBlob(url);
+
+              if (!window.navigator.msSaveBlob) {
+                _context.next = 35;
+                break;
+              }
+
+              try {
+                window.navigator.msSaveBlob(_blob, imgName);
+              } catch (e) {
+                console.error(e);
+              }
+
+              return _context.abrupt("return");
+
+            case 35:
+              url = URL.createObjectURL(_blob);
+              download(url);
+              URL.revokeObjectURL(url);
+              return _context.abrupt("return");
+
+            case 39:
+              url = src;
+              download(url);
+
+            case 41:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+    return _downloadImg.apply(this, arguments);
+  }
 
   function insertScripts(scripts, container) {
     if (document) {
@@ -344,8 +1380,9 @@
     }
   }
   /**
+   * @static
    * @description HTML转义。
-   *  @example
+   * @example
    * HTMLEncode('<div class=""> xx </div>')
    * // &lt;div&nbsp;class=&quot;&quot;&gt;&nbsp;xx&nbsp;&lt;/div&gt;
    * @param {String} str - 字符串形式的html。
@@ -374,8 +1411,9 @@
     return s;
   }
   /**
+   * @static
    * @description 解析转义后的html。
-   *  @example
+   * @example
    * HTMLEncode('&lt;div&nbsp;class=&quot;&quot;&gt;&nbsp;xx&nbsp;&lt;/div&gt;')
    * // <div class=""> xx </div>
    * @param {String} str - 转义后的字符串html。
@@ -403,6 +1441,118 @@
     s = s.replace(/<br\/>|<br>/g, '\n');
     return s;
   }
+  /**
+   * @static
+   * @description 文本超出指定行后隐藏。
+   * 因为使用了 getComputedStyle 获取高度，所以节点不能是内联节点。
+   * @example
+   * hiddenRows (el, 6, 2)
+   * // 表示超过 6+2 行后才隐藏
+   * // 隐藏后的行数显示为6行
+   * // {
+   * //   hidden: false or true,
+   * //   height: 文本高度
+   * // }
+   * @param {HTMLElement} el - html节点。
+   * @param {Number} [rows=5] - 指定的行数。
+   * @param {Number} [exceededRows=0] 超出 指定行数 多少行 后才隐藏。
+   * @returns {Object} 对象，包括是否隐藏的标志和文本高度。
+   */
+
+
+  function hiddenRows(el) {
+    var rows = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 5;
+    var exceededRows = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+    var style = window.getComputedStyle(el);
+    var height = parseFloat(style.height);
+    var lineHeight = parseFloat(style.lineHeight);
+    var boxSizing = style.boxSizing;
+    var paddingTop = 0;
+    var paddingBottom = 0; // border-box 盒模型下 padding 影响内容高度
+
+    if (boxSizing === 'border-box') {
+      paddingTop = parseFloat(style.paddingTop);
+      paddingBottom = parseFloat(style.paddingBottom);
+    }
+
+    var totalRows = Math.ceil((height - paddingTop - paddingBottom) / lineHeight);
+
+    if (totalRows > rows + exceededRows) {
+      return {
+        hidden: true,
+        height: rows * lineHeight
+      };
+    }
+
+    return {
+      hidden: false,
+      height: height
+    };
+  }
+  /**
+   * @static
+   * @description 无限滚动。
+   * @example
+   * // const ins = infiniteScroll({
+   * //   el: 'html节点',
+   * //   distance: 10,
+   * //   callback: () => {
+   * //     console.log('a')
+   * //   }
+   * // })
+   *
+   * // ins.destory()
+   * @param {Object} options - 配置参数。
+   * @param {HTMLElement} [options.el=document.documentElement] 无限滚动的节点。
+   * @param {Function} options.callback 回调函数。
+   * @param {Number} [options.distance=0] 距离底部多少调用回调函数。
+   * @returns {Object} 对象，包含摧毁监听的方法 destory。
+   */
+
+
+  function infiniteScroll(options) {
+    if (!options.callback) {
+      return;
+    }
+
+    var container = document;
+    var opt = Object.assign({
+      el: document.documentElement,
+      distance: 0
+    }, options);
+    var el = opt.el;
+    var canEmitCallback = true;
+
+    if (el !== document.documentElement) {
+      container = el;
+    }
+
+    function scroll() {
+      var scrollTop = el.scrollTop,
+          scrollHeight = el.scrollHeight,
+          clientHeight = el.clientHeight;
+
+      if (clientHeight + scrollTop + opt.distance >= scrollHeight) {
+        if (canEmitCallback) {
+          opt.callback();
+          canEmitCallback = false;
+        }
+      } else {
+        canEmitCallback = true;
+      }
+    }
+
+    var throttleScroll = throttle$1(scroll);
+
+    function destory() {
+      container.removeEventListener('scroll', throttleScroll);
+    }
+
+    container.addEventListener('scroll', throttleScroll);
+    return {
+      destory: destory
+    };
+  }
 
   /**
    * 日期相关函数。
@@ -410,6 +1560,7 @@
    */
 
   /**
+   * @static
    * @description 时间格式化
    * @example
    * dateFormatter(new Date(2015, 1, 10, 14, 25, 33), 'yyyy-MM-dd hh:mm:ss')
@@ -483,7 +1634,8 @@
     return formatTime;
   }
   /**
-   * 判断是否是合法日期对象
+   * @static
+   * @description 判断是否是合法日期对象
    * @param {Date} date 日期对象
    * @returns {Boolean} true or false
    */
@@ -497,7 +1649,8 @@
     return date.toString() !== 'Invalid Date';
   }
   /**
-   * 判断是否是润年
+   * @static
+   * @description 判断是否是润年
    * @param {Number} year 年份
    * @returns {Boolean} true or false
    */
@@ -507,8 +1660,9 @@
     return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
   }
   /**
+   * @static
    * @ignore
-   * 判断是否是大月
+   * @description 判断是否是大月
    * @param {Number} month 月份
    * @returns {Boolean} true or false
    */
@@ -519,7 +1673,8 @@
     return bigMonths.includes(month);
   }
   /**
-   * 获取月份天数
+   * @static
+   * @description 获取月份天数
    * @param {Date} date 日期
    * @returns {Number} 天数
    */
@@ -544,7 +1699,8 @@
     return 30;
   }
   /**
-   * 转换成日期对象
+   * @static
+   * @description 转换成日期对象
    * @param {String} time 时间字符串
    * @returns {Date} 日期对象
    */
@@ -560,7 +1716,8 @@
     return date;
   }
   /**
-   * 判断日期相等
+   * @static
+   * @description 判断日期相等
    * @param {Date|String} stime 日期1
    * @param {Date|String} ttime 日期2
    * @returns {Boolean} true or false
@@ -578,8 +1735,9 @@
     return sdate.getTime() === tdate.getTime();
   }
   /**
+   * @static
    * @ignore
-   * 获取完全的日期，年月日时分秒毫秒
+   * @description 获取完全的日期，年月日时分秒毫秒
    * @param {Date|String} date 日期
    * @returns {Object} 包含年月日时分秒毫秒
    */
@@ -598,7 +1756,8 @@
     };
   }
   /**
-   * 判断日期模糊相等
+   * @static
+   * @description 判断日期模糊相等
    * @example
    * isEqualDateFuzzy('2015-3-2','2015-3-2 12:56','date')
    * // true
@@ -643,7 +1802,8 @@
     return true;
   }
   /**
-   * 根据日、周、月、年获取指定日期所在时间段。
+   * @static
+   * @description 根据日、周、月、年获取指定日期所在时间段。
    * @example
    * getPeriod('2015-3-2','month')
    * // new Date('2015-3-1')
@@ -696,7 +1856,8 @@
     }
   }
   /**
-   * 最大的连续天数数量。
+   * @static
+   * @description 最大的连续天数数量。
    * @example
    * countMaxConsecutiveDate([
    *   new Date(2015, 1, 1),
@@ -741,6 +1902,7 @@
    */
 
   /**
+   * @static
    * @description Hex颜色转Rgb
    * @example
    * HexToRgb('#fff333')
@@ -765,6 +1927,7 @@
     return "rbg(".concat(hxs.join(','), ")");
   }
   /**
+   * @static
    * @description Rgb 转 Hex
    * @example
    * RgbToHex('rgb(255,243,51)')
@@ -793,6 +1956,7 @@
     return '#' + hexs.join('');
   }
   /**
+   * @static
    * @description Rgb 转 Rgba
    * @example
    * toRgba('#fff333', 0.6)
@@ -822,6 +1986,7 @@
     return "rgba(".concat(rgbAry.join(', '), ")");
   }
   /**
+   * @static
    * @description 颜色变深
    * @example
    * darkenColor('rgb(40, 40, 40)', 0.2)
@@ -848,6 +2013,7 @@
     return "rgb(".concat(rgbAry.join(', '), ")");
   }
   /**
+   * @static
    * @description 颜色变浅
    * @lightnessColor
    * darkenColor('rgb(40, 40, 40)', 0.2)
@@ -911,10 +2077,6 @@
   }
 
   var assertThisInitialized = _assertThisInitialized;
-
-  function createCommonjsModule(fn, module) {
-  	return module = { exports: {} }, fn(module, module.exports), module.exports;
-  }
 
   var setPrototypeOf = createCommonjsModule(function (module) {
   function _setPrototypeOf(o, p) {
@@ -1096,9 +2258,9 @@
     return Event;
   }();
 
-  function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
+  function _createSuper$2(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$2(); return function _createSuperInternal() { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
 
-  function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+  function _isNativeReflectConstruct$2() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
   /**
    * @description 节点大小监测。
    * @example
@@ -1110,7 +2272,7 @@
   var DomResize = /*#__PURE__*/function (_Event) {
     inherits(DomResize, _Event);
 
-    var _super = _createSuper(DomResize);
+    var _super = _createSuper$2(DomResize);
 
     function DomResize(el) {
       var _this;
@@ -1397,6 +2559,11 @@
      * @param {HTMLElement} el - html 节点。
      * @param {Number} maxSlideDx - x 方向最大移动距离。
      * @param {Number} maxSlideDy - y 方向最大移动距离。
+     * @param {Boolean} [limitArea=false] - 是否限制区域。
+     * 如果为true，当滑动超过 maxSlideDx 限定的区域内，
+     * 获取到的 dx 为 0，offsetx 为 ±maxSlideDx。
+     * 如果为false，当滑动超过 maxSlideDx 限定的区域内，
+     * 获取到的 dx 为 正常值，offsetx 为 ±maxSlideDx。
      */
     function Slide(el) {
       var _this = this;
@@ -1430,6 +2597,7 @@
       });
 
       defineProperty(this, "_start", function (e) {
+        e.preventDefault();
         var startx = 0;
         var starty = 0;
 
@@ -1445,10 +2613,10 @@
             return;
           }
 
-          e.preventDefault();
           startx = e.pageX;
           starty = e.pageY;
         } else {
+          e.preventDefault();
           startx = e.targetTouches[0].pageX;
           starty = e.targetTouches[0].pageY;
         } // 初始化data
@@ -1609,12 +2777,55 @@
           cancelable: true
         }); // 监听原生触摸事件
 
-        this.el.addEventListener('touchstart', this._start);
-        this.el.addEventListener('touchmove', this._move);
-        this.el.addEventListener('touchend', this._end);
-        window.addEventListener('mousedown', this._start);
-        window.addEventListener('mousemove', this._move);
-        window.addEventListener('mouseup', this._end);
+        this.setSupportsPassive();
+
+        if ('ontouchstart' in window) {
+          this._on(this.el, 'touchstart', this._start);
+
+          this._on(this.el, 'touchmove', this._move);
+
+          this._on(this.el, 'touchend', this._end);
+        } else {
+          this._on(window, 'mousedown', this._start);
+
+          this._on(window, 'mousemove', this._move);
+
+          this._on(window, 'mouseup', this._end);
+        }
+      }
+    }, {
+      key: "_on",
+      value: function _on(el, event, fn) {
+        el.addEventListener(event, fn, this.supportsPassive ? {
+          capture: false,
+          passive: false
+        } : false);
+      }
+    }, {
+      key: "_off",
+      value: function _off(el, event, fn) {
+        el.removeEventListener(event, fn, this.supportsPassive ? {
+          capture: false,
+          passive: false
+        } : false);
+      }
+    }, {
+      key: "setSupportsPassive",
+      value: function setSupportsPassive() {
+        var _this2 = this;
+
+        try {
+          var opts = Object.defineProperty({}, 'passive', {
+            get: function get() {
+              _this2.supportsPassive = true;
+              return true;
+            }
+          });
+          window.addEventListener('testPassive', null, opts);
+          window.removeEventListener('testPassive', null, opts);
+        } catch (e) {
+          console.error(e);
+        }
       }
     }, {
       key: "checkNode",
@@ -1643,14 +2854,406 @@
     }, {
       key: "destroy",
       value: function destroy() {
-        this.el.removeEventListener('touchstart', this._start);
-        this.el.removeEventListener('touchmove', this._move);
-        this.el.removeEventListener('touchend', this._end);
+        this._off(this.el, 'touchstart', this._start);
+
+        this._off(this.el, 'touchmove', this._move);
+
+        this._off(this.el, 'touchend', this._end);
+
+        this._off(window, 'mousedown', this._start);
+
+        this._off(window, 'mousemove', this._move);
+
+        this._off(window, 'mouseup', this._end);
       }
     }]);
 
     return Slide;
   }();
+
+  /**
+   * ast 编译相关
+   * @module ast
+   */
+
+  var parse = parser__default['default'].parse;
+  var generate = generator__default['default'].default;
+  var traverse = traverse__default['default'].default;
+  /**
+   * @static
+   * @description 解析获得特定字符之间的表达式，例如 "{{}}", "{}"
+   * @example
+   * getExpression("{{a+1}}{{b+1}}", "{{", "}}")
+   * // ['a+1','b+1']
+   * @param {String} content
+   * @param {String} startFlag
+   * @param {String} endFlag
+   * @return {Array} 表达式数组
+   */
+
+  function getExpression(content, startFlag, endFlag) {
+    var isSingleQuotes = false;
+    var isDoubleQuotes = false;
+    var isTemplateStr = false;
+    var singleQuotes = '\'';
+    var doubleQuotes = '"';
+    var templateStr = '`';
+
+    var canStart = function canStart(open) {
+      return open === startFlag && !isSingleQuotes && !isDoubleQuotes && !isTemplateStr;
+    };
+
+    var canEnd = function canEnd(close) {
+      return close === endFlag && !isSingleQuotes && !isDoubleQuotes && !isTemplateStr;
+    };
+
+    var isQuotes = function isQuotes(s) {
+      return [singleQuotes, doubleQuotes, templateStr].includes(s);
+    };
+
+    var expressions = [];
+    var current = '';
+    var isExpression = false;
+
+    for (var i = 0; i < content.length; i++) {
+      var c = content[i];
+      var n = content[i + 1];
+
+      if (c === '\\' && isQuotes(n)) {
+        i++;
+
+        if (isExpression) {
+          current += c + n;
+        }
+
+        continue;
+      } else if (c === singleQuotes) {
+        isSingleQuotes = !isSingleQuotes;
+      } else if (c === doubleQuotes) {
+        isDoubleQuotes = !isDoubleQuotes;
+      } else if (c === templateStr) {
+        isTemplateStr = !isTemplateStr;
+      } else if (canStart(c + n)) {
+        isExpression = true;
+        i++;
+        continue;
+      } else if (canEnd(c + n)) {
+        expressions.push(current);
+        current = '';
+        isExpression = false;
+        i++;
+      }
+
+      if (isExpression) {
+        current += c;
+      }
+    }
+
+    return expressions;
+  }
+  /**
+   * @static
+   * @ignore
+   * @description 替换 js 表达式中的 Identifier 节点 name
+   * @example
+   * replaceIdentifierName("a+b+1", [a, b], "[c, d]")
+   * // c+d+1
+   * @param {string} expression js 表达式
+   * @param {array} nflgas 新 Identifier 节点名称集合
+   * @param {array} oflags 旧 Identifier 节点名称集合
+   * @return {string} 替换后的 js 表达式
+   */
+
+
+  function replaceIdentifierName(expression, nflgas, oflags) {
+    if (!nflgas || !nflgas.length) {
+      return;
+    }
+
+    var ast = null; // ast树
+
+    try {
+      ast = parse(expression);
+    } catch (error) {
+      throw new Error("\u8868\u8FBE\u5F0F ".concat(expression, " \u89E3\u6790\u51FA\u9519"));
+    }
+
+    traverse(ast, {
+      enter: function enter(path) {
+        // 是对象属性时跳过该节点
+        if (path.isMemberExpression() && !path.node.computed) {
+          path.skip();
+        }
+
+        nflgas.forEach(function (nflag, index) {
+          var oflag = oflags[index];
+
+          if (path.isIdentifier({
+            name: oflag
+          })) {
+            path.node.name = nflag;
+          }
+        });
+      }
+    }); // 对于微信小程序来说
+    // 输出时，否则小程序将解析失败
+
+    return generate(ast, {
+      compact: true
+    }).code.slice(0, -1);
+  }
+
+  function handleExpression(text, nIndexs, oIndexs) {
+    if (!text || !nIndexs || !nIndexs.length) {
+      return text;
+    }
+
+    var changedNewIndexs = [];
+    var changedOldIndex = [];
+    var lowerIndexs = [];
+
+    for (var i = nIndexs.length - 1; i >= 0; i--) {
+      var nIndex = nIndexs[i];
+      var oIndex = oIndexs[i];
+
+      if (nIndex !== oIndex && !lowerIndexs.includes(nIndex)) {
+        changedNewIndexs.push(nIndex);
+        changedOldIndex.push(oIndex);
+      }
+
+      lowerIndexs.push(nIndex);
+    }
+
+    if (!changedNewIndexs.length) {
+      return text;
+    }
+
+    var expressions = getExpression(text, '{{', '}}');
+
+    if (!expressions.length) {
+      return text;
+    }
+
+    var resText = text;
+    expressions.forEach(function (expression) {
+      var exp = replaceIdentifierName(expression, changedNewIndexs, changedOldIndex); // exp 中不要带 $
+      // 在 replace 函数中，替代字符串中 $ 有特殊含义
+
+      resText = resText.replace(expression, exp);
+    });
+    return resText;
+  }
+
+  var HandleAttribs = /*#__PURE__*/function () {
+    function HandleAttribs(attribs) {
+      classCallCheck(this, HandleAttribs);
+
+      this.attribs = attribs || {};
+    }
+
+    createClass(HandleAttribs, [{
+      key: "get",
+      value: function get(key) {
+        return this.attribs[key];
+      }
+    }, {
+      key: "delete",
+      value: function _delete(key) {
+        delete this.attribs[key];
+      }
+    }, {
+      key: "push",
+      value: function push(obj) {
+        Object.assign(this.attribs, obj);
+      }
+    }, {
+      key: "set",
+      value: function set(key, value) {
+        this.attribs[key] = value;
+      }
+    }]);
+
+    return HandleAttribs;
+  }(); // 获取节点在父节点下的索引
+
+
+  function getElementIndex(element) {
+    var index = 0;
+    var prev = element.prev;
+
+    while (prev) {
+      if (prev.type === 'tag') {
+        index++;
+      }
+
+      prev = prev.prev;
+    }
+
+    return index;
+  } // 获取节点在父节点下的唯一标志
+
+
+  function getlementUniqueFlagInParent(element, uniqueFlagAttr) {
+    var parent = element.parent;
+    var parentUniqueFlag = '';
+
+    if (parent) {
+      parentUniqueFlag = parent.attribs[uniqueFlagAttr];
+    }
+
+    var index = getElementIndex(element);
+
+    function getName() {
+      return element.name || '';
+    } // 父节点的 uniqueFlag + tagName + element 在父节点下的索引
+
+
+    if (parentUniqueFlag) {
+      return "".concat(parentUniqueFlag, "--").concat(getName()).concat(index);
+    } // tagName + 索引
+
+
+    return "".concat(getName()).concat(index);
+  }
+
+  function assembleUniqueId(keyElement) {
+    return keyElement.reduce(function (prev, key) {
+      if (key) {
+        if (prev) {
+          return prev + '_' + key;
+        }
+
+        return prev + key;
+      }
+
+      return prev;
+    }, '');
+  }
+  /**
+   * @static
+   * @description
+   * 为微信小程序 dom 节点生成唯一标志，存储在特定 data-[name] 下。
+   * 节点唯一标志 = 父节点唯一标志 + 在父节点下的索引 + 标签名 + 节点本身id
+   * 根节点唯一标志 = 节点唯一标志 + 页面path
+   * wx:for 节点唯一标志 = 节点唯一标志 + index
+   * @example
+   * generateElementUniqueFlag(dom, {
+          indexPrefix: 'index',
+          flagKey: 'uid',
+          filePath: 'C:\\Users\xx\Desktop\project\src\util\page.wxml'
+      })
+   * @param {Object} dom htmlParser2 解析后得到的 dom ast 树
+   * @param {Object} options 配置项
+   * @param {string} [options.indexPrefix=index] wx:for-index 值得前缀，会主动给 wx:for 节点设置 wx:for-index
+   * @param {string} [options.flagKey=uflag] data-[flagKey] 存储唯一 id
+   * @param {string} [options.filePath=''] 文件路径，多个文件是，需要加上文件路径才能保证每个节点 id 唯一
+   */
+
+
+  function generateElementUniqueFlag(dom) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    var defalutOptions = {
+      indexPrefix: 'index',
+      flagKey: 'uflag',
+      filePath: ''
+    };
+    var currentOptions = Object.assign({}, defalutOptions, options);
+    var indexPrefix = currentOptions.indexPrefix,
+        flagKey = currentOptions.flagKey,
+        filePath = currentOptions.filePath; // 存储嵌套index的栈
+
+    var nIndexs = []; // 存储wx:for节点的栈
+
+    var loopNodes = []; // 存储旧的index的栈
+
+    var oIndexs = [];
+    var currentIndex = '';
+    var deep = 0;
+    var isRoot = true;
+
+    function travel(dom) {
+      dom.forEach(function (element) {
+        var attribs = element.attribs;
+
+        if (attribs) {
+          var attrs = new HandleAttribs(attribs);
+
+          if (attrs.get('wx:for')) {
+            if (attrs.get('wx:for-index')) {
+              var index = attrs.get('wx:for-index');
+              nIndexs.push(index);
+              oIndexs.push(index);
+              currentIndex = index;
+            } else {
+              var _index = "".concat(indexPrefix, "_").concat(deep); // 主动设置wx:for-index
+
+
+              attrs.set('wx:for-index', _index);
+              nIndexs.push(_index);
+              oIndexs.push('index');
+              currentIndex = _index;
+            }
+
+            loopNodes.push(element);
+            deep++;
+          } // 为每个节点注入唯一标志
+
+
+          var attr = "data-".concat(flagKey); // 在父节点下的唯一标志（与父节点唯一标志、标签名、在父节点下的位置索引有关）
+
+          var uniqueFlagInParent = getlementUniqueFlagInParent(element, attr); // wx:for 组件内唯一标志与上层所有 index 有关
+          // 当发现 wx:for 时，该节点唯一标志与 index 有关
+          // 这样其所有子节点唯一标志都将与这个 index 有关
+          // 这样即使是嵌套循环，也能保证内部节点唯一标志与上层每个 wx:for 相关
+
+          var indexsStr = currentIndex ? "{{".concat(currentIndex, "}}") : '';
+          var keys = []; // 多个wxml文件时，还需在根节点加上文件路径，才能确保每个元素生成的标志唯一
+
+          if (isRoot) {
+            keys.push(filePath);
+          }
+
+          keys = [].concat(toConsumableArray(keys), [uniqueFlagInParent, indexsStr, attrs.get('id')]);
+          var uniqueFlag = assembleUniqueId(keys);
+
+          var obj = defineProperty({}, attr, uniqueFlag);
+
+          attrs.push(obj); // 处理for+template标签组合
+
+          if (element.name === 'template') ; else {
+            Object.keys(attribs).forEach(function (key) {
+              attribs[key] = handleExpression(attribs[key], nIndexs, oIndexs);
+            });
+          }
+        } else if (element.type === 'text') {
+          element.data = handleExpression(element.data, nIndexs, oIndexs);
+        }
+
+        if (element.children) {
+          isRoot = false;
+          currentIndex = '';
+          travel(element.children);
+        } // 回溯到wx:for节点时
+
+
+        if (element === loopNodes[loopNodes.length - 1]) {
+          nIndexs.pop();
+          oIndexs.pop();
+          loopNodes.pop();
+          deep--;
+        }
+      });
+    }
+
+    travel(dom);
+  }
+
+  var generateElementId = {
+    generateElementUniqueFlag: generateElementUniqueFlag,
+    getExpression: getExpression
+  };
+  var generateElementId_1 = generateElementId.generateElementUniqueFlag;
+  var generateElementId_2 = generateElementId.getExpression;
 
   function marquee(el, options) {
     var opt = Object.assign({
@@ -1794,9 +3397,9 @@
     };
   }
 
-  function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+  function ownKeys$1(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-  function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+  function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
   function boolMobile() {
     if (window.navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
@@ -1806,7 +3409,7 @@
     return false; // PC端
   }
 
-  function checkPageCanScroll$1() {
+  function checkPageCanScroll() {
     var viewHeight = document.documentElement.clientHeight;
     var viewWidth = document.documentElement.clientWidth;
     var bodyStyle = window.getComputedStyle(document.body);
@@ -1814,12 +3417,12 @@
     return bodyStyle.overflow !== 'hidden' && htmlStyle.overflow !== 'hidden' && (document.documentElement.scrollHeight > viewHeight || document.documentElement.scrollWidth > viewWidth);
   }
 
-  function checkNodeCanScroll$1(el) {
+  function checkNodeCanScroll(el) {
     var elStyle = window.getComputedStyle(el);
     return elStyle.overflow !== 'visible' && (el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth);
   }
 
-  function throttle$1(fn) {
+  function throttle(fn) {
     var curTick = false;
     var that = this;
     var params = Array.prototype.slice.call(arguments);
@@ -1836,92 +3439,12 @@
       }
     };
   }
-
-  var Event$1 = /*#__PURE__*/function () {
-    function Event() {
-      classCallCheck(this, Event);
-
-      defineProperty(this, "onEvents", {});
-
-      defineProperty(this, "index", -1);
-
-      defineProperty(this, "count", 0);
-    }
-
-    createClass(Event, [{
-      key: "on",
-      // once 表示注册的事件只执行一次便自动移除
-      value: function on(name, callback) {
-        var once = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-        this.onEvents[name] = this.onEvents[name] || [];
-        this.onEvents[name].push({
-          name: name,
-          callback: callback,
-          once: once
-        });
-      } // 移除事件
-
-    }, {
-      key: "off",
-      value: function off(name, callback) {
-        var _this = this;
-
-        if (!this.onEvents[name] || !this.onEvents[name].length) {
-          return;
-        }
-
-        this.onEvents[name] = this.onEvents[name].filter(function (event, index) {
-          var flag = true; // 在emit的回调中，可能会off事件
-
-          if (event.callback === callback) {
-            flag = false;
-
-            if (index <= _this.index && name === _this.name) {
-              _this.count++;
-            }
-          }
-
-          return flag;
-        });
-      }
-    }, {
-      key: "emit",
-      value: function emit(name) {
-        if (!this.onEvents[name] || !this.onEvents[name].length) {
-          return;
-        }
-
-        var params = Array.prototype.slice.call(arguments).slice(1);
-        this.name = name;
-
-        for (var i = 0; i < this.onEvents[name].length; i++) {
-          var event = this.onEvents[name][i]; // 需要先判断是否为一次性事件，移除
-          // 以防在事件回调中继续触发当前事件时即使是一次性事件也会执行多次
-
-          if (event.once) {
-            this.onEvents[name].splice(i, 1);
-            i--;
-          } // 记录此时的index，如果回调中off事件，需要记录off的小于等于这个index的个数
-
-
-          this.index = i;
-          event.callback.apply(event, toConsumableArray(params));
-          i -= this.count;
-          this.count = 0;
-        }
-
-        this.count = 0;
-        this.index = -1;
-      }
-    }]);
-
-    return Event;
-  }();
   /**
    * @description 分类器
    * @param {String} id 父元素id选择器
    * @param {Array} data 可选，分类的数据
    */
+
 
   var Sorter = /*#__PURE__*/function () {
     // 分类数据
@@ -1941,7 +3464,7 @@
     // simple：性能高，但多行时如果有动画，不支持元素大小不一样
     // complex: 性能低， 但支持多行时元素大小不一样
     function Sorter(el, initOptions, data) {
-      var _this2 = this;
+      var _this = this;
 
       classCallCheck(this, Sorter);
 
@@ -1974,13 +3497,13 @@
       defineProperty(this, "dragStart", function (e) {
         var node = e.target;
 
-        var dragNode = _this2.checkNode(node);
+        var dragNode = _this.checkNode(node);
 
-        if (!_this2.isRightNode) {
+        if (!_this.isRightNode) {
           return;
         }
 
-        var index = _this2._start(dragNode, e.clientX, e.clientY);
+        var index = _this._start(dragNode, e.clientX, e.clientY);
 
         if (index < 0) {
           return;
@@ -1994,25 +3517,25 @@
           e.dataTransfer.dropEffect = 'move';
         }
 
-        _this2.setDragNodeStyle();
+        _this.setDragNodeStyle();
       });
 
       defineProperty(this, "drag", function (e) {
-        if (!_this2.isRightNode) {
+        if (!_this.isRightNode) {
           return;
         } // e.clientX和e.clientY突然出现一瞬间的0 0
         // console.log('clientX：' + e.clientX + '；' + 'clientY：' + e.clientY)
 
 
-        _this2._move(e.clientX, e.clientY);
+        _this._move(e.clientX, e.clientY);
       });
 
       defineProperty(this, "dragEnd", function () {
-        if (!_this2.isRightNode) {
+        if (!_this.isRightNode) {
           return;
         }
 
-        _this2._end();
+        _this._end();
       });
 
       defineProperty(this, "mouseDown", function (event) {
@@ -2023,59 +3546,59 @@
         event.preventDefault();
         var node = event.target;
 
-        var dragNode = _this2.checkNode(node); // 鼠标移出浏览器时不会触发mouseup事件，此时进入浏览器点击鼠标左键需要执行上一次的end
+        var dragNode = _this.checkNode(node); // 鼠标移出浏览器时不会触发mouseup事件，此时进入浏览器点击鼠标左键需要执行上一次的end
 
 
-        if (!_this2.isRightNode) {
+        if (!_this.isRightNode) {
           return;
         }
 
-        if (_this2.isMouseLeft) {
-          _this2._end();
+        if (_this.isMouseLeft) {
+          _this._end();
 
           return;
         }
 
-        var index = _this2._start(dragNode, event.clientX, event.clientY);
+        var index = _this._start(dragNode, event.clientX, event.clientY);
 
         if (index < 0) {
           return;
         }
 
-        _this2.setDragNodeStyle();
+        _this.setDragNodeStyle();
 
-        _this2.setNodeCopy(dragNode);
+        _this.setNodeCopy(dragNode);
       });
 
       defineProperty(this, "mouseMove", function (event) {
-        if (!_this2.isRightNode || !_this2.nodeCopy) {
+        if (!_this.isRightNode || !_this.nodeCopy) {
           return;
         }
 
-        _this2._move(event.clientX, event.clientY);
+        _this._move(event.clientX, event.clientY);
       });
 
       defineProperty(this, "mouseLeave", function () {
-        if (!_this2.isRightNode) {
+        if (!_this.isRightNode) {
           return;
         } // 只有存在copy元素才算离开过
 
 
-        if (_this2.nodeCopy) {
-          _this2.isMouseLeft = true;
+        if (_this.nodeCopy) {
+          _this.isMouseLeft = true;
         }
       });
 
       defineProperty(this, "mouseUp", function () {
-        if (!_this2.isRightNode) {
+        if (!_this.isRightNode) {
           return;
         }
 
-        _this2._end(); // 即使mouseup触发  mousemove还是会触发
+        _this._end(); // 即使mouseup触发  mousemove还是会触发
 
 
-        _this2.isRightNode = false;
-        _this2.isMouseLeft = false;
+        _this.isRightNode = false;
+        _this.isMouseLeft = false;
       });
 
       defineProperty(this, "touchStart", function (event) {
@@ -2083,52 +3606,52 @@
         var touch = event.targetTouches[0];
         var node = touch.target;
 
-        var dragNode = _this2.checkNode(node);
+        var dragNode = _this.checkNode(node);
 
-        if (!_this2.isRightNode) {
+        if (!_this.isRightNode) {
           return;
         }
 
-        var index = _this2._start(dragNode, touch.clientX, touch.clientY);
+        var index = _this._start(dragNode, touch.clientX, touch.clientY);
 
         if (index < 0) {
           return;
         }
 
-        _this2.setNodeCopy(dragNode);
+        _this.setNodeCopy(dragNode);
 
-        _this2.setDragNodeStyle();
+        _this.setDragNodeStyle();
       });
 
       defineProperty(this, "touchMove", function (event) {
-        if (!_this2.isRightNode) {
+        if (!_this.isRightNode) {
           return;
         }
 
         var touch = event.targetTouches[0];
 
-        _this2._move(touch.clientX, touch.clientY);
+        _this._move(touch.clientX, touch.clientY);
       });
 
       defineProperty(this, "touchEnd", function () {
-        if (!_this2.isRightNode) {
+        if (!_this.isRightNode) {
           return;
         }
 
-        _this2._end();
+        _this._end();
       });
 
       defineProperty(this, "animateNodeEnd", function () {
-        _this2.animatedNode.removeEventListener('transitionend', _this2.animateNodeEnd); // 触发end的条件，拖拽元素有发生交换，拖拽元素有动画
+        _this.animatedNode.removeEventListener('transitionend', _this.animateNodeEnd); // 触发end的条件，拖拽元素有发生交换，拖拽元素有动画
 
 
-        _this2.event.emit('animationend');
+        _this.event.emit('animationend');
 
-        _this2.resolve && _this2.resolve();
+        _this.resolve && _this.resolve();
       });
 
       this.container = el;
-      this.options = _objectSpread({
+      this.options = _objectSpread$1({
         // simple complex
         mode: 'complex',
         way: 'mouse',
@@ -2144,7 +3667,7 @@
         },
         sort: true
       }, initOptions);
-      this.event = new Event$1(); // this.data = _.cloneDeep(data)
+      this.event = new Event(); // this.data = _.cloneDeep(data)
 
       this.data = data;
     }
@@ -2152,7 +3675,7 @@
     createClass(Sorter, [{
       key: "init",
       value: function init() {
-        var _this3 = this;
+        var _this2 = this;
 
         this.isMobile = boolMobile();
         this.isSimpleMode = this.options.mode === 'simple';
@@ -2164,11 +3687,11 @@
           this.direction = 'vertical';
           this.items = [];
           this.nodes.forEach(function (node, index) {
-            if (!_this3.isMobile) {
+            if (!_this2.isMobile) {
               node.draggable = true;
             }
 
-            var position = _this3.getPostionInContainer(node);
+            var position = _this2.getPostionInContainer(node);
 
             var obj = {
               el: node,
@@ -2177,27 +3700,27 @@
             };
 
             if (index === 1) {
-              var lastItem = _this3.items[0];
+              var lastItem = _this2.items[0];
 
               if (lastItem.position.left !== position.left && lastItem.position.top === position.top) {
-                _this3.direction = 'horizontal';
+                _this2.direction = 'horizontal';
               } else if (lastItem.position.top !== position.top && lastItem.position.left === position.left) {
-                _this3.direction = 'vertical';
+                _this2.direction = 'vertical';
               } else {
-                _this3.direction = 'mixin';
+                _this2.direction = 'mixin';
               }
             }
 
             if (index > 0) {
-              var _lastItem = _this3.items[index - 1];
+              var _lastItem = _this2.items[index - 1];
 
-              if (_this3.direction === 'horizontal') {
+              if (_this2.direction === 'horizontal') {
                 if (position.top !== _lastItem.position.top) {
                   area++;
                   _lastItem.last = true;
                   obj.first = true;
                 }
-              } else if (_this3.direction === 'vertical') {
+              } else if (_this2.direction === 'vertical') {
                 if (position.left !== _lastItem.position.left) {
                   area++;
                   _lastItem.last = true;
@@ -2210,11 +3733,11 @@
 
             obj.area = area;
 
-            _this3.items.push(obj);
+            _this2.items.push(obj);
           });
         } else {
           this.nodes.forEach(function (node) {
-            if (!_this3.isMobile) {
+            if (!_this2.isMobile) {
               node.draggable = true;
             }
           });
@@ -2231,9 +3754,9 @@
         }
 
         this.initScrollInfo();
-        this.throttleTouchMove = throttle$1(this.touchMove);
-        this.throttleDrag = throttle$1(this.drag);
-        this.throttleMouseMove = throttle$1(this.mouseMove);
+        this.throttleTouchMove = throttle(this.touchMove);
+        this.throttleDrag = throttle(this.drag);
+        this.throttleMouseMove = throttle(this.mouseMove);
         this.setSupportsPassive();
         this.addlistener();
       }
@@ -2335,12 +3858,12 @@
     }, {
       key: "setSupportsPassive",
       value: function setSupportsPassive() {
-        var _this4 = this;
+        var _this3 = this;
 
         try {
           var opts = Object.defineProperty({}, 'passive', {
             get: function get() {
-              _this4.supportsPassive = true;
+              _this3.supportsPassive = true;
               return true;
             }
           });
@@ -2537,16 +4060,16 @@
     }, {
       key: "swapItem",
       value: function swapItem() {
-        var _this5 = this;
+        var _this4 = this;
 
         if (this.isSimpleMode) {
           if (this.options.animation) {
             this.isMoveEnd = false;
             this.animateSwap().then(function () {
-              _this5.isMoveEnd = true; // 如果动画结束，但拖拽没有结束，不触发节点交换
+              _this4.isMoveEnd = true; // 如果动画结束，但拖拽没有结束，不触发节点交换
 
-              if (_this5.isDragEnd) {
-                _this5.sortEndOnSimple();
+              if (_this4.isDragEnd) {
+                _this4.sortEndOnSimple();
               }
             });
           } else {
@@ -2559,17 +4082,17 @@
             this.isMoveEnd = false;
             this.animateSwap().then(function () {
               // 动画结束后可与上一次hint元素hint
-              _this5.lastHint = -1;
-              _this5.isMoveEnd = true;
+              _this4.lastHint = -1;
+              _this4.isMoveEnd = true;
 
-              if (_this5.isDragEnd) {
-                _this5.sortEndOnComplex();
+              if (_this4.isDragEnd) {
+                _this4.sortEndOnComplex();
               }
             });
           }
         }
 
-        this.event.emit('change', _objectSpread({
+        this.event.emit('change', _objectSpread$1({
           position: this.copyPosition
         }, this.moveInfo));
       }
@@ -2601,7 +4124,7 @@
     }, {
       key: "sortEndOnSimple",
       value: function sortEndOnSimple() {
-        var _this6 = this;
+        var _this5 = this;
 
         if (!this.moveInfo) {
           return;
@@ -2621,30 +4144,30 @@
         setTimeout(function () {
           if (hintIndex > dragIndex) {
             for (var i = dragIndex; i < hintIndex; i++) {
-              var _ref = [_this6.items[i + 1].el, _this6.items[i].el];
-              _this6.items[i].el = _ref[0];
-              _this6.items[i + 1].el = _ref[1];
-              _this6.items[i].position = _this6.getPostionInContainer(_this6.items[i].el);
+              var _ref = [_this5.items[i + 1].el, _this5.items[i].el];
+              _this5.items[i].el = _ref[0];
+              _this5.items[i + 1].el = _ref[1];
+              _this5.items[i].position = _this5.getPostionInContainer(_this5.items[i].el);
 
               if (i === hintIndex - 1) {
-                _this6.items[i + 1].position = _this6.getPostionInContainer(_this6.items[i + 1].el);
+                _this5.items[i + 1].position = _this5.getPostionInContainer(_this5.items[i + 1].el);
               }
             }
           } else if (hintIndex < dragIndex) {
             for (var _i = dragIndex; _i > hintIndex; _i--) {
-              var _ref2 = [_this6.items[_i - 1].el, _this6.items[_i].el];
-              _this6.items[_i].el = _ref2[0];
-              _this6.items[_i - 1].el = _ref2[1];
-              _this6.items[_i].position = _this6.getPostionInContainer(_this6.items[_i].el);
+              var _ref2 = [_this5.items[_i - 1].el, _this5.items[_i].el];
+              _this5.items[_i].el = _ref2[0];
+              _this5.items[_i - 1].el = _ref2[1];
+              _this5.items[_i].position = _this5.getPostionInContainer(_this5.items[_i].el);
 
               if (_i === hintIndex - 1) {
-                _this6.items[_i - 1].position = _this6.getPostionInContainer(_this6.items[_i - 1].el);
+                _this5.items[_i - 1].position = _this5.getPostionInContainer(_this5.items[_i - 1].el);
               }
             }
           }
         });
         this.items.forEach(function (item) {
-          _this6.resetTransitionStyle(item.el);
+          _this5.resetTransitionStyle(item.el);
         });
         this.index = hintIndex;
         this.swapDataSerial();
@@ -2684,20 +4207,20 @@
     }, {
       key: "animateSwap",
       value: function animateSwap() {
-        var _this7 = this;
+        var _this6 = this;
 
         return new Promise(function (resolve) {
-          _this7.animateNodes();
+          _this6.animateNodes();
 
-          _this7.emitAnimationEvent(_this7.moveInfo.dragNode);
+          _this6.emitAnimationEvent(_this6.moveInfo.dragNode);
 
-          _this7.resolve = resolve;
+          _this6.resolve = resolve;
         });
       }
     }, {
       key: "animateNodes",
       value: function animateNodes() {
-        var _this8 = this;
+        var _this7 = this;
 
         if (this.isSimpleMode) {
           var swaptItems = [];
@@ -2710,7 +4233,7 @@
 
           if (this.lastSwaptItems && this.lastSwaptItems.length) {
             this.lastSwaptItems.forEach(function (item) {
-              _this8.style(item.el, {
+              _this7.style(item.el, {
                 transition: transition,
                 transform: 'translate(0,0px)'
               });
@@ -2760,9 +4283,9 @@
               }
 
               if (swaptItems[index + 1]) {
-                if (_this8.direction === 'horizontal') {
+                if (_this7.direction === 'horizontal') {
                   offsetX = item.position.left - swaptItems[index + 1].position.left;
-                } else if (_this8.direction === 'vertical') {
+                } else if (_this7.direction === 'vertical') {
                   offsetY = item.position.top - swaptItems[index + 1].position.top;
                 }
               }
@@ -2771,7 +4294,7 @@
               distanceY = offsetY;
             }
 
-            _this8.style(item.el, {
+            _this7.style(item.el, {
               transition: transition,
               transform: "translate(".concat(distanceX, "px,").concat(distanceY, "px)")
             });
@@ -2798,12 +4321,12 @@
     }, {
       key: "animateNodesDiffPos",
       value: function animateNodesDiffPos(nodes, positionsBefore) {
-        var _this9 = this;
+        var _this8 = this;
 
         // 先将全部节点过渡取消
         nodes.forEach(function (el) {
           // 节点在文档中的位置改变后，为了准确获取改变后的位置信息
-          _this9.resetTransitionStyle(el);
+          _this8.resetTransitionStyle(el);
         }); // 再获取现在的位置
         // 因为获取位置时会重绘制，如果取消一个节点过渡，就离开获取位置，那么会重绘n次
         // 这样虽然遍历次数增加一倍，但重绘制只有一次，性能提高很多
@@ -2811,13 +4334,13 @@
         var positionsNow = this.getPositions(nodes); // 最后对2次的位置进行过渡动画
 
         nodes.forEach(function (node, index) {
-          _this9.animateDiffPos(node, positionsBefore[index], positionsNow[index]);
+          _this8.animateDiffPos(node, positionsBefore[index], positionsNow[index]);
         });
       }
     }, {
       key: "animateDiffPos",
       value: function animateDiffPos(el, positionBefore, positionNow) {
-        var _this10 = this;
+        var _this9 = this;
 
         var transition = "transform ".concat(this.options.duration, "ms ease ").concat(this.options.delay, "ms");
 
@@ -2838,7 +4361,7 @@
           // 2. move事件节流，使用requestAnimationFrame。不能使用setTimeout节流
 
           setTimeout(function () {
-            _this10.style(el, {
+            _this9.style(el, {
               transform: 'translate(0, 0)',
               transition: transition
             });
@@ -2851,7 +4374,7 @@
     }, {
       key: "animateComplex",
       value: function animateComplex(el, position) {
-        var _this11 = this;
+        var _this10 = this;
 
         var transition = "transform ".concat(this.options.duration, "ms ease ").concat(this.options.delay, "ms"); // 节点在文档中的位置改变后，为了准确获取改变后的位置信息
 
@@ -2877,7 +4400,7 @@
           // 2. move事件节流，使用requestAnimationFrame。不能使用setTimeout节流
 
           requestAnimationFrame(function () {
-            _this11.style(el, {
+            _this10.style(el, {
               transform: 'translate(0, 0)',
               transition: transition
             });
@@ -2893,17 +4416,17 @@
     }, {
       key: "getNodes",
       value: function getNodes() {
-        var _this12 = this;
+        var _this11 = this;
 
         // const nodes = [...this.container.querySelectorAll(`.${this.options.dragNode}`)]
         var nodes = toConsumableArray(this.container.children).filter(function (node) {
-          if (_this12.groupDragNodes && _this12.groupDragNodes.length) {
-            return _this12.groupDragNodes.some(function (item) {
+          if (_this11.groupDragNodes && _this11.groupDragNodes.length) {
+            return _this11.groupDragNodes.some(function (item) {
               return node.className.includes(item);
             });
           }
 
-          return node.className.includes(_this12.options.dragNode);
+          return node.className.includes(_this11.options.dragNode);
         });
 
         if (this.options.mode === 'complex') {
@@ -2922,16 +4445,16 @@
     }, {
       key: "getPositions",
       value: function getPositions(nodes) {
-        var _this13 = this;
+        var _this12 = this;
 
         return nodes.map(function (node) {
-          return _this13.getPosition(node);
+          return _this12.getPosition(node);
         });
       }
     }, {
       key: "hint",
       value: function hint(x, y) {
-        var _this14 = this;
+        var _this13 = this;
 
         if (this.isSimpleMode) {
           return this.items.findIndex(function (item) {
@@ -2949,18 +4472,18 @@
           if (x > position.left + piece && x < position.right - piece && y > position.top + piece && y < position.bottom - piece) {
             // 多行时，处于换行动画的元素不hint
             // 如果hint，会发生和预期不同的交换结果
-            if (_this14.direction === 'horizontal' && _this14.positions[index - 1] && _this14.positions[index + 1] && position.top !== _this14.positions[index + 1].top && position.top !== _this14.positions[index - 1].top) {
+            if (_this13.direction === 'horizontal' && _this13.positions[index - 1] && _this13.positions[index + 1] && position.top !== _this13.positions[index + 1].top && position.top !== _this13.positions[index - 1].top) {
               return;
             }
 
-            if (_this14.direction === 'vertical' && _this14.positions[index - 1] && _this14.positions[index + 1] && position.left !== _this14.positions[index + 1].left && position.left !== _this14.positions[index - 1].left) {
+            if (_this13.direction === 'vertical' && _this13.positions[index - 1] && _this13.positions[index + 1] && position.left !== _this13.positions[index + 1].left && position.left !== _this13.positions[index - 1].left) {
               return;
             } // 元素重叠时，正在drag和hint的优先
 
 
-            if (index === _this14.moveInfo.dragIndex) {
+            if (index === _this13.moveInfo.dragIndex) {
               isDragIndex = true;
-            } else if (index === _this14.moveInfo.hintIndex) {
+            } else if (index === _this13.moveInfo.hintIndex) {
               isHintIndex = true;
             } else {
               hintIndex = index;
@@ -3150,12 +4673,12 @@
     }, {
       key: "checkContainerScroll",
       value: function checkContainerScroll() {
-        this.canScrollContainer = checkNodeCanScroll$1(this.container);
+        this.canScrollContainer = checkNodeCanScroll(this.container);
       }
     }, {
       key: "checkBodyScroll",
       value: function checkBodyScroll() {
-        this.canScrollBody = checkPageCanScroll$1();
+        this.canScrollBody = checkPageCanScroll();
 
         if (this.canScrollBody) {
           // 由容器造成的页面滚动
@@ -3187,7 +4710,7 @@
     }, {
       key: "scrollOnMove",
       value: function scrollOnMove() {
-        var _this15 = this;
+        var _this14 = this;
 
         var _this$copyPosition = this.copyPosition,
             left = _this$copyPosition.left,
@@ -3202,19 +4725,19 @@
             if (left <= edge.left) {
               resolve();
 
-              _this15.scrollRelative(el, -piece, 0);
+              _this14.scrollRelative(el, -piece, 0);
             } else if (right >= edge.right) {
               resolve();
 
-              _this15.scrollRelative(el, piece, 0);
+              _this14.scrollRelative(el, piece, 0);
             } else if (top <= edge.top) {
               resolve();
 
-              _this15.scrollRelative(el, 0, -piece);
+              _this14.scrollRelative(el, 0, -piece);
             } else if (bottom >= edge.bottom) {
               resolve();
 
-              _this15.scrollRelative(el, 0, piece);
+              _this14.scrollRelative(el, 0, piece);
             }
           });
         }; // 暂时只能container造成body scroll或者container scroll但不造成body scroll
@@ -3227,16 +4750,16 @@
           var oldScrollX = window.scrollX;
           var oldScrollY = window.scrollY;
           scroll(document.documentElement, this.bodyPosition).then(function () {
-            _this15.setCopyPosition(scrollX - oldScrollX, scrollY - oldScrollY);
+            _this14.setCopyPosition(scrollX - oldScrollX, scrollY - oldScrollY);
 
-            _this15.setBodyPosition();
+            _this14.setBodyPosition();
           });
         }
       }
     }, {
       key: "animateScrollRelative",
       value: function animateScrollRelative(el, x, y) {
-        var _this16 = this;
+        var _this15 = this;
 
         var duration = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 300;
         var timeout = 10;
@@ -3257,11 +4780,11 @@
 
         var animate = function animate() {
           if (remain <= 0) {
-            _this16.isScroll = false;
+            _this15.isScroll = false;
             return;
           }
 
-          _this16.scrollRelative(el, dx, dy);
+          _this15.scrollRelative(el, dx, dy);
 
           remain -= d;
           setTimeout(function () {
@@ -3315,10 +4838,10 @@
     }, {
       key: "resetNodesTransitionStyle",
       value: function resetNodesTransitionStyle() {
-        var _this17 = this;
+        var _this16 = this;
 
         this.nodes.forEach(function (node) {
-          _this17.resetTransitionStyle(node);
+          _this16.resetTransitionStyle(node);
         });
       }
     }, {
@@ -3352,14 +4875,14 @@
     }, {
       key: "checkNode",
       value: function checkNode(node) {
-        var _this18 = this;
+        var _this17 = this;
 
         // 拖拽子节点时，往上寻找 sort-cell 节点
         var dragNode = null;
 
         if (this.groupDragNodes && this.groupDragNodes.length) {
           this.groupDragNodes.some(function (item) {
-            dragNode = _this18.getParentByClass(node, item);
+            dragNode = _this17.getParentByClass(node, item);
             return dragNode;
           });
         } else {
@@ -3412,15 +4935,15 @@
     }, {
       key: "emitAnimationEvent",
       value: function emitAnimationEvent(node) {
-        var _this19 = this;
+        var _this18 = this;
 
         return new Promise(function (resolve) {
-          _this19.event.emit('animationstart');
+          _this18.event.emit('animationstart');
 
-          node.removeEventListener('transitionend', _this19.animateNodeEnd);
-          node.addEventListener('transitionend', _this19.animateNodeEnd);
-          _this19.animatedNode = node;
-          _this19.resolve = resolve;
+          node.removeEventListener('transitionend', _this18.animateNodeEnd);
+          node.addEventListener('transitionend', _this18.animateNodeEnd);
+          _this18.animatedNode = node;
+          _this18.resolve = resolve;
         });
       } // 过渡结束触发
 
@@ -3583,7 +5106,6 @@
         var lastAddNode = null;
         var addCount = 0;
         fills.length = positions.length;
-        fills.fill[1];
         var _addNodeChanin = null;
         var _removeNodeChain = null;
 
@@ -3618,8 +5140,8 @@
           }
 
           var _that$removeNode = that.removeNode(mindex),
-              cindex = _that$removeNode.index,
-              node = _that$removeNode.node;
+              cindex = _that$removeNode.index;
+              _that$removeNode.node;
 
           if (cindex >= 0) {
             positions.splice(cindex, 1);
@@ -3985,9 +5507,9 @@
     return Sorter;
   }();
 
-  function ownKeys$1(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+  function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-  function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+  function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
   function _createSuper$1(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$1(); return function _createSuperInternal() { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
 
@@ -4134,7 +5656,7 @@
     }, {
       key: "addListener",
       value: function addListener() {
-        this._throttleSlide = throttle(this._slide);
+        this._throttleSlide = throttle$1(this._slide);
         this.el.addEventListener('slidestart', this._slidestart);
         this.el.addEventListener('slidemove', this._throttleSlide);
         this.el.addEventListener('slideend', this._slideend);
@@ -4380,7 +5902,7 @@
 
 
         var selectBox = document.createElement('div');
-        this.style(selectBox, _objectSpread$1({
+        this.style(selectBox, _objectSpread({
           width: this.el.offsetWidth + 'px',
           height: height + 'px',
           position: 'absolute',
@@ -4420,13 +5942,13 @@
     return SlideSelect;
   }(Event);
 
-  function _createSuper$2(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$2(); return function _createSuperInternal() { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
+  function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
 
-  function _isNativeReflectConstruct$2() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+  function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
   var Broadcast = /*#__PURE__*/function (_Event) {
     inherits(Broadcast, _Event);
 
-    var _super = _createSuper$2(Broadcast);
+    var _super = _createSuper(Broadcast);
 
     // 当前轮播的元素索引
     // 与当前元素交互的元素索引
@@ -5123,20 +6645,27 @@
   exports.Slide = Slide;
   exports.SlideSelect = SlideSelect;
   exports.Sorter = Sorter;
+  exports.__moduleExports = generateElementId;
+  exports.blobToDataURL = blobToDataURL;
   exports.canvasToImg = canvasToImg;
-  exports.checkNodeCanScroll = checkNodeCanScroll;
-  exports.checkPageCanScroll = checkPageCanScroll;
+  exports.checkNodeCanScroll = checkNodeCanScroll$1;
+  exports.checkPageCanScroll = checkPageCanScroll$1;
   exports.countMaxConsecutiveDate = countMaxConsecutiveDate;
   exports.countMaxDuplicateNumber = countMaxDuplicateNumber;
   exports.curry = curry;
   exports.cutText = cutText;
   exports.darkenColor = darkenColor;
+  exports.dataURLToBlob = dataURLToBlob;
   exports.dateFormatter = dateFormatter;
   exports.downloadImg = downloadImg;
+  exports.generateElementUniqueFlag = generateElementId_1;
+  exports.getExpression = generateElementId_2;
   exports.getFullDate = getFullDate;
   exports.getMonthDays = getMonthDays;
   exports.getPeriod = getPeriod;
   exports.getPixelRatio = getPixelRatio;
+  exports.hiddenRows = hiddenRows;
+  exports.infiniteScroll = infiniteScroll;
   exports.insertScripts = insertScripts;
   exports.isBigMonth = isBigMonth;
   exports.isEqualDate = isEqualDate;
@@ -5145,9 +6674,11 @@
   exports.isValidDate = isValidDate;
   exports.lightnessColor = lightnessColor;
   exports.marquee = marquee;
-  exports.throttle = throttle;
+  exports.promiseOrder = promiseOrder;
+  exports.throttle = throttle$1;
   exports.toDate = toDate;
   exports.toRgba = toRgba;
+  exports.urlToDataURL = urlToDataURL;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 

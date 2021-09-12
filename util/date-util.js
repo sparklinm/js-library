@@ -21,53 +21,53 @@
  */
 
 function dateFormatter (date, format) {
-  // 时间格式化辅助函数 date:毫秒数 format:'yyyy-MM-dd hh:mm:ss'
-  if (!date || date === '') {
-    return ''
-  }
-
-  let cdate = date
-
-  if (typeof cdate === 'string') {
-    const mts = cdate.match(/(\/Date\((\d+)\)\/)/)
-
-    if (mts && mts.length >= 3) {
-      cdate = parseInt(mts[2])
+    // 时间格式化辅助函数 date:毫秒数 format:'yyyy-MM-dd hh:mm:ss'
+    if (!date || date === '') {
+        return ''
     }
-  }
 
-  cdate = new Date(cdate)
-  if (!cdate || cdate.toUTCString() === 'Invalid Date') {
-    return ''
-  }
+    let cdate = date
 
-  const map = {
-    M: cdate.getMonth() + 1, // 月份
-    d: cdate.getDate(), // 日
-    h: cdate.getHours(), // 小时
-    m: cdate.getMinutes(), // 分
-    s: cdate.getSeconds(), // 秒
-    q: Math.floor((cdate.getMonth() + 3) / 3), // 季度
-    S: cdate.getMilliseconds() // 毫秒
-  }
+    if (typeof cdate === 'string') {
+        const mts = cdate.match(/(\/Date\((\d+)\)\/)/)
 
-  const formatTime = format.replace(/([yMdhmsqS])+/g, function (all, t) {
-    let v = map[t]
-
-    if (v !== undefined) {
-      if (all.length > 1) {
-        v = '0' + v
-        v = v.substr(v.length - 2)
-      }
-      return v
+        if (mts && mts.length >= 3) {
+            cdate = parseInt(mts[2])
+        }
     }
-    if (t === 'y') {
-      return (cdate.getFullYear() + '').substr(4 - all.length)
-    }
-    return all
-  })
 
-  return formatTime
+    cdate = new Date(cdate)
+    if (!cdate || cdate.toUTCString() === 'Invalid Date') {
+        return ''
+    }
+
+    const map = {
+        M: cdate.getMonth() + 1, // 月份
+        d: cdate.getDate(), // 日
+        h: cdate.getHours(), // 小时
+        m: cdate.getMinutes(), // 分
+        s: cdate.getSeconds(), // 秒
+        q: Math.floor((cdate.getMonth() + 3) / 3), // 季度
+        S: cdate.getMilliseconds() // 毫秒
+    }
+
+    const formatTime = format.replace(/([yMdhmsqS])+/g, function (all, t) {
+        let v = map[t]
+
+        if (v !== undefined) {
+            if (all.length > 1) {
+                v = '0' + v
+                v = v.substr(v.length - 2)
+            }
+            return v
+        }
+        if (t === 'y') {
+            return (cdate.getFullYear() + '').substr(4 - all.length)
+        }
+        return all
+    })
+
+    return formatTime
 }
 
 /**
@@ -78,10 +78,10 @@ function dateFormatter (date, format) {
  */
 
 function isValidDate (date) {
-  if (date instanceof Date === false) {
-    return false
-  }
-  return date.toString() !== 'Invalid Date'
+    if (date instanceof Date === false) {
+        return false
+    }
+    return date.toString() !== 'Invalid Date'
 }
 
 /**
@@ -92,7 +92,7 @@ function isValidDate (date) {
  */
 
 function isLeapYear (year) {
-  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0
+    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0
 }
 
 /**
@@ -104,9 +104,9 @@ function isLeapYear (year) {
  */
 
 function isBigMonth (month) {
-  const bigMonths = [0, 2, 4, 6, 7, 9, 11]
+    const bigMonths = [0, 2, 4, 6, 7, 9, 11]
 
-  return bigMonths.includes(month)
+    return bigMonths.includes(month)
 }
 
 /**
@@ -117,19 +117,19 @@ function isBigMonth (month) {
  */
 
 function getMonthDays (date) {
-  const month = date.getMonth()
-  const year = date.getFullYear()
+    const month = date.getMonth()
+    const year = date.getFullYear()
 
-  if (isBigMonth(month)) {
-    return 31
-  }
-  if (month === 1) {
-    if (isLeapYear(year)) {
-      return 29
+    if (isBigMonth(month)) {
+        return 31
     }
-    return 28
-  }
-  return 30
+    if (month === 1) {
+        if (isLeapYear(year)) {
+            return 29
+        }
+        return 28
+    }
+    return 30
 }
 
 /**
@@ -140,12 +140,12 @@ function getMonthDays (date) {
  */
 
 function toDate (time) {
-  let date = time
+    let date = time
 
-  if (typeof date === 'string') {
-    date = new Date(date)
-  }
-  return date
+    if (typeof date === 'string') {
+        date = new Date(date)
+    }
+    return date
 }
 
 /**
@@ -157,13 +157,13 @@ function toDate (time) {
  */
 
 function isEqualDate (stime, ttime) {
-  const sdate = toDate(stime)
-  const tdate = toDate(ttime)
+    const sdate = toDate(stime)
+    const tdate = toDate(ttime)
 
-  if (!isValidDate(sdate) || !isValidDate(tdate)) {
-    return false
-  }
-  return sdate.getTime() === tdate.getTime()
+    if (!isValidDate(sdate) || !isValidDate(tdate)) {
+        return false
+    }
+    return sdate.getTime() === tdate.getTime()
 }
 
 /**
@@ -174,16 +174,16 @@ function isEqualDate (stime, ttime) {
  * @returns {Object} 包含年月日时分秒毫秒
  */
 function getFullDate (date) {
-  return {
-    year: date.getFullYear(),
-    month: date.getMonth(),
-    date: date.getDate(),
-    day: date.getDay(),
-    hours: date.getHours(),
-    minutes: date.getMinutes(),
-    seconds: date.getSeconds(),
-    milliSeconds: date.getMilliseconds()
-  }
+    return {
+        year: date.getFullYear(),
+        month: date.getMonth(),
+        date: date.getDate(),
+        day: date.getDay(),
+        hours: date.getHours(),
+        minutes: date.getMinutes(),
+        seconds: date.getSeconds(),
+        milliSeconds: date.getMilliseconds()
+    }
 }
 
 /**
@@ -201,43 +201,43 @@ function getFullDate (date) {
  */
 
 function isEqualDateFuzzy (stime, ttime, tag) {
-  const sdate = toDate(stime)
-  const tdate = toDate(ttime)
+    const sdate = toDate(stime)
+    const tdate = toDate(ttime)
 
-  if (!isValidDate(sdate) || !isValidDate(tdate)) {
-    return false
-  }
-
-  const allTags = [
-    'year',
-    'month',
-    'date',
-    'hours',
-    'minutes',
-    'seconds',
-    'milliSeconds'
-  ]
-  const index = allTags.indexOf(tag)
-
-  if (index === -1) {
-    return isEqualDate(sdate, tdate)
-  }
-
-  // 获取年月日星期时分秒毫秒组成的对象
-  const fullsdate = getFullDate(sdate)
-  const fulltdate = getFullDate(tdate)
-
-  // 星期相等
-  if (tag === 'day') {
-    return fullsdate.day === fulltdate.day
-  }
-
-  for (let i = 0; i < index + 1; i++) {
-    if (fullsdate[allTags[i]] !== fulltdate[allTags[i]]) {
-      return false
+    if (!isValidDate(sdate) || !isValidDate(tdate)) {
+        return false
     }
-  }
-  return true
+
+    const allTags = [
+        'year',
+        'month',
+        'date',
+        'hours',
+        'minutes',
+        'seconds',
+        'milliSeconds'
+    ]
+    const index = allTags.indexOf(tag)
+
+    if (index === -1) {
+        return isEqualDate(sdate, tdate)
+    }
+
+    // 获取年月日星期时分秒毫秒组成的对象
+    const fullsdate = getFullDate(sdate)
+    const fulltdate = getFullDate(tdate)
+
+    // 星期相等
+    if (tag === 'day') {
+        return fullsdate.day === fulltdate.day
+    }
+
+    for (let i = 0; i < index + 1; i++) {
+        if (fullsdate[allTags[i]] !== fulltdate[allTags[i]]) {
+            return false
+        }
+    }
+    return true
 }
 
 /**
@@ -253,42 +253,42 @@ function isEqualDateFuzzy (stime, ttime, tag) {
  */
 
 function getPeriod (date = new Date(), unit) {
-  const cdate = toDate(date)
+    const cdate = toDate(date)
 
-  if (!isValidDate(cdate)) {
-    return false
-  }
-
-  const year = cdate.getFullYear()
-  const month = cdate.getMonth()
-  const d = cdate.getDate()
-  const day = cdate.getDay() || 7
-  const oneDay = 24 * 60 * 60 * 1000
-  const today = new Date(year, month, d)
-
-  if (unit === 'day') {
-    return [today, new Date(today.getTime() + oneDay)]
-  }
-  if (unit === 'week') {
-    return [
-      new Date(today.getTime() - (day - 1) * oneDay),
-      new Date(today.getTime() + (8 - day) * oneDay)
-    ]
-  }
-  if (unit === 'month') {
-    const startDate = 1
-    let nextMonth = ''
-
-    if (month === 11) {
-      nextMonth = new Date(year + 1, 0, 1)
-    } else {
-      nextMonth = new Date(year, month + 1, 1)
+    if (!isValidDate(cdate)) {
+        return false
     }
-    return [new Date(year, month, startDate), nextMonth]
-  }
-  if (unit === 'year') {
-    return [new Date(year, 0, 1), new Date(year + 1, 0, 1)]
-  }
+
+    const year = cdate.getFullYear()
+    const month = cdate.getMonth()
+    const d = cdate.getDate()
+    const day = cdate.getDay() || 7
+    const oneDay = 24 * 60 * 60 * 1000
+    const today = new Date(year, month, d)
+
+    if (unit === 'day') {
+        return [today, new Date(today.getTime() + oneDay)]
+    }
+    if (unit === 'week') {
+        return [
+            new Date(today.getTime() - (day - 1) * oneDay),
+            new Date(today.getTime() + (8 - day) * oneDay)
+        ]
+    }
+    if (unit === 'month') {
+        const startDate = 1
+        let nextMonth = ''
+
+        if (month === 11) {
+            nextMonth = new Date(year + 1, 0, 1)
+        } else {
+            nextMonth = new Date(year, month + 1, 1)
+        }
+        return [new Date(year, month, startDate), nextMonth]
+    }
+    if (unit === 'year') {
+        return [new Date(year, 0, 1), new Date(year + 1, 0, 1)]
+    }
 }
 
 /**
@@ -306,47 +306,47 @@ function getPeriod (date = new Date(), unit) {
  */
 
 function countMaxConsecutiveDate (dates) {
-  const cdates = dates.map(date => {
-    const cdate = new Date(date)
+    const cdates = dates.map(date => {
+        const cdate = new Date(date)
 
-    return new Date(
-      cdate.getFullYear(),
-      cdate.getMonth(),
-      cdate.getDate()
-    ).getTime()
-  })
-  const sortedDates = cdates.sort((a, b) => {
-    return a - b
-  })
+        return new Date(
+            cdate.getFullYear(),
+            cdate.getMonth(),
+            cdate.getDate()
+        ).getTime()
+    })
+    const sortedDates = cdates.sort((a, b) => {
+        return a - b
+    })
 
-  let count = 1
-  let max = 1
+    let count = 1
+    let max = 1
 
-  for (let i = 1; i < sortedDates.length; i++) {
-    if (sortedDates[i] - sortedDates[i - 1] === 24 * 60 * 60 * 1000) {
-      max++
-    } else {
-      if (max > count) {
-        count = max
-      }
-      max = 1
+    for (let i = 1; i < sortedDates.length; i++) {
+        if (sortedDates[i] - sortedDates[i - 1] === 24 * 60 * 60 * 1000) {
+            max++
+        } else {
+            if (max > count) {
+                count = max
+            }
+            max = 1
+        }
     }
-  }
-  return count
+    return count
 }
 
 
 
 export {
-  dateFormatter,
-  isValidDate,
-  isLeapYear,
-  isBigMonth,
-  getMonthDays,
-  toDate,
-  isEqualDate,
-  getFullDate,
-  isEqualDateFuzzy,
-  getPeriod,
-  countMaxConsecutiveDate
+    dateFormatter,
+    isValidDate,
+    isLeapYear,
+    isBigMonth,
+    getMonthDays,
+    toDate,
+    isEqualDate,
+    getFullDate,
+    isEqualDateFuzzy,
+    getPeriod,
+    countMaxConsecutiveDate
 }
