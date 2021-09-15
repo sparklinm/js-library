@@ -16,6 +16,8 @@ export * from './util/class/RandomSeed'
 
 export * from './util/class/Slide'
 
+export * from './util/class/AxiosRace'
+
 export * from './util/ast/generateElementId.js'
 
 export * from './library/marquee/marquee.js'

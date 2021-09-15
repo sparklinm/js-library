@@ -6,7 +6,7 @@ module.exports = {
         'es6': true
     },
     'parserOptions': {
-        'parser': 'babel-eslint',
+        'parser': '@babel/eslint-parser',
         'ecmaVersion': 2017,
         'sourceType': 'module'
     },
@@ -38,7 +38,7 @@ module.exports = {
         'no-sequences': 'error',
         'linebreak-style': 'off',
         'quotes': ['error', 'single'],
-        'semi': ['error', 'never'],
+        'semi': ['error', 'always'],
         'semi-style': ['error', 'last'],
         'semi-spacing': [
             'error',

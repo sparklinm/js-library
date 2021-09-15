@@ -1,8 +1,8 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('core-js/modules/es.array.concat'), require('core-js/modules/es.array.slice'), require('core-js/modules/es.object.to-string'), require('core-js/modules/es.promise'), require('core-js/modules/es.array.for-each'), require('core-js/modules/es.array.iterator'), require('core-js/modules/es.array.join'), require('core-js/modules/es.object.assign'), require('core-js/modules/es.regexp.exec'), require('core-js/modules/es.string.iterator'), require('core-js/modules/es.string.replace'), require('core-js/modules/es.string.split'), require('core-js/modules/es.string.starts-with'), require('core-js/modules/es.typed-array.uint8-array'), require('core-js/modules/es.typed-array.copy-within'), require('core-js/modules/es.typed-array.every'), require('core-js/modules/es.typed-array.fill'), require('core-js/modules/es.typed-array.filter'), require('core-js/modules/es.typed-array.find'), require('core-js/modules/es.typed-array.find-index'), require('core-js/modules/es.typed-array.for-each'), require('core-js/modules/es.typed-array.includes'), require('core-js/modules/es.typed-array.index-of'), require('core-js/modules/es.typed-array.iterator'), require('core-js/modules/es.typed-array.join'), require('core-js/modules/es.typed-array.last-index-of'), require('core-js/modules/es.typed-array.map'), require('core-js/modules/es.typed-array.reduce'), require('core-js/modules/es.typed-array.reduce-right'), require('core-js/modules/es.typed-array.reverse'), require('core-js/modules/es.typed-array.set'), require('core-js/modules/es.typed-array.slice'), require('core-js/modules/es.typed-array.some'), require('core-js/modules/es.typed-array.sort'), require('core-js/modules/es.typed-array.subarray'), require('core-js/modules/es.typed-array.to-locale-string'), require('core-js/modules/es.typed-array.to-string'), require('core-js/modules/web.dom-collections.for-each'), require('core-js/modules/web.dom-collections.iterator'), require('core-js/modules/web.url'), require('core-js/modules/es.array.includes'), require('core-js/modules/es.array.index-of'), require('core-js/modules/es.array.map'), require('core-js/modules/es.regexp.to-string'), require('core-js/modules/es.string.match'), require('core-js/modules/es.reflect.construct'), require('core-js/modules/es.array.filter'), require('core-js/modules/es.array.splice'), require('core-js/modules/es.function.name'), require('core-js/modules/es.array.reduce'), require('core-js/modules/es.array.some'), require('core-js/modules/es.object.keys'), require('@babel/parser'), require('@babel/generator'), require('@babel/traverse'), require('core-js/modules/es.symbol'), require('core-js/modules/es.array.fill'), require('core-js/modules/es.array.find-index'), require('core-js/modules/es.number.constructor'), require('core-js/modules/es.number.is-integer'), require('core-js/modules/es.object.get-own-property-descriptor'), require('core-js/modules/es.object.get-own-property-descriptors'), require('core-js/modules/es.string.includes')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'core-js/modules/es.array.concat', 'core-js/modules/es.array.slice', 'core-js/modules/es.object.to-string', 'core-js/modules/es.promise', 'core-js/modules/es.array.for-each', 'core-js/modules/es.array.iterator', 'core-js/modules/es.array.join', 'core-js/modules/es.object.assign', 'core-js/modules/es.regexp.exec', 'core-js/modules/es.string.iterator', 'core-js/modules/es.string.replace', 'core-js/modules/es.string.split', 'core-js/modules/es.string.starts-with', 'core-js/modules/es.typed-array.uint8-array', 'core-js/modules/es.typed-array.copy-within', 'core-js/modules/es.typed-array.every', 'core-js/modules/es.typed-array.fill', 'core-js/modules/es.typed-array.filter', 'core-js/modules/es.typed-array.find', 'core-js/modules/es.typed-array.find-index', 'core-js/modules/es.typed-array.for-each', 'core-js/modules/es.typed-array.includes', 'core-js/modules/es.typed-array.index-of', 'core-js/modules/es.typed-array.iterator', 'core-js/modules/es.typed-array.join', 'core-js/modules/es.typed-array.last-index-of', 'core-js/modules/es.typed-array.map', 'core-js/modules/es.typed-array.reduce', 'core-js/modules/es.typed-array.reduce-right', 'core-js/modules/es.typed-array.reverse', 'core-js/modules/es.typed-array.set', 'core-js/modules/es.typed-array.slice', 'core-js/modules/es.typed-array.some', 'core-js/modules/es.typed-array.sort', 'core-js/modules/es.typed-array.subarray', 'core-js/modules/es.typed-array.to-locale-string', 'core-js/modules/es.typed-array.to-string', 'core-js/modules/web.dom-collections.for-each', 'core-js/modules/web.dom-collections.iterator', 'core-js/modules/web.url', 'core-js/modules/es.array.includes', 'core-js/modules/es.array.index-of', 'core-js/modules/es.array.map', 'core-js/modules/es.regexp.to-string', 'core-js/modules/es.string.match', 'core-js/modules/es.reflect.construct', 'core-js/modules/es.array.filter', 'core-js/modules/es.array.splice', 'core-js/modules/es.function.name', 'core-js/modules/es.array.reduce', 'core-js/modules/es.array.some', 'core-js/modules/es.object.keys', '@babel/parser', '@babel/generator', '@babel/traverse', 'core-js/modules/es.symbol', 'core-js/modules/es.array.fill', 'core-js/modules/es.array.find-index', 'core-js/modules/es.number.constructor', 'core-js/modules/es.number.is-integer', 'core-js/modules/es.object.get-own-property-descriptor', 'core-js/modules/es.object.get-own-property-descriptors', 'core-js/modules/es.string.includes'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.util = {}, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, global.parser, global.generator, global.traverse$1));
-}(this, (function (exports, es_array_concat, es_array_slice, es_object_toString, es_promise, es_array_forEach, es_array_iterator, es_array_join, es_object_assign, es_regexp_exec, es_string_iterator, es_string_replace, es_string_split, es_string_startsWith, es_typedArray_uint8Array, es_typedArray_copyWithin, es_typedArray_every, es_typedArray_fill, es_typedArray_filter, es_typedArray_find, es_typedArray_findIndex, es_typedArray_forEach, es_typedArray_includes, es_typedArray_indexOf, es_typedArray_iterator, es_typedArray_join, es_typedArray_lastIndexOf, es_typedArray_map, es_typedArray_reduce, es_typedArray_reduceRight, es_typedArray_reverse, es_typedArray_set, es_typedArray_slice, es_typedArray_some, es_typedArray_sort, es_typedArray_subarray, es_typedArray_toLocaleString, es_typedArray_toString, web_domCollections_forEach, web_domCollections_iterator, web_url, es_array_includes, es_array_indexOf, es_array_map, es_regexp_toString, es_string_match, es_reflect_construct, es_array_filter, es_array_splice, es_function_name, es_array_reduce, es_array_some, es_object_keys, parser, generator, traverse$1) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('core-js/modules/es.array.concat'), require('core-js/modules/es.array.slice'), require('core-js/modules/es.object.to-string'), require('core-js/modules/es.promise'), require('core-js/modules/es.array.for-each'), require('core-js/modules/es.array.iterator'), require('core-js/modules/es.array.join'), require('core-js/modules/es.object.assign'), require('core-js/modules/es.regexp.exec'), require('core-js/modules/es.string.iterator'), require('core-js/modules/es.string.replace'), require('core-js/modules/es.string.split'), require('core-js/modules/es.string.starts-with'), require('core-js/modules/es.typed-array.uint8-array'), require('core-js/modules/es.typed-array.copy-within'), require('core-js/modules/es.typed-array.every'), require('core-js/modules/es.typed-array.fill'), require('core-js/modules/es.typed-array.filter'), require('core-js/modules/es.typed-array.find'), require('core-js/modules/es.typed-array.find-index'), require('core-js/modules/es.typed-array.for-each'), require('core-js/modules/es.typed-array.includes'), require('core-js/modules/es.typed-array.index-of'), require('core-js/modules/es.typed-array.iterator'), require('core-js/modules/es.typed-array.join'), require('core-js/modules/es.typed-array.last-index-of'), require('core-js/modules/es.typed-array.map'), require('core-js/modules/es.typed-array.reduce'), require('core-js/modules/es.typed-array.reduce-right'), require('core-js/modules/es.typed-array.reverse'), require('core-js/modules/es.typed-array.set'), require('core-js/modules/es.typed-array.slice'), require('core-js/modules/es.typed-array.some'), require('core-js/modules/es.typed-array.sort'), require('core-js/modules/es.typed-array.subarray'), require('core-js/modules/es.typed-array.to-locale-string'), require('core-js/modules/es.typed-array.to-string'), require('core-js/modules/web.dom-collections.for-each'), require('core-js/modules/web.dom-collections.iterator'), require('core-js/modules/web.url'), require('core-js/modules/es.array.includes'), require('core-js/modules/es.array.index-of'), require('core-js/modules/es.array.map'), require('core-js/modules/es.regexp.to-string'), require('core-js/modules/es.string.match'), require('core-js/modules/es.reflect.construct'), require('core-js/modules/es.array.filter'), require('core-js/modules/es.array.splice'), require('core-js/modules/es.function.name'), require('core-js/modules/es.array.reduce'), require('core-js/modules/es.array.some'), require('core-js/modules/es.promise.finally'), require('core-js/modules/es.weak-map'), require('core-js/modules/es.weak-set'), require('core-js/modules/es.object.keys'), require('@babel/parser'), require('@babel/generator'), require('@babel/traverse'), require('core-js/modules/es.symbol'), require('core-js/modules/es.array.fill'), require('core-js/modules/es.array.find-index'), require('core-js/modules/es.number.constructor'), require('core-js/modules/es.number.is-integer'), require('core-js/modules/es.object.get-own-property-descriptor'), require('core-js/modules/es.object.get-own-property-descriptors'), require('core-js/modules/es.string.includes')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'core-js/modules/es.array.concat', 'core-js/modules/es.array.slice', 'core-js/modules/es.object.to-string', 'core-js/modules/es.promise', 'core-js/modules/es.array.for-each', 'core-js/modules/es.array.iterator', 'core-js/modules/es.array.join', 'core-js/modules/es.object.assign', 'core-js/modules/es.regexp.exec', 'core-js/modules/es.string.iterator', 'core-js/modules/es.string.replace', 'core-js/modules/es.string.split', 'core-js/modules/es.string.starts-with', 'core-js/modules/es.typed-array.uint8-array', 'core-js/modules/es.typed-array.copy-within', 'core-js/modules/es.typed-array.every', 'core-js/modules/es.typed-array.fill', 'core-js/modules/es.typed-array.filter', 'core-js/modules/es.typed-array.find', 'core-js/modules/es.typed-array.find-index', 'core-js/modules/es.typed-array.for-each', 'core-js/modules/es.typed-array.includes', 'core-js/modules/es.typed-array.index-of', 'core-js/modules/es.typed-array.iterator', 'core-js/modules/es.typed-array.join', 'core-js/modules/es.typed-array.last-index-of', 'core-js/modules/es.typed-array.map', 'core-js/modules/es.typed-array.reduce', 'core-js/modules/es.typed-array.reduce-right', 'core-js/modules/es.typed-array.reverse', 'core-js/modules/es.typed-array.set', 'core-js/modules/es.typed-array.slice', 'core-js/modules/es.typed-array.some', 'core-js/modules/es.typed-array.sort', 'core-js/modules/es.typed-array.subarray', 'core-js/modules/es.typed-array.to-locale-string', 'core-js/modules/es.typed-array.to-string', 'core-js/modules/web.dom-collections.for-each', 'core-js/modules/web.dom-collections.iterator', 'core-js/modules/web.url', 'core-js/modules/es.array.includes', 'core-js/modules/es.array.index-of', 'core-js/modules/es.array.map', 'core-js/modules/es.regexp.to-string', 'core-js/modules/es.string.match', 'core-js/modules/es.reflect.construct', 'core-js/modules/es.array.filter', 'core-js/modules/es.array.splice', 'core-js/modules/es.function.name', 'core-js/modules/es.array.reduce', 'core-js/modules/es.array.some', 'core-js/modules/es.promise.finally', 'core-js/modules/es.weak-map', 'core-js/modules/es.weak-set', 'core-js/modules/es.object.keys', '@babel/parser', '@babel/generator', '@babel/traverse', 'core-js/modules/es.symbol', 'core-js/modules/es.array.fill', 'core-js/modules/es.array.find-index', 'core-js/modules/es.number.constructor', 'core-js/modules/es.number.is-integer', 'core-js/modules/es.object.get-own-property-descriptor', 'core-js/modules/es.object.get-own-property-descriptors', 'core-js/modules/es.string.includes'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.util = {}, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, global.parser, global.generator, global.traverse$1));
+}(this, (function (exports, es_array_concat, es_array_slice, es_object_toString, es_promise, es_array_forEach, es_array_iterator, es_array_join, es_object_assign, es_regexp_exec, es_string_iterator, es_string_replace, es_string_split, es_string_startsWith, es_typedArray_uint8Array, es_typedArray_copyWithin, es_typedArray_every, es_typedArray_fill, es_typedArray_filter, es_typedArray_find, es_typedArray_findIndex, es_typedArray_forEach, es_typedArray_includes, es_typedArray_indexOf, es_typedArray_iterator, es_typedArray_join, es_typedArray_lastIndexOf, es_typedArray_map, es_typedArray_reduce, es_typedArray_reduceRight, es_typedArray_reverse, es_typedArray_set, es_typedArray_slice, es_typedArray_some, es_typedArray_sort, es_typedArray_subarray, es_typedArray_toLocaleString, es_typedArray_toString, web_domCollections_forEach, web_domCollections_iterator, web_url, es_array_includes, es_array_indexOf, es_array_map, es_regexp_toString, es_string_match, es_reflect_construct, es_array_filter, es_array_splice, es_function_name, es_array_reduce, es_array_some, es_promise_finally, es_weakMap, es_weakSet, es_object_keys, parser, generator, traverse$1) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -2453,7 +2453,7 @@
      * @param {Number} upper - 上限（包含）。
      * @param {Array} initCache - 初始缓存数组。
      * @param {Boolean} loop - 如果是，当缓存满时，清空缓存。默认 true。
-     */
+    */
     function RandomSeed(lower, upper, initCache) {
       var loop = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
 
@@ -2870,6 +2870,155 @@
 
     return Slide;
   }();
+
+  function _classPrivateFieldSet(receiver, privateMap, value) {
+    var descriptor = privateMap.get(receiver);
+
+    if (!descriptor) {
+      throw new TypeError("attempted to set private field on non-instance");
+    }
+
+    if (descriptor.set) {
+      descriptor.set.call(receiver, value);
+    } else {
+      if (!descriptor.writable) {
+        throw new TypeError("attempted to set read only private field");
+      }
+
+      descriptor.value = value;
+    }
+
+    return value;
+  }
+
+  var classPrivateFieldSet = _classPrivateFieldSet;
+
+  function _classPrivateFieldGet(receiver, privateMap) {
+    var descriptor = privateMap.get(receiver);
+
+    if (!descriptor) {
+      throw new TypeError("attempted to get private field on non-instance");
+    }
+
+    if (descriptor.get) {
+      return descriptor.get.call(receiver);
+    }
+
+    return descriptor.value;
+  }
+
+  var classPrivateFieldGet = _classPrivateFieldGet;
+
+  function ownKeys$2(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+  function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+  function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
+
+  var _preCancelTokenSource = /*#__PURE__*/new WeakMap();
+
+  var _firstRequest = /*#__PURE__*/new WeakMap();
+
+  var _requestCancelBefore = /*#__PURE__*/new WeakSet();
+
+  var _requestBlockAfter = /*#__PURE__*/new WeakSet();
+
+  /**
+   * @description
+   * axios 并发请求处理竞态，
+   * （注意这个类不能直接使用，是对 axios.request 的封装）
+   * @example
+   * // 使用
+   * let axiosRace = new AxiosRace({ blockAfter: true });
+   * // url: 请求地址
+   * // config: axios 请求配置
+   * axiosRace.request(url, config)
+   */
+  var AxiosRace =
+  /**
+   * @param {Object} options - 配置项。
+   * @param {Boolean} options.cancelBefore - 取消之前的请求，只有最后一个请求有效。
+   * @param {Boolean} options.blockAfter - 后面的请求不执行，并返回第一个请求的结果。
+   */
+  function AxiosRace(options) {
+    classCallCheck(this, AxiosRace);
+
+    _requestBlockAfter.add(this);
+
+    _requestCancelBefore.add(this);
+
+    _preCancelTokenSource.set(this, {
+      writable: true,
+      value: null
+    });
+
+    _firstRequest.set(this, {
+      writable: true,
+      value: null
+    });
+
+    defineProperty(this, "hasFirstRequest", false);
+
+    var blockAfter = options.blockAfter,
+        cancelBefore = options.cancelBefore;
+
+    if (cancelBefore) {
+      this.request = _classPrivateMethodGet(this, _requestCancelBefore, _requestCancelBefore2);
+      return;
+    }
+
+    if (blockAfter) {
+      this.request = _classPrivateMethodGet(this, _requestBlockAfter, _requestBlockAfter2);
+      return;
+    }
+
+    throw new Error('please provide the correct options');
+  } // 取消之前的请求，只有最后一个请求有效
+;
+
+  function _requestCancelBefore2(url, config) {
+    var _this = this;
+
+    var axiosConfig = _objectSpread$2({}, config); // 取消上一次请求
+
+
+    if (classPrivateFieldGet(this, _preCancelTokenSource)) {
+      classPrivateFieldGet(this, _preCancelTokenSource).cancel();
+    } // 创建 cancel token
+
+
+    var source = CancelToken.source();
+    axiosConfig.cancelToken = source.token;
+    axiosConfig.url = url; // 存储 cancel token
+
+    classPrivateFieldSet(this, _preCancelTokenSource, source);
+
+    return axios.request(axiosConfig).finally(function () {
+      classPrivateFieldSet(_this, _preCancelTokenSource, null);
+    });
+  }
+
+  function _requestBlockAfter2(url, config) {
+    var _this2 = this;
+
+    // 返回第一次请求的结果
+    if (classPrivateFieldGet(this, _firstRequest)) {
+      return classPrivateFieldGet(this, _firstRequest);
+    }
+
+    var axiosConfig = _objectSpread$2({}, config);
+
+    axiosConfig.url = url;
+
+    classPrivateFieldSet(this, _firstRequest, axios.request(axiosConfig).finally(function () {
+      classPrivateFieldSet(_this2, _firstRequest, null);
+
+      _this2.hasFirstRequest = false;
+    }));
+
+    this.hasFirstRequest = true;
+    return classPrivateFieldGet(this, _firstRequest);
+  }
 
   /**
    * ast 编译相关
@@ -6633,6 +6782,7 @@
     return Broadcast;
   }(Event);
 
+  exports.AxiosRace = AxiosRace;
   exports.Broadcast = Broadcast;
   exports.DomResize = DomResize;
   exports.Event = Event;

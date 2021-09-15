@@ -53,6 +53,9 @@ require('core-js/modules/es.array.splice');
 require('core-js/modules/es.function.name');
 require('core-js/modules/es.array.reduce');
 require('core-js/modules/es.array.some');
+require('core-js/modules/es.promise.finally');
+require('core-js/modules/es.weak-map');
+require('core-js/modules/es.weak-set');
 require('core-js/modules/es.object.keys');
 var parser = require('@babel/parser');
 var generator = require('@babel/generator');
@@ -2515,7 +2518,7 @@ var RandomSeed = /*#__PURE__*/function () {
    * @param {Number} upper - 上限（包含）。
    * @param {Array} initCache - 初始缓存数组。
    * @param {Boolean} loop - 如果是，当缓存满时，清空缓存。默认 true。
-   */
+  */
   function RandomSeed(lower, upper, initCache) {
     var loop = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
 
@@ -2932,6 +2935,155 @@ var Slide = /*#__PURE__*/function () {
 
   return Slide;
 }();
+
+function _classPrivateFieldSet(receiver, privateMap, value) {
+  var descriptor = privateMap.get(receiver);
+
+  if (!descriptor) {
+    throw new TypeError("attempted to set private field on non-instance");
+  }
+
+  if (descriptor.set) {
+    descriptor.set.call(receiver, value);
+  } else {
+    if (!descriptor.writable) {
+      throw new TypeError("attempted to set read only private field");
+    }
+
+    descriptor.value = value;
+  }
+
+  return value;
+}
+
+var classPrivateFieldSet = _classPrivateFieldSet;
+
+function _classPrivateFieldGet(receiver, privateMap) {
+  var descriptor = privateMap.get(receiver);
+
+  if (!descriptor) {
+    throw new TypeError("attempted to get private field on non-instance");
+  }
+
+  if (descriptor.get) {
+    return descriptor.get.call(receiver);
+  }
+
+  return descriptor.value;
+}
+
+var classPrivateFieldGet = _classPrivateFieldGet;
+
+function ownKeys$2(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
+
+var _preCancelTokenSource = /*#__PURE__*/new WeakMap();
+
+var _firstRequest = /*#__PURE__*/new WeakMap();
+
+var _requestCancelBefore = /*#__PURE__*/new WeakSet();
+
+var _requestBlockAfter = /*#__PURE__*/new WeakSet();
+
+/**
+ * @description
+ * axios 并发请求处理竞态，
+ * （注意这个类不能直接使用，是对 axios.request 的封装）
+ * @example
+ * // 使用
+ * let axiosRace = new AxiosRace({ blockAfter: true });
+ * // url: 请求地址
+ * // config: axios 请求配置
+ * axiosRace.request(url, config)
+ */
+var AxiosRace =
+/**
+ * @param {Object} options - 配置项。
+ * @param {Boolean} options.cancelBefore - 取消之前的请求，只有最后一个请求有效。
+ * @param {Boolean} options.blockAfter - 后面的请求不执行，并返回第一个请求的结果。
+ */
+function AxiosRace(options) {
+  classCallCheck(this, AxiosRace);
+
+  _requestBlockAfter.add(this);
+
+  _requestCancelBefore.add(this);
+
+  _preCancelTokenSource.set(this, {
+    writable: true,
+    value: null
+  });
+
+  _firstRequest.set(this, {
+    writable: true,
+    value: null
+  });
+
+  defineProperty(this, "hasFirstRequest", false);
+
+  var blockAfter = options.blockAfter,
+      cancelBefore = options.cancelBefore;
+
+  if (cancelBefore) {
+    this.request = _classPrivateMethodGet(this, _requestCancelBefore, _requestCancelBefore2);
+    return;
+  }
+
+  if (blockAfter) {
+    this.request = _classPrivateMethodGet(this, _requestBlockAfter, _requestBlockAfter2);
+    return;
+  }
+
+  throw new Error('please provide the correct options');
+} // 取消之前的请求，只有最后一个请求有效
+;
+
+function _requestCancelBefore2(url, config) {
+  var _this = this;
+
+  var axiosConfig = _objectSpread$2({}, config); // 取消上一次请求
+
+
+  if (classPrivateFieldGet(this, _preCancelTokenSource)) {
+    classPrivateFieldGet(this, _preCancelTokenSource).cancel();
+  } // 创建 cancel token
+
+
+  var source = CancelToken.source();
+  axiosConfig.cancelToken = source.token;
+  axiosConfig.url = url; // 存储 cancel token
+
+  classPrivateFieldSet(this, _preCancelTokenSource, source);
+
+  return axios.request(axiosConfig).finally(function () {
+    classPrivateFieldSet(_this, _preCancelTokenSource, null);
+  });
+}
+
+function _requestBlockAfter2(url, config) {
+  var _this2 = this;
+
+  // 返回第一次请求的结果
+  if (classPrivateFieldGet(this, _firstRequest)) {
+    return classPrivateFieldGet(this, _firstRequest);
+  }
+
+  var axiosConfig = _objectSpread$2({}, config);
+
+  axiosConfig.url = url;
+
+  classPrivateFieldSet(this, _firstRequest, axios.request(axiosConfig).finally(function () {
+    classPrivateFieldSet(_this2, _firstRequest, null);
+
+    _this2.hasFirstRequest = false;
+  }));
+
+  this.hasFirstRequest = true;
+  return classPrivateFieldGet(this, _firstRequest);
+}
 
 /**
  * ast 编译相关
@@ -6695,6 +6847,7 @@ var Broadcast = /*#__PURE__*/function (_Event) {
   return Broadcast;
 }(Event);
 
+exports.AxiosRace = AxiosRace;
 exports.Broadcast = Broadcast;
 exports.DomResize = DomResize;
 exports.Event = Event;
